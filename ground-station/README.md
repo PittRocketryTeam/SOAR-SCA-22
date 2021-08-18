@@ -1,3 +1,3 @@
 # ground-station
 
-Receives data from flight-computer, sends data to mission-control
+Receives data from flight-computer, sends data to mission-control via USB
