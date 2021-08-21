@@ -10,3 +10,4 @@ class Consumer(mp.Process):
     def __init__(self):
         mp.Process.__init__(self)
         self.queue = mp.Queue()
+
