@@ -5,49 +5,41 @@ import communication as com
 import threading
 import tkinter as tk
 
+from roles import Service
+
 window = None
 running = True
 g_conn = None
 
-def on_close():
-    global window
-    global running
+class Commander(Service):
+    def __init__(self, name="", interval=1):
+        Service.__init__(self, name, interval)
+        self.window = None
+        self.gui_thread = None
 
-    print("stopping commander")
+    def gui_thread_on_close(self):
+        self.running = False
+        self.window.destroy()
+        
+        msg = self.new_message(com.CMD_CTL, ("STOP",))
+        msg.set_echo(True)
+        self.conn.send(msg)
 
-    running = False
-    window.destroy()
+    def gui_thread_func(self):
+        self.window = tk.Tk()
+        self.window.protocol("WM_DELETE_WINDOW", self.gui_thread_on_close)
+        greeting = tk.Label(text="Hello world! This is a long string.")
+        greeting.pack()
+        self.window.mainloop()
 
-    msg = com.Message()
-    msg.command = com.CMD_CTL
-    msg.args = ("STOP",)
+    def setup_callback(self):
+        self.gui_thread = threading.Thread(target=self.gui_thread_func, args=())
+        self.gui_thread.start()
 
-    g_conn.send(msg)
+    def message_callback(self, msg):
+        self.handle_stop_signal(msg)
 
-def gui_thread(conn):
-    global window
-
-    window = tk.Tk()
-    window.protocol("WM_DELETE_WINDOW", on_close)
-    greeting = tk.Label(text="Hello world! This is a long string.")
-    greeting.pack()
-    window.mainloop()
-
-def mainloop(conn):
-    global running
-    global g_conn
-    g_conn = conn
-
-    print("start commander")
-    gui_thr = threading.Thread(target=gui_thread, args=(conn,))
-    gui_thr.start()
-
-    while running:
-        if conn.poll(1):
-            try:
-                data = conn.recv()
-            except EOFError:
-                print("stop commander")
-                running = False
-
-    gui_thr.join()
+    def shutdown_callback(self):
+        super().shutdown_callback()
+        self.gui_thread.join()
+        

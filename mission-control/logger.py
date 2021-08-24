@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-from roles import Consumer
+from roles import Service
 
-class Logger(Consumer):
-    def __init__(self):
-        Consumer.__init__(self)
+class Logger(Service):
+    def __init__(self, name="", interval=1):
+        Service.__init__(name, interval)

@@ -5,45 +5,30 @@ import matplotlib.animation as anim
 from matplotlib import style
 
 import communication as com
+from roles import Service
 
-running = True
+class Grapher(Service):
+    def __init__(self, name="", interval=1):
+        Service.__init__(self, name, interval)
+        self.fig = None
+        self.ax1 = None
+        self.xs = []
+        self.ys = []
 
-def mainloop(conn):
-    global running
+    def setup_callback(self):
+        style.use("fivethirtyeight")
+        self.fig = plt.figure()
+        self.ax1 = self.fig.add_subplot(1,1,1)
 
-    print("start grapher")
+    def message_callback(self, msg):
+        self.handle_stop_signal(msg)
 
-    style.use("fivethirtyeight")
+        if msg.command == com.CMD_DAT:
+            if not len(msg.args) == 3:
+                return
+            
+            self.xs.append(float(msg.args(1)))
+            self.ys.append(float(msg.args(2)))
 
-    fig = plt.figure()
-    ax1 = fig.add_subplot(1,1,1)
-    xs = []
-    ys = []
-
-    while running:
-        if conn.poll(1):
-            try:
-                data = conn.recv()
-                if data.command == com.CMD_DAT:
-                    if not len(data.args) == 3:
-                        return
-                    
-                    xs.append(float(data.args(1)))
-                    ys.append(float(data.args(2)))
-
-                    ax1.clear()
-                    ax1.plot(xs, ys)
-
-                elif data.command == com.CMD_CTL:
-                    if not len(data.args) == 1:
-                        return
-
-                    if data.args[0] == "STOP":
-                        print("grapher received stop signal")
-                        running = False
-
-            except EOFError:
-                running = False
-    
-    print("stop grapher")
-
+            self.ax1.clear()
+            self.ax1.plot(xs, ys)
