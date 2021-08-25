@@ -5,6 +5,7 @@ import communication as com
 import threading
 import tkinter as tk
 
+import actions
 from roles import Service
 
 window = None
@@ -29,17 +30,46 @@ class Commander(Service):
         self.window = tk.Tk()
         self.root = tk.Frame(self.window)
         self.window.protocol("WM_DELETE_WINDOW", self.gui_thread_on_close)
-        
-        # status label
-        self.status = tk.Label(self.root, text="No status available")
-        self.status.grid(row=0, column=0)
 
         # button panel
-        
+
+        # mode switch
+        self.mode_idle_btn = tk.Button(self.root, text="Mode Idle", anchor=tk.W)
+        self.mode_idle_btn.grid(row=0, column=0, sticky=tk.E+tk.W, padx=2, pady=2,)
+
+        self.mode_startup_btn = tk.Button(self.root, text="Mode Startup", anchor=tk.W)
+        self.mode_startup_btn.grid(row=1, column=0, sticky=tk.E+tk.W, padx=2, pady=2,)
+
+        self.mode_go_btn = tk.Button(self.root, text="Mode Go", anchor=tk.W)
+        self.mode_go_btn.grid(row=2, column=0, sticky=tk.E+tk.W, padx=2, pady=2,)
+
+        # logging ctrl
+        self.log_start_btn = tk.Button(self.root, text="Log Start", anchor=tk.W)
+        self.log_start_btn.grid(row=0, column=1, sticky=tk.E+tk.W, padx=2, pady=2,)
+
+        self.log_stop_btn = tk.Button(self.root, text="Log Stop", anchor=tk.W)
+        self.log_stop_btn.grid(row=1, column=1, sticky=tk.E+tk.W, padx=2, pady=2,)
+
+        self.log_reset_btn = tk.Button(self.root, text="Log Reset", anchor=tk.W)
+        self.log_reset_btn.grid(row=2, column=1, sticky=tk.E+tk.W, padx=2, pady=2,)
+
+        # payload ctrl
+        self.payload_arm_btn = tk.Button(self.root, text="Payload Arm", anchor=tk.W)
+        self.payload_arm_btn.grid(row=0, column=2, sticky=tk.E+tk.W, padx=2, pady=2,)
+
+        self.payload_disarm_btn = tk.Button(self.root, text="Payload Disarm", anchor=tk.W)
+        self.payload_disarm_btn.grid(row=1, column=2, sticky=tk.E+tk.W, padx=2, pady=2,)
+
+        self.payload_safe_btn = tk.Button(self.root, text="Payload Safe", anchor=tk.W)
+        self.payload_safe_btn.grid(row=2, column=2, sticky=tk.E+tk.W, padx=2, pady=2,)
 
         # command line
         self.cmd_entry = tk.Entry(self.root, width=20)
-        self.cmd_entry.grid(row=0, column=1, columnspan=2, sticky=tk.E+tk.W)
+        self.cmd_entry.grid(row=3, column=1, columnspan=2, padx=2, pady=2, sticky=tk.E+tk.W)
+
+        # status label
+        self.status = tk.Label(self.root, text="No status available")
+        self.status.grid(row=3, column=0, padx=2, pady=2,)
 
         self.root.pack(fill=tk.BOTH, expand=True)
 
