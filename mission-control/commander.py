@@ -27,9 +27,22 @@ class Commander(Service):
 
     def gui_thread_func(self):
         self.window = tk.Tk()
+        self.root = tk.Frame(self.window)
         self.window.protocol("WM_DELETE_WINDOW", self.gui_thread_on_close)
-        greeting = tk.Label(text="Hello world! This is a long string.")
-        greeting.pack()
+        
+        # status label
+        self.status = tk.Label(self.root, text="No status available")
+        self.status.grid(row=0, column=0)
+
+        # button panel
+        
+
+        # command line
+        self.cmd_entry = tk.Entry(self.root, width=20)
+        self.cmd_entry.grid(row=0, column=1, columnspan=2, sticky=tk.E+tk.W)
+
+        self.root.pack(fill=tk.BOTH, expand=True)
+
         self.window.mainloop()
 
     def setup_callback(self):
