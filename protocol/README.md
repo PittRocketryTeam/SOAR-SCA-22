@@ -13,3 +13,4 @@ Run `make \<language\>` to generate source files for a specific language.
 Language options are:
 - python
 - cpp
+- embedded
