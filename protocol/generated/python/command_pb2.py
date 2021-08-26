@@ -19,12 +19,44 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto2',
   serialized_options=None,
-  serialized_pb=_b('\n\rcommand.proto')
+  serialized_pb=_b('\n\rcommand.proto\"\t\n\x07\x43ommand')
 )
 
 
 
+
+_COMMAND = _descriptor.Descriptor(
+  name='Command',
+  full_name='Command',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=17,
+  serialized_end=26,
+)
+
+DESCRIPTOR.message_types_by_name['Command'] = _COMMAND
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+Command = _reflection.GeneratedProtocolMessageType('Command', (_message.Message,), dict(
+  DESCRIPTOR = _COMMAND,
+  __module__ = 'command_pb2'
+  # @@protoc_insertion_point(class_scope:Command)
+  ))
+_sym_db.RegisterMessage(Command)
 
 
 # @@protoc_insertion_point(module_scope)

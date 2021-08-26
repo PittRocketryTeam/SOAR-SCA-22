@@ -1,1 +1,5 @@
 syntax = "proto2";
+
+message Command {
+    
+}

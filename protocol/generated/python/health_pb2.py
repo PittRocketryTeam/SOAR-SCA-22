@@ -12,6 +12,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+import component_pb2 as component__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -19,8 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto2',
   serialized_options=None,
-  serialized_pb=_b('\n\x0chealth.proto\"\x16\n\x06Health\x12\x0c\n\x04name\x18\x01 \x01(\t')
-)
+  serialized_pb=_b('\n\x0chealth.proto\x1a\x0f\x63omponent.proto\"\xbf\x01\n\x06Health\x12\x0e\n\x04name\x18\x01 \x01(\t:\x00\x12\x0f\n\x04vbat\x18\x02 \x01(\r:\x01\x30\x12\x0f\n\x04vreg\x18\x03 \x01(\r:\x01\x30\x12\x0f\n\x04isys\x18\x04 \x01(\r:\x01\x30\x12\x0f\n\x04tbat\x18\x05 \x01(\r:\x01\x30\x12\x0f\n\x04treg\x18\x06 \x01(\r:\x01\x30\x12\x0f\n\x04tamb\x18\x07 \x01(\r:\x01\x30\x12\x0f\n\x04trad\x18\x08 \x01(\r:\x01\x30\x12\x1d\n\x08\x63ompstat\x18\t \x03(\x0e\x32\x0b.CompStatus\x12\x0f\n\x04sats\x18\n \x01(\r:\x01\x30')
+  ,
+  dependencies=[component__pb2.DESCRIPTOR,])
 
 
 
@@ -35,7 +37,70 @@ _HEALTH = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='name', full_name='Health.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      has_default_value=True, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='vbat', full_name='Health.vbat', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='vreg', full_name='Health.vreg', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='isys', full_name='Health.isys', index=3,
+      number=4, type=13, cpp_type=3, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='tbat', full_name='Health.tbat', index=4,
+      number=5, type=13, cpp_type=3, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='treg', full_name='Health.treg', index=5,
+      number=6, type=13, cpp_type=3, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='tamb', full_name='Health.tamb', index=6,
+      number=7, type=13, cpp_type=3, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='trad', full_name='Health.trad', index=7,
+      number=8, type=13, cpp_type=3, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='compstat', full_name='Health.compstat', index=8,
+      number=9, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='sats', full_name='Health.sats', index=9,
+      number=10, type=13, cpp_type=3, label=1,
+      has_default_value=True, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -51,10 +116,11 @@ _HEALTH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=16,
-  serialized_end=38,
+  serialized_start=34,
+  serialized_end=225,
 )
 
+_HEALTH.fields_by_name['compstat'].enum_type = component__pb2._COMPSTATUS
 DESCRIPTOR.message_types_by_name['Health'] = _HEALTH
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 

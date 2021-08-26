@@ -30,6 +30,7 @@
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
+#include "component.pb.h"
 // @@protoc_insertion_point(includes)
 #define PROTOBUF_INTERNAL_EXPORT_protobuf_health_2eproto 
 
@@ -150,7 +151,17 @@ class Health : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
 
   // accessors -------------------------------------------------------
 
-  // optional string name = 1;
+  // repeated .CompStatus compstat = 9;
+  int compstat_size() const;
+  void clear_compstat();
+  static const int kCompstatFieldNumber = 9;
+  ::CompStatus compstat(int index) const;
+  void set_compstat(int index, ::CompStatus value);
+  void add_compstat(::CompStatus value);
+  const ::google::protobuf::RepeatedField<int>& compstat() const;
+  ::google::protobuf::RepeatedField<int>* mutable_compstat();
+
+  // optional string name = 1 [default = ""];
   bool has_name() const;
   void clear_name();
   static const int kNameFieldNumber = 1;
@@ -165,15 +176,96 @@ class Health : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
+  // optional uint32 vbat = 2 [default = 0];
+  bool has_vbat() const;
+  void clear_vbat();
+  static const int kVbatFieldNumber = 2;
+  ::google::protobuf::uint32 vbat() const;
+  void set_vbat(::google::protobuf::uint32 value);
+
+  // optional uint32 vreg = 3 [default = 0];
+  bool has_vreg() const;
+  void clear_vreg();
+  static const int kVregFieldNumber = 3;
+  ::google::protobuf::uint32 vreg() const;
+  void set_vreg(::google::protobuf::uint32 value);
+
+  // optional uint32 isys = 4 [default = 0];
+  bool has_isys() const;
+  void clear_isys();
+  static const int kIsysFieldNumber = 4;
+  ::google::protobuf::uint32 isys() const;
+  void set_isys(::google::protobuf::uint32 value);
+
+  // optional uint32 tbat = 5 [default = 0];
+  bool has_tbat() const;
+  void clear_tbat();
+  static const int kTbatFieldNumber = 5;
+  ::google::protobuf::uint32 tbat() const;
+  void set_tbat(::google::protobuf::uint32 value);
+
+  // optional uint32 treg = 6 [default = 0];
+  bool has_treg() const;
+  void clear_treg();
+  static const int kTregFieldNumber = 6;
+  ::google::protobuf::uint32 treg() const;
+  void set_treg(::google::protobuf::uint32 value);
+
+  // optional uint32 tamb = 7 [default = 0];
+  bool has_tamb() const;
+  void clear_tamb();
+  static const int kTambFieldNumber = 7;
+  ::google::protobuf::uint32 tamb() const;
+  void set_tamb(::google::protobuf::uint32 value);
+
+  // optional uint32 trad = 8 [default = 0];
+  bool has_trad() const;
+  void clear_trad();
+  static const int kTradFieldNumber = 8;
+  ::google::protobuf::uint32 trad() const;
+  void set_trad(::google::protobuf::uint32 value);
+
+  // optional uint32 sats = 10 [default = 0];
+  bool has_sats() const;
+  void clear_sats();
+  static const int kSatsFieldNumber = 10;
+  ::google::protobuf::uint32 sats() const;
+  void set_sats(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:Health)
  private:
   void set_has_name();
   void clear_has_name();
+  void set_has_vbat();
+  void clear_has_vbat();
+  void set_has_vreg();
+  void clear_has_vreg();
+  void set_has_isys();
+  void clear_has_isys();
+  void set_has_tbat();
+  void clear_has_tbat();
+  void set_has_treg();
+  void clear_has_treg();
+  void set_has_tamb();
+  void clear_has_tamb();
+  void set_has_trad();
+  void clear_has_trad();
+  void set_has_sats();
+  void clear_has_sats();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::RepeatedField<int> compstat_;
   ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::uint32 vbat_;
+  ::google::protobuf::uint32 vreg_;
+  ::google::protobuf::uint32 isys_;
+  ::google::protobuf::uint32 tbat_;
+  ::google::protobuf::uint32 treg_;
+  ::google::protobuf::uint32 tamb_;
+  ::google::protobuf::uint32 trad_;
+  ::google::protobuf::uint32 sats_;
   friend struct ::protobuf_health_2eproto::TableStruct;
 };
 // ===================================================================
@@ -187,7 +279,7 @@ class Health : public ::google::protobuf::Message /* @@protoc_insertion_point(cl
 #endif  // __GNUC__
 // Health
 
-// optional string name = 1;
+// optional string name = 1 [default = ""];
 inline bool Health::has_name() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -251,6 +343,230 @@ inline void Health::set_allocated_name(::std::string* name) {
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:Health.name)
+}
+
+// optional uint32 vbat = 2 [default = 0];
+inline bool Health::has_vbat() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Health::set_has_vbat() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Health::clear_has_vbat() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Health::clear_vbat() {
+  vbat_ = 0u;
+  clear_has_vbat();
+}
+inline ::google::protobuf::uint32 Health::vbat() const {
+  // @@protoc_insertion_point(field_get:Health.vbat)
+  return vbat_;
+}
+inline void Health::set_vbat(::google::protobuf::uint32 value) {
+  set_has_vbat();
+  vbat_ = value;
+  // @@protoc_insertion_point(field_set:Health.vbat)
+}
+
+// optional uint32 vreg = 3 [default = 0];
+inline bool Health::has_vreg() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Health::set_has_vreg() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Health::clear_has_vreg() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Health::clear_vreg() {
+  vreg_ = 0u;
+  clear_has_vreg();
+}
+inline ::google::protobuf::uint32 Health::vreg() const {
+  // @@protoc_insertion_point(field_get:Health.vreg)
+  return vreg_;
+}
+inline void Health::set_vreg(::google::protobuf::uint32 value) {
+  set_has_vreg();
+  vreg_ = value;
+  // @@protoc_insertion_point(field_set:Health.vreg)
+}
+
+// optional uint32 isys = 4 [default = 0];
+inline bool Health::has_isys() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Health::set_has_isys() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Health::clear_has_isys() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Health::clear_isys() {
+  isys_ = 0u;
+  clear_has_isys();
+}
+inline ::google::protobuf::uint32 Health::isys() const {
+  // @@protoc_insertion_point(field_get:Health.isys)
+  return isys_;
+}
+inline void Health::set_isys(::google::protobuf::uint32 value) {
+  set_has_isys();
+  isys_ = value;
+  // @@protoc_insertion_point(field_set:Health.isys)
+}
+
+// optional uint32 tbat = 5 [default = 0];
+inline bool Health::has_tbat() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Health::set_has_tbat() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Health::clear_has_tbat() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Health::clear_tbat() {
+  tbat_ = 0u;
+  clear_has_tbat();
+}
+inline ::google::protobuf::uint32 Health::tbat() const {
+  // @@protoc_insertion_point(field_get:Health.tbat)
+  return tbat_;
+}
+inline void Health::set_tbat(::google::protobuf::uint32 value) {
+  set_has_tbat();
+  tbat_ = value;
+  // @@protoc_insertion_point(field_set:Health.tbat)
+}
+
+// optional uint32 treg = 6 [default = 0];
+inline bool Health::has_treg() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void Health::set_has_treg() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void Health::clear_has_treg() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void Health::clear_treg() {
+  treg_ = 0u;
+  clear_has_treg();
+}
+inline ::google::protobuf::uint32 Health::treg() const {
+  // @@protoc_insertion_point(field_get:Health.treg)
+  return treg_;
+}
+inline void Health::set_treg(::google::protobuf::uint32 value) {
+  set_has_treg();
+  treg_ = value;
+  // @@protoc_insertion_point(field_set:Health.treg)
+}
+
+// optional uint32 tamb = 7 [default = 0];
+inline bool Health::has_tamb() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void Health::set_has_tamb() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void Health::clear_has_tamb() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void Health::clear_tamb() {
+  tamb_ = 0u;
+  clear_has_tamb();
+}
+inline ::google::protobuf::uint32 Health::tamb() const {
+  // @@protoc_insertion_point(field_get:Health.tamb)
+  return tamb_;
+}
+inline void Health::set_tamb(::google::protobuf::uint32 value) {
+  set_has_tamb();
+  tamb_ = value;
+  // @@protoc_insertion_point(field_set:Health.tamb)
+}
+
+// optional uint32 trad = 8 [default = 0];
+inline bool Health::has_trad() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void Health::set_has_trad() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void Health::clear_has_trad() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void Health::clear_trad() {
+  trad_ = 0u;
+  clear_has_trad();
+}
+inline ::google::protobuf::uint32 Health::trad() const {
+  // @@protoc_insertion_point(field_get:Health.trad)
+  return trad_;
+}
+inline void Health::set_trad(::google::protobuf::uint32 value) {
+  set_has_trad();
+  trad_ = value;
+  // @@protoc_insertion_point(field_set:Health.trad)
+}
+
+// repeated .CompStatus compstat = 9;
+inline int Health::compstat_size() const {
+  return compstat_.size();
+}
+inline void Health::clear_compstat() {
+  compstat_.Clear();
+}
+inline ::CompStatus Health::compstat(int index) const {
+  // @@protoc_insertion_point(field_get:Health.compstat)
+  return static_cast< ::CompStatus >(compstat_.Get(index));
+}
+inline void Health::set_compstat(int index, ::CompStatus value) {
+  assert(::CompStatus_IsValid(value));
+  compstat_.Set(index, value);
+  // @@protoc_insertion_point(field_set:Health.compstat)
+}
+inline void Health::add_compstat(::CompStatus value) {
+  assert(::CompStatus_IsValid(value));
+  compstat_.Add(value);
+  // @@protoc_insertion_point(field_add:Health.compstat)
+}
+inline const ::google::protobuf::RepeatedField<int>&
+Health::compstat() const {
+  // @@protoc_insertion_point(field_list:Health.compstat)
+  return compstat_;
+}
+inline ::google::protobuf::RepeatedField<int>*
+Health::mutable_compstat() {
+  // @@protoc_insertion_point(field_mutable_list:Health.compstat)
+  return &compstat_;
+}
+
+// optional uint32 sats = 10 [default = 0];
+inline bool Health::has_sats() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void Health::set_has_sats() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void Health::clear_has_sats() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void Health::clear_sats() {
+  sats_ = 0u;
+  clear_has_sats();
+}
+inline ::google::protobuf::uint32 Health::sats() const {
+  // @@protoc_insertion_point(field_get:Health.sats)
+  return sats_;
+}
+inline void Health::set_sats(::google::protobuf::uint32 value) {
+  set_has_sats();
+  sats_ = value;
+  // @@protoc_insertion_point(field_set:Health.sats)
 }
 
 #ifdef __GNUC__

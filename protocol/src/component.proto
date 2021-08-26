@@ -1,0 +1,16 @@
+syntax = "proto2";
+
+enum CompId {
+    BAR = 0;
+    IMU = 1;
+    GPS = 2;
+    SDC = 3;
+    SER = 4;
+}
+
+enum CompStatus {
+    OFFLINE = 0;
+    DISABLED = 1;
+    ONLINE = 2;
+    ERROR = 3;
+}

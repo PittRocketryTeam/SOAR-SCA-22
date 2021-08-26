@@ -1,1 +1,12 @@
 syntax = "proto2";
+
+message Orientation {
+    repeated sint32 quat = 1;
+    repeated sint32 euler = 2;
+    repeated sint32 omega = 3;
+    repeated sint32 accel = 4;
+    repeated sint32 magneto = 5;
+    optional sint32 lon = 6 [default = 0];
+    optional sint32 lat = 7 [default = 0];
+    optional sint32 alt = 8 [default = 0];
+}

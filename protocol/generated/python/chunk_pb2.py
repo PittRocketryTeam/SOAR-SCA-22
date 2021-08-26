@@ -19,12 +19,65 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto2',
   serialized_options=None,
-  serialized_pb=_b('\n\x0b\x63hunk.proto')
+  serialized_pb=_b('\n\x0b\x63hunk.proto\"=\n\x05\x43hunk\x12\x13\n\x04\x64one\x18\x01 \x01(\x08:\x05\x66\x61lse\x12\x0f\n\x04size\x18\x02 \x01(\r:\x01\x30\x12\x0e\n\x04\x64\x61ta\x18\x03 \x01(\x0c:\x00')
 )
 
 
 
+
+_CHUNK = _descriptor.Descriptor(
+  name='Chunk',
+  full_name='Chunk',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='done', full_name='Chunk.done', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=True, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='size', full_name='Chunk.size', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='Chunk.data', index=2,
+      number=3, type=12, cpp_type=9, label=1,
+      has_default_value=True, default_value=_b(""),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=15,
+  serialized_end=76,
+)
+
+DESCRIPTOR.message_types_by_name['Chunk'] = _CHUNK
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+Chunk = _reflection.GeneratedProtocolMessageType('Chunk', (_message.Message,), dict(
+  DESCRIPTOR = _CHUNK,
+  __module__ = 'chunk_pb2'
+  # @@protoc_insertion_point(class_scope:Chunk)
+  ))
+_sym_db.RegisterMessage(Chunk)
 
 
 # @@protoc_insertion_point(module_scope)

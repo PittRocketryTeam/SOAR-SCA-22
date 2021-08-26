@@ -26,8 +26,10 @@
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/inlined_string_field.h>
 #include <google/protobuf/metadata.h>
+#include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #define PROTOBUF_INTERNAL_EXPORT_protobuf_orientation_2eproto 
 
@@ -43,10 +45,214 @@ struct TableStruct {
 };
 void AddDescriptors();
 }  // namespace protobuf_orientation_2eproto
+class Orientation;
+class OrientationDefaultTypeInternal;
+extern OrientationDefaultTypeInternal _Orientation_default_instance_;
+namespace google {
+namespace protobuf {
+template<> ::Orientation* Arena::CreateMaybeMessage<::Orientation>(Arena*);
+}  // namespace protobuf
+}  // namespace google
 
 // ===================================================================
 
+class Orientation : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Orientation) */ {
+ public:
+  Orientation();
+  virtual ~Orientation();
 
+  Orientation(const Orientation& from);
+
+  inline Orientation& operator=(const Orientation& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  Orientation(Orientation&& from) noexcept
+    : Orientation() {
+    *this = ::std::move(from);
+  }
+
+  inline Orientation& operator=(Orientation&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Orientation& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Orientation* internal_default_instance() {
+    return reinterpret_cast<const Orientation*>(
+               &_Orientation_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  void Swap(Orientation* other);
+  friend void swap(Orientation& a, Orientation& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Orientation* New() const final {
+    return CreateMaybeMessage<Orientation>(NULL);
+  }
+
+  Orientation* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<Orientation>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const Orientation& from);
+  void MergeFrom(const Orientation& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Orientation* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated sint32 quat = 1;
+  int quat_size() const;
+  void clear_quat();
+  static const int kQuatFieldNumber = 1;
+  ::google::protobuf::int32 quat(int index) const;
+  void set_quat(int index, ::google::protobuf::int32 value);
+  void add_quat(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      quat() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_quat();
+
+  // repeated sint32 euler = 2;
+  int euler_size() const;
+  void clear_euler();
+  static const int kEulerFieldNumber = 2;
+  ::google::protobuf::int32 euler(int index) const;
+  void set_euler(int index, ::google::protobuf::int32 value);
+  void add_euler(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      euler() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_euler();
+
+  // repeated sint32 omega = 3;
+  int omega_size() const;
+  void clear_omega();
+  static const int kOmegaFieldNumber = 3;
+  ::google::protobuf::int32 omega(int index) const;
+  void set_omega(int index, ::google::protobuf::int32 value);
+  void add_omega(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      omega() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_omega();
+
+  // repeated sint32 accel = 4;
+  int accel_size() const;
+  void clear_accel();
+  static const int kAccelFieldNumber = 4;
+  ::google::protobuf::int32 accel(int index) const;
+  void set_accel(int index, ::google::protobuf::int32 value);
+  void add_accel(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      accel() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_accel();
+
+  // repeated sint32 magneto = 5;
+  int magneto_size() const;
+  void clear_magneto();
+  static const int kMagnetoFieldNumber = 5;
+  ::google::protobuf::int32 magneto(int index) const;
+  void set_magneto(int index, ::google::protobuf::int32 value);
+  void add_magneto(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      magneto() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_magneto();
+
+  // optional sint32 lon = 6 [default = 0];
+  bool has_lon() const;
+  void clear_lon();
+  static const int kLonFieldNumber = 6;
+  ::google::protobuf::int32 lon() const;
+  void set_lon(::google::protobuf::int32 value);
+
+  // optional sint32 lat = 7 [default = 0];
+  bool has_lat() const;
+  void clear_lat();
+  static const int kLatFieldNumber = 7;
+  ::google::protobuf::int32 lat() const;
+  void set_lat(::google::protobuf::int32 value);
+
+  // optional sint32 alt = 8 [default = 0];
+  bool has_alt() const;
+  void clear_alt();
+  static const int kAltFieldNumber = 8;
+  ::google::protobuf::int32 alt() const;
+  void set_alt(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:Orientation)
+ private:
+  void set_has_lon();
+  void clear_has_lon();
+  void set_has_lat();
+  void clear_has_lat();
+  void set_has_alt();
+  void clear_has_alt();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > quat_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > euler_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > omega_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > accel_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > magneto_;
+  ::google::protobuf::int32 lon_;
+  ::google::protobuf::int32 lat_;
+  ::google::protobuf::int32 alt_;
+  friend struct ::protobuf_orientation_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -56,6 +262,230 @@ void AddDescriptors();
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// Orientation
+
+// repeated sint32 quat = 1;
+inline int Orientation::quat_size() const {
+  return quat_.size();
+}
+inline void Orientation::clear_quat() {
+  quat_.Clear();
+}
+inline ::google::protobuf::int32 Orientation::quat(int index) const {
+  // @@protoc_insertion_point(field_get:Orientation.quat)
+  return quat_.Get(index);
+}
+inline void Orientation::set_quat(int index, ::google::protobuf::int32 value) {
+  quat_.Set(index, value);
+  // @@protoc_insertion_point(field_set:Orientation.quat)
+}
+inline void Orientation::add_quat(::google::protobuf::int32 value) {
+  quat_.Add(value);
+  // @@protoc_insertion_point(field_add:Orientation.quat)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+Orientation::quat() const {
+  // @@protoc_insertion_point(field_list:Orientation.quat)
+  return quat_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+Orientation::mutable_quat() {
+  // @@protoc_insertion_point(field_mutable_list:Orientation.quat)
+  return &quat_;
+}
+
+// repeated sint32 euler = 2;
+inline int Orientation::euler_size() const {
+  return euler_.size();
+}
+inline void Orientation::clear_euler() {
+  euler_.Clear();
+}
+inline ::google::protobuf::int32 Orientation::euler(int index) const {
+  // @@protoc_insertion_point(field_get:Orientation.euler)
+  return euler_.Get(index);
+}
+inline void Orientation::set_euler(int index, ::google::protobuf::int32 value) {
+  euler_.Set(index, value);
+  // @@protoc_insertion_point(field_set:Orientation.euler)
+}
+inline void Orientation::add_euler(::google::protobuf::int32 value) {
+  euler_.Add(value);
+  // @@protoc_insertion_point(field_add:Orientation.euler)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+Orientation::euler() const {
+  // @@protoc_insertion_point(field_list:Orientation.euler)
+  return euler_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+Orientation::mutable_euler() {
+  // @@protoc_insertion_point(field_mutable_list:Orientation.euler)
+  return &euler_;
+}
+
+// repeated sint32 omega = 3;
+inline int Orientation::omega_size() const {
+  return omega_.size();
+}
+inline void Orientation::clear_omega() {
+  omega_.Clear();
+}
+inline ::google::protobuf::int32 Orientation::omega(int index) const {
+  // @@protoc_insertion_point(field_get:Orientation.omega)
+  return omega_.Get(index);
+}
+inline void Orientation::set_omega(int index, ::google::protobuf::int32 value) {
+  omega_.Set(index, value);
+  // @@protoc_insertion_point(field_set:Orientation.omega)
+}
+inline void Orientation::add_omega(::google::protobuf::int32 value) {
+  omega_.Add(value);
+  // @@protoc_insertion_point(field_add:Orientation.omega)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+Orientation::omega() const {
+  // @@protoc_insertion_point(field_list:Orientation.omega)
+  return omega_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+Orientation::mutable_omega() {
+  // @@protoc_insertion_point(field_mutable_list:Orientation.omega)
+  return &omega_;
+}
+
+// repeated sint32 accel = 4;
+inline int Orientation::accel_size() const {
+  return accel_.size();
+}
+inline void Orientation::clear_accel() {
+  accel_.Clear();
+}
+inline ::google::protobuf::int32 Orientation::accel(int index) const {
+  // @@protoc_insertion_point(field_get:Orientation.accel)
+  return accel_.Get(index);
+}
+inline void Orientation::set_accel(int index, ::google::protobuf::int32 value) {
+  accel_.Set(index, value);
+  // @@protoc_insertion_point(field_set:Orientation.accel)
+}
+inline void Orientation::add_accel(::google::protobuf::int32 value) {
+  accel_.Add(value);
+  // @@protoc_insertion_point(field_add:Orientation.accel)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+Orientation::accel() const {
+  // @@protoc_insertion_point(field_list:Orientation.accel)
+  return accel_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+Orientation::mutable_accel() {
+  // @@protoc_insertion_point(field_mutable_list:Orientation.accel)
+  return &accel_;
+}
+
+// repeated sint32 magneto = 5;
+inline int Orientation::magneto_size() const {
+  return magneto_.size();
+}
+inline void Orientation::clear_magneto() {
+  magneto_.Clear();
+}
+inline ::google::protobuf::int32 Orientation::magneto(int index) const {
+  // @@protoc_insertion_point(field_get:Orientation.magneto)
+  return magneto_.Get(index);
+}
+inline void Orientation::set_magneto(int index, ::google::protobuf::int32 value) {
+  magneto_.Set(index, value);
+  // @@protoc_insertion_point(field_set:Orientation.magneto)
+}
+inline void Orientation::add_magneto(::google::protobuf::int32 value) {
+  magneto_.Add(value);
+  // @@protoc_insertion_point(field_add:Orientation.magneto)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+Orientation::magneto() const {
+  // @@protoc_insertion_point(field_list:Orientation.magneto)
+  return magneto_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+Orientation::mutable_magneto() {
+  // @@protoc_insertion_point(field_mutable_list:Orientation.magneto)
+  return &magneto_;
+}
+
+// optional sint32 lon = 6 [default = 0];
+inline bool Orientation::has_lon() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Orientation::set_has_lon() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Orientation::clear_has_lon() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Orientation::clear_lon() {
+  lon_ = 0;
+  clear_has_lon();
+}
+inline ::google::protobuf::int32 Orientation::lon() const {
+  // @@protoc_insertion_point(field_get:Orientation.lon)
+  return lon_;
+}
+inline void Orientation::set_lon(::google::protobuf::int32 value) {
+  set_has_lon();
+  lon_ = value;
+  // @@protoc_insertion_point(field_set:Orientation.lon)
+}
+
+// optional sint32 lat = 7 [default = 0];
+inline bool Orientation::has_lat() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Orientation::set_has_lat() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Orientation::clear_has_lat() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Orientation::clear_lat() {
+  lat_ = 0;
+  clear_has_lat();
+}
+inline ::google::protobuf::int32 Orientation::lat() const {
+  // @@protoc_insertion_point(field_get:Orientation.lat)
+  return lat_;
+}
+inline void Orientation::set_lat(::google::protobuf::int32 value) {
+  set_has_lat();
+  lat_ = value;
+  // @@protoc_insertion_point(field_set:Orientation.lat)
+}
+
+// optional sint32 alt = 8 [default = 0];
+inline bool Orientation::has_alt() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Orientation::set_has_alt() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Orientation::clear_has_alt() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Orientation::clear_alt() {
+  alt_ = 0;
+  clear_has_alt();
+}
+inline ::google::protobuf::int32 Orientation::alt() const {
+  // @@protoc_insertion_point(field_get:Orientation.alt)
+  return alt_;
+}
+inline void Orientation::set_alt(::google::protobuf::int32 value) {
+  set_has_alt();
+  alt_ = value;
+  // @@protoc_insertion_point(field_set:Orientation.alt)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__

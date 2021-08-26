@@ -2,6 +2,9 @@
 *.swp
 *.swo
 
+# PlatformIO
+.pio/
+
 # Python
 *.pyc
 __pycache__*

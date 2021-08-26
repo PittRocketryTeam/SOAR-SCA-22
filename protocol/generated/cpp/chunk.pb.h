@@ -26,8 +26,10 @@
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/inlined_string_field.h>
 #include <google/protobuf/metadata.h>
+#include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #define PROTOBUF_INTERNAL_EXPORT_protobuf_chunk_2eproto 
 
@@ -43,10 +45,157 @@ struct TableStruct {
 };
 void AddDescriptors();
 }  // namespace protobuf_chunk_2eproto
+class Chunk;
+class ChunkDefaultTypeInternal;
+extern ChunkDefaultTypeInternal _Chunk_default_instance_;
+namespace google {
+namespace protobuf {
+template<> ::Chunk* Arena::CreateMaybeMessage<::Chunk>(Arena*);
+}  // namespace protobuf
+}  // namespace google
 
 // ===================================================================
 
+class Chunk : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Chunk) */ {
+ public:
+  Chunk();
+  virtual ~Chunk();
 
+  Chunk(const Chunk& from);
+
+  inline Chunk& operator=(const Chunk& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  Chunk(Chunk&& from) noexcept
+    : Chunk() {
+    *this = ::std::move(from);
+  }
+
+  inline Chunk& operator=(Chunk&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Chunk& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Chunk* internal_default_instance() {
+    return reinterpret_cast<const Chunk*>(
+               &_Chunk_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  void Swap(Chunk* other);
+  friend void swap(Chunk& a, Chunk& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Chunk* New() const final {
+    return CreateMaybeMessage<Chunk>(NULL);
+  }
+
+  Chunk* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<Chunk>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const Chunk& from);
+  void MergeFrom(const Chunk& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Chunk* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bytes data = 3 [default = ""];
+  bool has_data() const;
+  void clear_data();
+  static const int kDataFieldNumber = 3;
+  const ::std::string& data() const;
+  void set_data(const ::std::string& value);
+  #if LANG_CXX11
+  void set_data(::std::string&& value);
+  #endif
+  void set_data(const char* value);
+  void set_data(const void* value, size_t size);
+  ::std::string* mutable_data();
+  ::std::string* release_data();
+  void set_allocated_data(::std::string* data);
+
+  // optional bool done = 1 [default = false];
+  bool has_done() const;
+  void clear_done();
+  static const int kDoneFieldNumber = 1;
+  bool done() const;
+  void set_done(bool value);
+
+  // optional uint32 size = 2 [default = 0];
+  bool has_size() const;
+  void clear_size();
+  static const int kSizeFieldNumber = 2;
+  ::google::protobuf::uint32 size() const;
+  void set_size(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:Chunk)
+ private:
+  void set_has_done();
+  void clear_has_done();
+  void set_has_size();
+  void clear_has_size();
+  void set_has_data();
+  void clear_has_data();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr data_;
+  bool done_;
+  ::google::protobuf::uint32 size_;
+  friend struct ::protobuf_chunk_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -56,6 +205,122 @@ void AddDescriptors();
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// Chunk
+
+// optional bool done = 1 [default = false];
+inline bool Chunk::has_done() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Chunk::set_has_done() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Chunk::clear_has_done() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Chunk::clear_done() {
+  done_ = false;
+  clear_has_done();
+}
+inline bool Chunk::done() const {
+  // @@protoc_insertion_point(field_get:Chunk.done)
+  return done_;
+}
+inline void Chunk::set_done(bool value) {
+  set_has_done();
+  done_ = value;
+  // @@protoc_insertion_point(field_set:Chunk.done)
+}
+
+// optional uint32 size = 2 [default = 0];
+inline bool Chunk::has_size() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Chunk::set_has_size() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Chunk::clear_has_size() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Chunk::clear_size() {
+  size_ = 0u;
+  clear_has_size();
+}
+inline ::google::protobuf::uint32 Chunk::size() const {
+  // @@protoc_insertion_point(field_get:Chunk.size)
+  return size_;
+}
+inline void Chunk::set_size(::google::protobuf::uint32 value) {
+  set_has_size();
+  size_ = value;
+  // @@protoc_insertion_point(field_set:Chunk.size)
+}
+
+// optional bytes data = 3 [default = ""];
+inline bool Chunk::has_data() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Chunk::set_has_data() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Chunk::clear_has_data() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Chunk::clear_data() {
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_data();
+}
+inline const ::std::string& Chunk::data() const {
+  // @@protoc_insertion_point(field_get:Chunk.data)
+  return data_.GetNoArena();
+}
+inline void Chunk::set_data(const ::std::string& value) {
+  set_has_data();
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:Chunk.data)
+}
+#if LANG_CXX11
+inline void Chunk::set_data(::std::string&& value) {
+  set_has_data();
+  data_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:Chunk.data)
+}
+#endif
+inline void Chunk::set_data(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_data();
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:Chunk.data)
+}
+inline void Chunk::set_data(const void* value, size_t size) {
+  set_has_data();
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:Chunk.data)
+}
+inline ::std::string* Chunk::mutable_data() {
+  set_has_data();
+  // @@protoc_insertion_point(field_mutable:Chunk.data)
+  return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Chunk::release_data() {
+  // @@protoc_insertion_point(field_release:Chunk.data)
+  if (!has_data()) {
+    return NULL;
+  }
+  clear_has_data();
+  return data_.ReleaseNonDefaultNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Chunk::set_allocated_data(::std::string* data) {
+  if (data != NULL) {
+    set_has_data();
+  } else {
+    clear_has_data();
+  }
+  data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
+  // @@protoc_insertion_point(field_set_allocated:Chunk.data)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__

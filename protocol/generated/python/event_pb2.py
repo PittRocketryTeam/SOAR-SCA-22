@@ -19,12 +19,44 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto2',
   serialized_options=None,
-  serialized_pb=_b('\n\x0b\x65vent.proto')
+  serialized_pb=_b('\n\x0b\x65vent.proto\"\x07\n\x05\x45vent')
 )
 
 
 
+
+_EVENT = _descriptor.Descriptor(
+  name='Event',
+  full_name='Event',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=15,
+  serialized_end=22,
+)
+
+DESCRIPTOR.message_types_by_name['Event'] = _EVENT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+Event = _reflection.GeneratedProtocolMessageType('Event', (_message.Message,), dict(
+  DESCRIPTOR = _EVENT,
+  __module__ = 'event_pb2'
+  # @@protoc_insertion_point(class_scope:Event)
+  ))
+_sym_db.RegisterMessage(Event)
 
 
 # @@protoc_insertion_point(module_scope)

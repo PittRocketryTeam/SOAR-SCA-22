@@ -1,1 +1,7 @@
 syntax = "proto2";
+
+message Chunk {
+    optional bool done = 1 [default = false];
+    optional uint32 size = 2 [default = 0];
+    optional bytes data = 3 [default = ""];
+}

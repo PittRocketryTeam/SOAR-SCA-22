@@ -52,10 +52,28 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, vbat_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, vreg_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, isys_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, tbat_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, treg_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, tamb_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, trad_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, compstat_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Health, sats_),
   0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  ~0u,
+  8,
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 6, sizeof(::Health)},
+  { 0, 15, sizeof(::Health)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -83,12 +101,18 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\014health.proto\"\026\n\006Health\022\014\n\004name\030\001 \001(\t"
+      "\n\014health.proto\032\017component.proto\"\277\001\n\006Heal"
+      "th\022\016\n\004name\030\001 \001(\t:\000\022\017\n\004vbat\030\002 \001(\r:\0010\022\017\n\004v"
+      "reg\030\003 \001(\r:\0010\022\017\n\004isys\030\004 \001(\r:\0010\022\017\n\004tbat\030\005 "
+      "\001(\r:\0010\022\017\n\004treg\030\006 \001(\r:\0010\022\017\n\004tamb\030\007 \001(\r:\0010"
+      "\022\017\n\004trad\030\010 \001(\r:\0010\022\035\n\010compstat\030\t \003(\0162\013.Co"
+      "mpStatus\022\017\n\004sats\030\n \001(\r:\0010"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 38);
+      descriptor, 225);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "health.proto", &protobuf_RegisterTypes);
+  ::protobuf_component_2eproto::AddDescriptors();
 }
 
 void AddDescriptors() {
@@ -109,6 +133,15 @@ void Health::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Health::kNameFieldNumber;
+const int Health::kVbatFieldNumber;
+const int Health::kVregFieldNumber;
+const int Health::kIsysFieldNumber;
+const int Health::kTbatFieldNumber;
+const int Health::kTregFieldNumber;
+const int Health::kTambFieldNumber;
+const int Health::kTradFieldNumber;
+const int Health::kCompstatFieldNumber;
+const int Health::kSatsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Health::Health()
@@ -121,17 +154,24 @@ Health::Health()
 Health::Health(const Health& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
-      _has_bits_(from._has_bits_) {
+      _has_bits_(from._has_bits_),
+      compstat_(from.compstat_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.has_name()) {
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
+  ::memcpy(&vbat_, &from.vbat_,
+    static_cast<size_t>(reinterpret_cast<char*>(&sats_) -
+    reinterpret_cast<char*>(&vbat_)) + sizeof(sats_));
   // @@protoc_insertion_point(copy_constructor:Health)
 }
 
 void Health::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&vbat_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&sats_) -
+      reinterpret_cast<char*>(&vbat_)) + sizeof(sats_));
 }
 
 Health::~Health() {
@@ -163,10 +203,17 @@ void Health::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  compstat_.Clear();
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     name_.ClearNonDefaultToEmptyNoArena();
   }
+  if (cached_has_bits & 254u) {
+    ::memset(&vbat_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&trad_) -
+        reinterpret_cast<char*>(&vbat_)) + sizeof(trad_));
+  }
+  sats_ = 0u;
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -181,7 +228,7 @@ bool Health::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string name = 1;
+      // optional string name = 1 [default = ""];
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
@@ -191,6 +238,147 @@ bool Health::MergePartialFromCodedStream(
             this->name().data(), static_cast<int>(this->name().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
             "Health.name");
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 vbat = 2 [default = 0];
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          set_has_vbat();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &vbat_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 vreg = 3 [default = 0];
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+          set_has_vreg();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &vreg_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 isys = 4 [default = 0];
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+          set_has_isys();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &isys_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 tbat = 5 [default = 0];
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
+          set_has_tbat();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &tbat_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 treg = 6 [default = 0];
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
+          set_has_treg();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &treg_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 tamb = 7 [default = 0];
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
+          set_has_tamb();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &tamb_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 trad = 8 [default = 0];
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
+          set_has_trad();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &trad_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .CompStatus compstat = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(72u /* 72 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::CompStatus_IsValid(value)) {
+            add_compstat(static_cast< ::CompStatus >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                9, static_cast< ::google::protobuf::uint64>(value));
+          }
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(74u /* 74 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormat::ReadPackedEnumPreserveUnknowns(
+                 input,
+                 9,
+                 ::CompStatus_IsValid,
+                 mutable_unknown_fields(),
+                 this->mutable_compstat())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 sats = 10 [default = 0];
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(80u /* 80 & 0xFF */)) {
+          set_has_sats();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &sats_)));
         } else {
           goto handle_unusual;
         }
@@ -224,7 +412,7 @@ void Health::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string name = 1;
+  // optional string name = 1 [default = ""];
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), static_cast<int>(this->name().length()),
@@ -232,6 +420,52 @@ void Health::SerializeWithCachedSizes(
       "Health.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
+  }
+
+  // optional uint32 vbat = 2 [default = 0];
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->vbat(), output);
+  }
+
+  // optional uint32 vreg = 3 [default = 0];
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->vreg(), output);
+  }
+
+  // optional uint32 isys = 4 [default = 0];
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->isys(), output);
+  }
+
+  // optional uint32 tbat = 5 [default = 0];
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->tbat(), output);
+  }
+
+  // optional uint32 treg = 6 [default = 0];
+  if (cached_has_bits & 0x00000020u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->treg(), output);
+  }
+
+  // optional uint32 tamb = 7 [default = 0];
+  if (cached_has_bits & 0x00000040u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->tamb(), output);
+  }
+
+  // optional uint32 trad = 8 [default = 0];
+  if (cached_has_bits & 0x00000080u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->trad(), output);
+  }
+
+  // repeated .CompStatus compstat = 9;
+  for (int i = 0, n = this->compstat_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      9, this->compstat(i), output);
+  }
+
+  // optional uint32 sats = 10 [default = 0];
+  if (cached_has_bits & 0x00000100u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(10, this->sats(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -249,7 +483,7 @@ void Health::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string name = 1;
+  // optional string name = 1 [default = ""];
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->name().data(), static_cast<int>(this->name().length()),
@@ -258,6 +492,50 @@ void Health::SerializeWithCachedSizes(
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
+  }
+
+  // optional uint32 vbat = 2 [default = 0];
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->vbat(), target);
+  }
+
+  // optional uint32 vreg = 3 [default = 0];
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->vreg(), target);
+  }
+
+  // optional uint32 isys = 4 [default = 0];
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->isys(), target);
+  }
+
+  // optional uint32 tbat = 5 [default = 0];
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->tbat(), target);
+  }
+
+  // optional uint32 treg = 6 [default = 0];
+  if (cached_has_bits & 0x00000020u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->treg(), target);
+  }
+
+  // optional uint32 tamb = 7 [default = 0];
+  if (cached_has_bits & 0x00000040u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->tamb(), target);
+  }
+
+  // optional uint32 trad = 8 [default = 0];
+  if (cached_has_bits & 0x00000080u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->trad(), target);
+  }
+
+  // repeated .CompStatus compstat = 9;
+  target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+    9, this->compstat_, target);
+
+  // optional uint32 sats = 10 [default = 0];
+  if (cached_has_bits & 0x00000100u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(10, this->sats(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -277,11 +555,79 @@ size_t Health::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  // optional string name = 1;
-  if (has_name()) {
+  // repeated .CompStatus compstat = 9;
+  {
+    size_t data_size = 0;
+    unsigned int count = static_cast<unsigned int>(this->compstat_size());for (unsigned int i = 0; i < count; i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::EnumSize(
+        this->compstat(static_cast<int>(i)));
+    }
+    total_size += (1UL * count) + data_size;
+  }
+
+  if (_has_bits_[0 / 32] & 255u) {
+    // optional string name = 1 [default = ""];
+    if (has_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->name());
+    }
+
+    // optional uint32 vbat = 2 [default = 0];
+    if (has_vbat()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->vbat());
+    }
+
+    // optional uint32 vreg = 3 [default = 0];
+    if (has_vreg()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->vreg());
+    }
+
+    // optional uint32 isys = 4 [default = 0];
+    if (has_isys()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->isys());
+    }
+
+    // optional uint32 tbat = 5 [default = 0];
+    if (has_tbat()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->tbat());
+    }
+
+    // optional uint32 treg = 6 [default = 0];
+    if (has_treg()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->treg());
+    }
+
+    // optional uint32 tamb = 7 [default = 0];
+    if (has_tamb()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->tamb());
+    }
+
+    // optional uint32 trad = 8 [default = 0];
+    if (has_trad()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->trad());
+    }
+
+  }
+  // optional uint32 sats = 10 [default = 0];
+  if (has_sats()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->name());
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->sats());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -311,9 +657,38 @@ void Health::MergeFrom(const Health& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_name()) {
-    set_has_name();
-    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  compstat_.MergeFrom(from.compstat_);
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 255u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_name();
+      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      vbat_ = from.vbat_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      vreg_ = from.vreg_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      isys_ = from.isys_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      tbat_ = from.tbat_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      treg_ = from.treg_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      tamb_ = from.tamb_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      trad_ = from.trad_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00000100u) {
+    set_sats(from.sats());
   }
 }
 
@@ -341,8 +716,17 @@ void Health::Swap(Health* other) {
 }
 void Health::InternalSwap(Health* other) {
   using std::swap;
+  compstat_.InternalSwap(&other->compstat_);
   name_.Swap(&other->name_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  swap(vbat_, other->vbat_);
+  swap(vreg_, other->vreg_);
+  swap(isys_, other->isys_);
+  swap(tbat_, other->tbat_);
+  swap(treg_, other->treg_);
+  swap(tamb_, other->tamb_);
+  swap(trad_, other->trad_);
+  swap(sats_, other->sats_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
