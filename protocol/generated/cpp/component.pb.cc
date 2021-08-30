@@ -5,74 +5,45 @@
 
 #include <algorithm>
 
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/extension_set.h>
+#include <google/protobuf/wire_format_lite.h>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/generated_message_reflection.h>
 #include <google/protobuf/reflection_ops.h>
 #include <google/protobuf/wire_format.h>
-// This is a temporary google only hack
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-#include "third_party/protobuf/version.h"
-#endif
 // @@protoc_insertion_point(includes)
+#include <google/protobuf/port_def.inc>
+static constexpr ::PROTOBUF_NAMESPACE_ID::Metadata* file_level_metadata_component_2eproto = nullptr;
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_component_2eproto[2];
+static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_component_2eproto = nullptr;
+const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_component_2eproto::offsets[1] = {};
+static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = nullptr;
+static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances = nullptr;
 
-namespace protobuf_component_2eproto {
-void InitDefaults() {
-}
+const char descriptor_table_protodef_component_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
+  "\n\017component.proto*5\n\006CompId\022\007\n\003BAR\020\000\022\007\n\003"
+  "IMU\020\001\022\007\n\003GPS\020\002\022\007\n\003SDC\020\003\022\007\n\003SER\020\004*>\n\nComp"
+  "Status\022\013\n\007OFFLINE\020\000\022\014\n\010DISABLED\020\001\022\n\n\006ONL"
+  "INE\020\002\022\t\n\005ERROR\020\003"
+  ;
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_component_2eproto_deps[1] = {
+};
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_component_2eproto_sccs[1] = {
+};
+static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_component_2eproto_once;
+const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_component_2eproto = {
+  false, false, descriptor_table_protodef_component_2eproto, "component.proto", 136,
+  &descriptor_table_component_2eproto_once, descriptor_table_component_2eproto_sccs, descriptor_table_component_2eproto_deps, 0, 0,
+  schemas, file_default_instances, TableStruct_component_2eproto::offsets,
+  file_level_metadata_component_2eproto, 0, file_level_enum_descriptors_component_2eproto, file_level_service_descriptors_component_2eproto,
+};
 
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
-const ::google::protobuf::uint32 TableStruct::offsets[1] = {};
-static const ::google::protobuf::internal::MigrationSchema* schemas = NULL;
-static const ::google::protobuf::Message* const* file_default_instances = NULL;
-
-void protobuf_AssignDescriptors() {
-  AddDescriptors();
-  AssignDescriptors(
-      "component.proto", schemas, file_default_instances, TableStruct::offsets,
-      NULL, file_level_enum_descriptors, NULL);
-}
-
-void protobuf_AssignDescriptorsOnce() {
-  static ::google::protobuf::internal::once_flag once;
-  ::google::protobuf::internal::call_once(once, protobuf_AssignDescriptors);
-}
-
-void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
-void protobuf_RegisterTypes(const ::std::string&) {
-  protobuf_AssignDescriptorsOnce();
-}
-
-void AddDescriptorsImpl() {
-  InitDefaults();
-  static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\017component.proto*5\n\006CompId\022\007\n\003BAR\020\000\022\007\n\003"
-      "IMU\020\001\022\007\n\003GPS\020\002\022\007\n\003SDC\020\003\022\007\n\003SER\020\004*>\n\nComp"
-      "Status\022\013\n\007OFFLINE\020\000\022\014\n\010DISABLED\020\001\022\n\n\006ONL"
-      "INE\020\002\022\t\n\005ERROR\020\003"
-  };
-  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 136);
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
-    "component.proto", &protobuf_RegisterTypes);
-}
-
-void AddDescriptors() {
-  static ::google::protobuf::internal::once_flag once;
-  ::google::protobuf::internal::call_once(once, AddDescriptorsImpl);
-}
-// Force AddDescriptors() to be called at dynamic initialization time.
-struct StaticDescriptorInitializer {
-  StaticDescriptorInitializer() {
-    AddDescriptors();
-  }
-} static_descriptor_initializer;
-}  // namespace protobuf_component_2eproto
-const ::google::protobuf::EnumDescriptor* CompId_descriptor() {
-  protobuf_component_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_component_2eproto::file_level_enum_descriptors[0];
+// Force running AddDescriptors() at dynamic initialization time.
+static bool dynamic_init_dummy_component_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_component_2eproto)), true);
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CompId_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_component_2eproto);
+  return file_level_enum_descriptors_component_2eproto[0];
 }
 bool CompId_IsValid(int value) {
   switch (value) {
@@ -87,9 +58,9 @@ bool CompId_IsValid(int value) {
   }
 }
 
-const ::google::protobuf::EnumDescriptor* CompStatus_descriptor() {
-  protobuf_component_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_component_2eproto::file_level_enum_descriptors[1];
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CompStatus_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_component_2eproto);
+  return file_level_enum_descriptors_component_2eproto[1];
 }
 bool CompStatus_IsValid(int value) {
   switch (value) {
@@ -105,9 +76,8 @@ bool CompStatus_IsValid(int value) {
 
 
 // @@protoc_insertion_point(namespace_scope)
-namespace google {
-namespace protobuf {
-}  // namespace protobuf
-}  // namespace google
+PROTOBUF_NAMESPACE_OPEN
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
+#include <google/protobuf/port_undef.inc>
