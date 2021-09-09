@@ -68,6 +68,7 @@ class Router:
                                 self.running = False
                                 
                         else:
+                            #print(data)
                             if len(data.dst) < 1:
                                 # broadcast packet to all
                                 self.broadcast(data)
@@ -88,7 +89,7 @@ class Service:
         self.name = name
 
     def create_proc(self, args):
-        return mp.Process(target=self.mainloop, args=args)
+        return mp.Process(target=self.mainloop, args=args, daemon=True)
 
     def new_message(self, cmd, args):
         msg = com.Message()
@@ -118,8 +119,7 @@ class Service:
             if msg.args[0] == "STOP":
                 print(self.name + " received stop signal")
                 self.running = False
-
-        self.shutdown_callback()
+                self.shutdown_callback()
 
     def shutdown_callback(self):
         print(self.name + " is shutting down")

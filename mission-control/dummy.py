@@ -23,6 +23,14 @@ class Dummy(Service):
         # send fake packets
         
         pkt = health_pb2.Health()
+        pkt.name = "Health"
+        pkt.vbat = 72
+        pkt.vreg = 33
+        pkt.isys = 1000
+        pkt.tbat = 50
+        pkt.treg = 70
+        pkt.tamb = 40
+        pkt.trad = 80
         self.conn.send(com.new_data_msg(pkt, "Dummy", ""))
 
         # todo send the rest

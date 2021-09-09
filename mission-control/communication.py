@@ -23,4 +23,5 @@ def new_data_msg(obj, src, dst):
     new_msg.src = src
     new_msg.dst = dst
     new_msg.command = CMD_DAT
-    new_msg.args = (obj, )
+    new_msg.args = (obj,)
+    return new_msg
