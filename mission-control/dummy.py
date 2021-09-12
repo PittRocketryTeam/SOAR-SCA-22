@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 
-# allows for pb2 imports
+import random
+
 import sys
+# allows for pb2 imports
 sys.path.insert(1, "../protocol/generated/python")
 
 from roles import Service
-
 import communication as com
 
 # import all protobuf objects
@@ -16,7 +17,7 @@ import health_pb2
 import orientation_pb2
 
 class Dummy(Service):
-    def __init__(self, name="", interval=1):
+    def __init__(self, name="", interval=0.1):
         Service.__init__(self, name, interval)
 
     def work_callback(self):
@@ -24,10 +25,10 @@ class Dummy(Service):
         
         pkt = health_pb2.Health()
         pkt.name = "Health"
-        pkt.vbat = 72
+        pkt.vbat = random.randint(6000, 7200)
         pkt.vreg = 33
         pkt.isys = 1000
-        pkt.tbat = 50
+        pkt.tbat = random.randint(12, 80)
         pkt.treg = 70
         pkt.tamb = 40
         pkt.trad = 80

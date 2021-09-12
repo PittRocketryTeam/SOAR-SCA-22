@@ -26,9 +26,10 @@ class Grapher(Service):
         self.gnuplot_proc = subprocess.Popen(["../3rdparty/bin/gnuplot", "./liveplot.gnu"], env=os.environ.copy())
 
     def shutdown_callback(self):
+        super().shutdown_callback()
         self.fp.close()
         os.remove(self.fn)
-        os.kill(self.gnuplot_proc.pid, signal.SIGINT)
+        os.kill(self.gnuplot_proc.pid, signal.SIGKILL)
 
     def message_callback(self, msg):
         self.handle_stop_signal(msg)
@@ -40,7 +41,7 @@ class Grapher(Service):
 
             pkt = msg.args[0]
 
-            plot = "{} {}\n".format(float(time.time() * 1000 - self.start), float(pkt.vbat))
+            plot = "{} {} {}\n".format(float(time.time() * 1000 - self.start), float(pkt.vbat), float(pkt.tbat))
 
             self.fp.write(plot)
             self.fp.flush()

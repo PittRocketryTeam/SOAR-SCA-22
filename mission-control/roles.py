@@ -26,8 +26,8 @@ class Router:
         srv = self.services[skey]
 
         srv_proc = srv.create_proc(args)
-        srv_proc.start()
         self.processes.append(srv_proc)
+        srv_proc.start()
 
     def add_and_start_service(self, srv, args):
         self.add_service(srv)

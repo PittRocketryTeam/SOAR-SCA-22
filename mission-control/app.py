@@ -25,7 +25,7 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
 
     router = Router()
+    router.add_and_start_service(Commander("Commander"), ())
     router.add_and_start_service(Dummy("Dummy"), ())
     router.add_and_start_service(gnuplotgrapher.Grapher("Grapher"), ())
-    router.add_and_start_service(Commander("Commander"), ())
     router.mainloop()
