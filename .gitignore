@@ -1,3 +1,6 @@
+# C++ builds
+build/
+
 # Vim
 *.swp
 *.swo
