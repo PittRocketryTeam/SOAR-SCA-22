@@ -13,8 +13,8 @@ running = True
 g_conn = None
 
 class Commander(Service):
-    def __init__(self, name="", interval=1):
-        Service.__init__(self, name, interval)
+    def __init__(self, name="", interval=1, deps=[]):
+        Service.__init__(self, name, interval, deps)
         self.window = None
         self.gui_thread = None
 
@@ -78,6 +78,8 @@ class Commander(Service):
     def setup_callback(self):
         self.gui_thread = threading.Thread(target=self.gui_thread_func, args=())
         self.gui_thread.start()
+
+        return True
 
     def message_callback(self, msg):
         self.handle_stop_signal(msg)

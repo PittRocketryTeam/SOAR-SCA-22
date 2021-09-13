@@ -17,8 +17,8 @@ import health_pb2
 import orientation_pb2
 
 class Dummy(Service):
-    def __init__(self, name="", interval=0.1):
-        Service.__init__(self, name, interval)
+    def __init__(self, name="", interval=0.1, deps=[]):
+        Service.__init__(self, name, interval, deps)
 
     def work_callback(self):
         # send fake packets
