@@ -28,6 +28,7 @@ class Commander(Service):
 
     def gui_thread_func(self):
         self.window = tk.Tk()
+        self.window.call('wm', 'attributes', '.', '-topmost', '1')
         self.root = tk.Frame(self.window)
         self.window.protocol("WM_DELETE_WINDOW", self.gui_thread_on_close)
 
