@@ -45,3 +45,5 @@ __pycache__*
 *.exe
 *.out
 *.app
+
+*.code-workspace
