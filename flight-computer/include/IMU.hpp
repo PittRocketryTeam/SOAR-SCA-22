@@ -28,8 +28,8 @@ class IMU : public Sensor
         ~IMU();
 
         virtual void init();
-        virtual void poll(state*);
-        virtual void read(state*);
+        virtual void poll(State*);
+        virtual void read(State*);
 
         virtual void enable();
         virtual void disable();

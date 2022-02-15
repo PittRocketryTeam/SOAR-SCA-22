@@ -16,8 +16,8 @@ class GPS : public Sensor
         
         virtual void init();
         virtual void internal_read();
-        virtual void read(state*);
-        virtual void poll(state*);
+        virtual void read(State*);
+        virtual void poll(State*);
         virtual void enable();
         virtual void disable();
 

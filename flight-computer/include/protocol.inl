@@ -1,6 +1,6 @@
 #include <cmath>
 
-inline void get_health(state* st, float* pkt)
+inline void get_health(State* st, float* pkt)
 {
     pkt[0] = st->vbat;
     pkt[1] = st->ibat;
@@ -9,7 +9,7 @@ inline void get_health(state* st, float* pkt)
     pkt[4] = st->nsats;
 }
 
-inline void get_orientation(state* st, float* pkt)
+inline void get_orientation(State* st, float* pkt)
 {
     pkt[0] = st->ax;
     pkt[1] = st->ay;
@@ -26,7 +26,7 @@ inline void get_orientation(state* st, float* pkt)
     pkt[12] = st->altitude;
 }
 
-inline void get_events(state* st, int* pkt)
+inline void get_events(State* st, int* pkt)
 {
     pkt[0] = st->main_deploy;
     pkt[1] = st->drogue_deploy;
@@ -36,7 +36,7 @@ inline void get_events(state* st, int* pkt)
     pkt[5] = st->payload_dep;
 }
 
-inline float avg_vy(state* st)
+inline float avg_vy(State* st)
 {
     float sum = 0;
     for (int i = 0; i < 5; ++i)
@@ -47,7 +47,7 @@ inline float avg_vy(state* st)
     return sum / (float)5;
 }
 
-inline float avg_alt(state* st)
+inline float avg_alt(State* st)
 {
     float sum = 0;
     for (int i = 0; i < 5; ++i)
@@ -58,12 +58,12 @@ inline float avg_alt(state* st)
     return sum / (float)5;
 }
 
-inline float anet(state* st)
+inline float anet(State* st)
 {
     return sqrt(st->ax * st->ax + st->ay * st->ay + st->az * st->az);
 }
 
-inline float avg_anet(state* st)
+inline float avg_anet(State* st)
 {
     float sum = 0;
     for (int i = 0; i < 5; ++i)

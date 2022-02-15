@@ -6,7 +6,7 @@
 #include <SPI.h>
 #include <SD.h>
 #include <TimeLib.h>
-#include "protocol.hpp"
+#include "State.hpp"
 
 //#define BUILTIN_SDCARD 254
 
@@ -35,7 +35,7 @@ class Logger
         void flush();
 
         //virtual bool writeToMemory(Data);
-        void write(state*);
+        void write(State*);
 
     private:
 
@@ -50,8 +50,8 @@ class Logger
 
         static time_t getTeensy3Time();
 
-        state snapshot[100];
-        state* snp;
+        State snapshot[100];
+        State* snp;
         char filename[128];
         char buffer[8192];
         char* bp;

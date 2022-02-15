@@ -1,4 +1,5 @@
 #include "Altimeter.hpp"
+#include "State.hpp"
 
 Altimeter::Altimeter() :
     Sensor(),
@@ -34,7 +35,7 @@ void Altimeter::init()
     }
 }
 
-void Altimeter::read(state* st)
+void Altimeter::read(State* st)
 {
     /*
     data.altimeterData.temperature = bmp.temperature;
@@ -46,7 +47,7 @@ void Altimeter::read(state* st)
     */
 }
 
-void Altimeter::poll(state* st)
+void Altimeter::poll(State* st)
 {
     if(!bmp.performReading()) //assigns values to pressure and temperature
     {

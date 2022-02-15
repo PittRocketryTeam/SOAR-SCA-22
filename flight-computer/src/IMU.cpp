@@ -1,6 +1,7 @@
 #include "IMU.hpp"
 #include "config.hpp"
 #include "Error.hpp"
+#include "State.hpp"
 
 
 IMU::IMU()
@@ -46,7 +47,7 @@ void IMU::init()
 
 }
 
-void IMU::read(state* st)
+void IMU::read(State* st)
 {
     st->ax = a.x();
     st->ay = a.y();
@@ -62,7 +63,7 @@ void IMU::read(state* st)
     st->qw = q.w();
 }
 
-void IMU::poll(state* st)
+void IMU::poll(State* st)
 {
     sensor.getEvent(&event);
 

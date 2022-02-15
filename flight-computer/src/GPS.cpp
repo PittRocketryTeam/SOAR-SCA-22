@@ -1,6 +1,7 @@
 #include "GPS.hpp"
 #include "config.hpp"
 #include "Error.hpp"
+#include "State.hpp"
 
 GPS::GPS() :
     Sensor(),
@@ -85,7 +86,7 @@ void GPS::internal_read()
     gps.read();
 }
 
-void GPS::read(state* st)
+void GPS::read(State* st)
 {
     /*data.gpsData.time = my_time;
     data.gpsData.latitude = my_lat;
@@ -99,7 +100,7 @@ void GPS::read(state* st)
     data.gpsData.rssi = my_rssi;*/
 }
 
-void GPS::poll(state* st)
+void GPS::poll(State* st)
 {
     //if (gps.newNMEAreceived())
     {

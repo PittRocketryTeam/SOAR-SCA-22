@@ -1,5 +1,6 @@
-#include "Health.hpp"
+#include "VehicleHealth.hpp"
 #include "config.hpp"
+#include "State.hpp"
 #include <Arduino.h>
 
 #define MIN_CURRENT 2.50f
@@ -26,7 +27,7 @@ static float calculate_current(int raw)
     return ((((float)raw / ANALOG_MAX) * 3.3f) - MIN_CURRENT) * 10'000.f;
 }
 
-Health::Health() :
+VehicleHealth::VehicleHealth() :
     Sensor(),
     battery_temperature(-1),
     battery_voltage(-1),
@@ -37,12 +38,12 @@ Health::Health() :
 
 }
 
-Health::~Health()
+VehicleHealth::~VehicleHealth()
 {
 
 }
 
-void Health::init()
+void VehicleHealth::init()
 {
     analogReadResolution(12);
     //analogReference(0);
@@ -52,7 +53,7 @@ void Health::init()
 }
 
 
-void Health::read(state* st)
+void VehicleHealth::read(State* st)
 {
     if (!enabled)
     {
@@ -69,7 +70,7 @@ void Health::read(state* st)
     data.healthData.reg_3V3_battery_voltage = reg3_voltage;*/
 }
 
-void Health::poll(state* st)
+void VehicleHealth::poll(State* st)
 {
     int battery_t_raw = analogRead(THER);
     int battery_v_raw = analogRead(RDIV);
@@ -93,12 +94,12 @@ void Health::poll(state* st)
     //read(st);
 }
 
-void Health::enable()
+void VehicleHealth::enable()
 {
     enabled = true;
 }
 
-void Health::disable()
+void VehicleHealth::disable()
 {
     enabled = false;
 }

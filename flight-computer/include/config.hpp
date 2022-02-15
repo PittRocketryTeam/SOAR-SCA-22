@@ -25,6 +25,8 @@
 #define GPS_ENABLE -1
 #define GPS_SERIAL Serial1
 
+#define XBEE_SERIAL Serial2
+
 #define ALT_I2C_ADDR 0x77
 #define ALT_I2C_BUS Wire
 

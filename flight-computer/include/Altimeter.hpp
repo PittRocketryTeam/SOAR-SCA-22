@@ -6,7 +6,7 @@
 #include "Adafruit_BMP3XX.h"
 #include "bmp3.h"
 #include "Error.hpp"
-#include "protocol.hpp"
+#include "State.hpp"
 
 #define SEALEVELPRESSURE_HPA (1013.25)
 
@@ -18,8 +18,8 @@ class Altimeter : public Sensor
         ~Altimeter();
         
         virtual void init();
-        virtual void read(state* data);
-        virtual void poll(state* data);
+        virtual void read(State* data);
+        virtual void poll(State* data);
         virtual void enable();
         virtual void disable();
 

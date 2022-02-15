@@ -3,14 +3,15 @@
 
 #include <vector>
 #include "Wire.h"
-#include "protocol.hpp"
+
+class State;
 
 class Sensor
 {
 public:
     virtual void init() = 0;
-    virtual void poll(state* st) = 0;
-    virtual void read(state* st) = 0;
+    virtual void poll(State* st) = 0;
+    virtual void read(State* st) = 0;
     virtual void enable() = 0;
     virtual void disable() = 0;
 };

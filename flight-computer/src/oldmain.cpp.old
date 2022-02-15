@@ -1,12 +1,12 @@
 #include <Arduino.h>
-#include "protocol.hpp"
+#include "State.hpp"
 #include "GPS.hpp"
 #include "MyXBee.hpp"
 #include "IMU.hpp"
 #include "Logger.hpp"
 #include "Health.hpp"
 #include "Altimeter.hpp"
-#include "Event.hpp"
+#include "EventDetector.hpp"
 
 #define GPS_PR_SLOW 1'000
 #define GPS_PR_FAST 1'000
@@ -20,14 +20,14 @@
 enum fcmode_t {FCIDLE = 0, FCSTARTUP = 1, FCFAIL = 2};
 
 static Logger lgr;
-static state st;
+static State st;
 static MyXBee trx;
 static GPS gps;
 static IMU ag;
 static Altimeter alt;
 static Health hlt;
 static fcmode_t mode = FCIDLE;
-static Event evt;
+static EventDetector evt;
 static char cmd;
 
 static IntervalTimer gps_int;
@@ -100,7 +100,7 @@ void snr_poll_callback()
 
 void setup()
 {    
-    memset(&st, 0, sizeof(state));      // zero system state
+    memset(&st, 0, sizeof(State));      // zero system State
     mode = FCIDLE;
     transition = false;
 

@@ -127,7 +127,7 @@ void Error::success()
 
         if (cur == 0)
         {
-            digitalWrite(leds[cur], 1023);
+            digitalWrite(leds[cur], HIGH);
         }
         else
         {

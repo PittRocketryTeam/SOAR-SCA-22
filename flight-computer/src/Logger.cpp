@@ -1,6 +1,7 @@
 #include "config.hpp"
 #include "Logger.hpp"
 #include "Error.hpp"
+#include "State.hpp"
 #include <cstring>
 #include <Arduino.h>
 
@@ -149,7 +150,7 @@ void Logger::genUniqueFn()
     return true;
 }*/
 
-void Logger::write(state* st)
+void Logger::write(State* st)
 {
     /*int wr = sprintf(bp,
         "%ld,%d,,%f,%f,%f,,%f,%f,%f,,%f,%f,,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n",
@@ -189,7 +190,7 @@ void Logger::write(state* st)
     }*/
 
     //Serial.println((int)(snp - snapshot));
-    memcpy(snp, st, sizeof(state));
+    memcpy(snp, st, sizeof(State));
     ++snp;
     if ((snp - snapshot) >= 100)
     {
@@ -209,7 +210,7 @@ void Logger::flush()
     //handle.printf("%s", buffer);
     for (int i = 0; i < 100; ++i)
     {
-        state* st = &snapshot[i];
+        State* st = &snapshot[i];
         handle.printf(
         "%ld,%d,,%f,%f,%f,,%f,%f,%f,,%f,%f,%d,,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n",
         st->ts,

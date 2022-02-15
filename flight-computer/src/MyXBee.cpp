@@ -1,5 +1,6 @@
 #include "MyXBee.hpp"
 #include "Error.hpp"
+#include "State.hpp"
 #include <cstring>
 
 MyXBee::MyXBee() :
@@ -15,13 +16,13 @@ void MyXBee::init()
 {
     //Serial.println("myxbee\n");
     memset(buffer, 0, 100);
-    Serial2.begin(9600); //Serial2 is used for the PCB
+    XBEE_SERIAL.begin(9600); //XBEE_SERIAL is used for the PCB
     delay(500);
     int i;
     for (i = 0; i < CONN_ATTEMPTS; i++)
     {
         Error::on(TX_INIT);
-        if (Serial2)
+        if (XBEE_SERIAL)
         {
             break;
         }
@@ -38,12 +39,12 @@ void MyXBee::init()
 
     /*Serial.println("commandmode");
     delay(1000);
-    Serial2.print("+++");
+    XBEE_SERIAL.print("+++");
     delay(12000);
     Serial.println("done!");*/
 }
 
-void MyXBee::transmit(state* st)
+void MyXBee::transmit(State* st)
 {
     //digitalWrite(13, HIGH);
 
@@ -72,7 +73,7 @@ void MyXBee::transmit(state* st)
 
         *(int*)(buffer) = len;
         *(int*)(buffer + 4) = 5;
-        get_orientation(st, scratch);
+        //get_orientation(st, scratch);
         memcpy(buffer + 8, scratch, (len - 1) * sizeof(float));
     }
 
@@ -83,23 +84,23 @@ void MyXBee::transmit(state* st)
         cycle = 0;
     }
 
-    Serial2.write('S');
-    Serial2.write('B');
-    Serial2.write('E');
-    Serial2.write('G');
-    Serial2.write(buffer, len + sizeof(float));
-    Serial2.write('S');
-    Serial2.write('F');
-    Serial2.write('I');
-    Serial2.write('N');
-    //Serial2.write('\r');
-    Serial2.flush();
+    XBEE_SERIAL.write('S');
+    XBEE_SERIAL.write('B');
+    XBEE_SERIAL.write('E');
+    XBEE_SERIAL.write('G');
+    XBEE_SERIAL.write(buffer, len + sizeof(float));
+    XBEE_SERIAL.write('S');
+    XBEE_SERIAL.write('F');
+    XBEE_SERIAL.write('I');
+    XBEE_SERIAL.write('N');
+    //XBEE_SERIAL.write('\r');
+    XBEE_SERIAL.flush();
 
     //digitalWrite(13, LOW);
 
-    if (Serial2.available())
+    if (XBEE_SERIAL.available())
     {
-        notify = Serial2.read();
+        notify = XBEE_SERIAL.read();
     }
 }
 
@@ -135,9 +136,9 @@ void MyXBee::transmit(state* st)
 
 /*(Data MyXBee::receive()
 {
-    if (Serial2.available())
+    if (XBEE_SERIAL.available())
     {
-        mode = Serial2.read() == 'b';
+        mode = XBEE_SERIAL.read() == 'b';
         Serial.println(mode);
         delay(500);
         //Serial.println("\t\tyep");

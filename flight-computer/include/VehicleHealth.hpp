@@ -7,18 +7,18 @@
 #define ANALOG_MAX 4096
 
 #include "Sensor.hpp"
-#include "protocol.hpp"
+#include "State.hpp"
 
-class Health : public Sensor
+class VehicleHealth : public Sensor
 {
     public:
 
-        Health();
-        ~Health();
+        VehicleHealth();
+        ~VehicleHealth();
             
         virtual void init();
-        virtual void read(state*);
-        virtual void poll(state*);
+        virtual void read(State*);
+        virtual void poll(State*);
         virtual void enable();
         virtual void disable();
 

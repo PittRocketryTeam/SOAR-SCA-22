@@ -1,17 +1,17 @@
 #ifndef EVENT_HPP
 #define EVENT_HPP
 
-#include "protocol.hpp"
+class State;
 
 typedef enum {IDLE = 0, LAUNCH = 1, BURNOUT = 2, APOGEE = 3, DROGUE = 4, MAIN = 5, PREDEP = 6, DEPLOY = 7, TOUCHDOWN = 10} event_t;
 
-class Event
+class EventDetector
 {
 public:
-    Event();
-    ~Event();
+    EventDetector();
+    ~EventDetector();
 
-    void infer(state*);
+    void infer(State*);
     event_t getCurrentEvent();
 
 private:
