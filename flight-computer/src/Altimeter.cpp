@@ -19,7 +19,7 @@ void Altimeter::init()
     {
         Error::on(ALT_INIT);
         //Serial.println("try");
-        if (bmp.begin(ALT_I2C_ADDR, &ALT_I2C_BUS))
+        if (bmp.begin_I2C(ALT_I2C_ADDR, &ALT_I2C_BUS))
         {
             break;
         }
@@ -64,7 +64,7 @@ void Altimeter::poll(state* st)
 
 void Altimeter::enable()
 {
-    bmp_dev->settings.op_mode = BMP3_NORMAL_MODE;
+    bmp_dev->settings.op_mode = BMP3_MODE_NORMAL;
     if(bmp3_set_op_mode(bmp_dev) != 0)
     {
         //Serial.println("Altimeter failed to enable");
@@ -73,7 +73,7 @@ void Altimeter::enable()
 
 void Altimeter::disable()
 {
-    bmp_dev->settings.op_mode = BMP3_SLEEP_MODE;
+    bmp_dev->settings.op_mode = BMP3_MODE_SLEEP;
     if(bmp3_set_op_mode(bmp_dev) != 0);
         //Serial.println("Altimeter failed to disable");
 }

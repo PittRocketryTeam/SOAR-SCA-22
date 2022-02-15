@@ -2,8 +2,9 @@
 #include "Logger.hpp"
 #include "Error.hpp"
 #include <cstring>
+#include <Arduino.h>
 
-int chipSelect = BUILTIN_SDCARD;
+int chipSelect = 44; // TODO change
 
 Logger::Logger()
 {

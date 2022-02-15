@@ -1,12 +1,3 @@
 [submodule "3rdparty/EmbeddedProto"]
 	path = 3rdparty/EmbeddedProto
 	url = https://github.com/PittRocketryTeam/EmbeddedProto.git
-[submodule "flight-computer/lib/Adafruit_BMP3XX"]
-	path = flight-computer/lib/Adafruit_BMP3XX
-	url = https://github.com/adafruit/Adafruit_BMP3XX
-[submodule "flight-computer/lib/Adafruit_BNO055"]
-	path = flight-computer/lib/Adafruit_BNO055
-	url = https://github.com/adafruit/Adafruit_BNO055
-[submodule "flight-computer/lib/Adafruit_GPS"]
-	path = flight-computer/lib/Adafruit_GPS
-	url = https://github.com/adafruit/Adafruit_GPS
