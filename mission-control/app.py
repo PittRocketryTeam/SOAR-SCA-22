@@ -10,6 +10,7 @@ from commander import Commander
 from dummy import Dummy
 from roles import Router
 from gnuplotgrapher import Grapher
+from groundstation import GroundStation
 
 # ipc stuff
 import communication as com
@@ -26,5 +27,6 @@ if __name__ == "__main__":
     router = Router()
     router.add_and_start_service(Commander("Commander"), ())
     router.add_and_start_service(Dummy("Dummy"), ())
+    router.add_and_start_service(GroundStation("GroundStation", deps=[]), ())
     router.add_and_start_service(Grapher("Grapher", deps=["Dummy"]), ())
     router.mainloop()

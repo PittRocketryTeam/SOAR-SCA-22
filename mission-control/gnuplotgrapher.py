@@ -29,7 +29,8 @@ class Grapher(Service):
             return
 
         os.environ["GNUPLOT_DRIVER_DIR"] = "../3rdparty/bin"
-        self.gnuplot_proc = subprocess.Popen(["../3rdparty/bin/gnuplot", "./liveplot.gnu"], env=os.environ.copy())
+        self.gnuplot_proc = subprocess.Popen(["../3rdparty/bin/gnuplot", "./liveplot.gnu"], env=os.environ.copy(), stdout=subprocess.DEVNULL,
+    stderr=subprocess.STDOUT)
 
     def shutdown_callback(self):
         super().shutdown_callback()

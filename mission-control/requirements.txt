@@ -1,3 +1,3 @@
 pillow
-serial
+pyserial
 protobuf==3.17.3
