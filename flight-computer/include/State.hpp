@@ -18,6 +18,7 @@ public:
 
     Health& getHealthPkt();
     Orientation& getOrientationPkt();
+    Event& getEventPkt();
 
     unsigned long ts;
     int fcmode;
@@ -51,6 +52,7 @@ public:
 private:
     Health mHealth;
     Orientation mOrientation;
+    Event mEvent;
 };
 
 // typedef struct _state

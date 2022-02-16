@@ -33,18 +33,22 @@ static void InitDefaultsscc_info_Event_event_2eproto() {
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Event_event_2eproto}, {}};
 
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_event_2eproto[1];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_event_2eproto = nullptr;
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_event_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_event_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_event_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::Event, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::Event, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::Event, timestamp_),
+  PROTOBUF_FIELD_OFFSET(::Event, type_),
+  0,
+  1,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::Event)},
+  { 0, 7, sizeof(::Event)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -52,7 +56,11 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_event_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\013event.proto\"\007\n\005Event"
+  "\n\013event.proto\"<\n\005Event\022\024\n\ttimestamp\030\001 \002("
+  "\r:\0010\022\035\n\004type\030\002 \002(\0162\n.EventType:\003BAD*^\n\tE"
+  "ventType\022\007\n\003BAD\020\000\022\n\n\006LAUNCH\020\001\022\n\n\006APOGEE\020"
+  "\002\022\r\n\tENERGETIC\020\003\022\n\n\006DROGUE\020\004\022\010\n\004MAIN\020\005\022\013"
+  "\n\007LANDING\020\006"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_event_2eproto_deps[1] = {
 };
@@ -61,7 +69,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_eve
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_event_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_event_2eproto = {
-  false, false, descriptor_table_protodef_event_2eproto, "event.proto", 22,
+  false, false, descriptor_table_protodef_event_2eproto, "event.proto", 171,
   &descriptor_table_event_2eproto_once, descriptor_table_event_2eproto_sccs, descriptor_table_event_2eproto_deps, 1, 0,
   schemas, file_default_instances, TableStruct_event_2eproto::offsets,
   file_level_metadata_event_2eproto, 1, file_level_enum_descriptors_event_2eproto, file_level_service_descriptors_event_2eproto,
@@ -69,6 +77,25 @@ const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_event_
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_event_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_event_2eproto)), true);
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EventType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_event_2eproto);
+  return file_level_enum_descriptors_event_2eproto[0];
+}
+bool EventType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -76,6 +103,16 @@ void Event::InitAsDefaultInstance() {
 }
 class Event::_Internal {
  public:
+  using HasBits = decltype(std::declval<Event>()._has_bits_);
+  static void set_has_timestamp(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static bool MissingRequiredFields(const HasBits& has_bits) {
+    return ((has_bits[0] & 0x00000003) ^ 0x00000003) != 0;
+  }
 };
 
 Event::Event(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -85,12 +122,19 @@ Event::Event(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   // @@protoc_insertion_point(arena_constructor:Event)
 }
 Event::Event(const Event& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&timestamp_, &from.timestamp_,
+    static_cast<size_t>(reinterpret_cast<char*>(&type_) -
+    reinterpret_cast<char*>(&timestamp_)) + sizeof(type_));
   // @@protoc_insertion_point(copy_constructor:Event)
 }
 
 void Event::SharedCtor() {
+  ::memset(&timestamp_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&type_) -
+      reinterpret_cast<char*>(&timestamp_)) + sizeof(type_));
 }
 
 Event::~Event() {
@@ -124,16 +168,47 @@ void Event::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&timestamp_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&type_) -
+        reinterpret_cast<char*>(&timestamp_)) + sizeof(type_));
+  }
+  _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* Event::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
   ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
+    switch (tag >> 3) {
+      // required uint32 timestamp = 1 [default = 0];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_timestamp(&has_bits);
+          timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required .EventType type = 2 [default = BAD];
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::EventType_IsValid(val))) {
+            _internal_set_type(static_cast<::EventType>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(2, val, mutable_unknown_fields());
+          }
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
           ctx->SetLastTag(tag);
           goto success;
@@ -143,8 +218,11 @@ const char* Event::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inte
             ptr, ctx);
         CHK_(ptr != nullptr);
         continue;
+      }
+    }  // switch
   }  // while
 success:
+  _has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -158,6 +236,20 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  cached_has_bits = _has_bits_[0];
+  // required uint32 timestamp = 1 [default = 0];
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_timestamp(), target);
+  }
+
+  // required .EventType type = 2 [default = BAD];
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      2, this->_internal_type(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -166,10 +258,42 @@ failure:
   return target;
 }
 
+size_t Event::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:Event)
+  size_t total_size = 0;
+
+  if (_internal_has_timestamp()) {
+    // required uint32 timestamp = 1 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_timestamp());
+  }
+
+  if (_internal_has_type()) {
+    // required .EventType type = 2 [default = BAD];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_type());
+  }
+
+  return total_size;
+}
 size_t Event::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:Event)
   size_t total_size = 0;
 
+  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required uint32 timestamp = 1 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_timestamp());
+
+    // required .EventType type = 2 [default = BAD];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_type());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -205,6 +329,16 @@ void Event::MergeFrom(const Event& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      timestamp_ = from.timestamp_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      type_ = from.type_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
 }
 
 void Event::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -222,12 +356,20 @@ void Event::CopyFrom(const Event& from) {
 }
 
 bool Event::IsInitialized() const {
+  if (_Internal::MissingRequiredFields(_has_bits_)) return false;
   return true;
 }
 
 void Event::InternalSwap(Event* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Event, type_)
+      + sizeof(Event::type_)
+      - PROTOBUF_FIELD_OFFSET(Event, timestamp_)>(
+          reinterpret_cast<char*>(&timestamp_),
+          reinterpret_cast<char*>(&other->timestamp_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Event::GetMetadata() const {

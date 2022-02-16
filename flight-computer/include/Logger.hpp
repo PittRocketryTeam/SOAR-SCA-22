@@ -5,17 +5,30 @@
 #include "Sensor.hpp"
 #include <SPI.h>
 #include <SD.h>
-#include <TimeLib.h>
+//#include <TimeLib.h>
 #include "State.hpp"
 
 //#define BUILTIN_SDCARD 254
+
+#define NUM_SNAPSHOTS 100
+#define BUFFER_SIZE 8192
+#define FAT_FILENAME_LEN 12
+#ifdef TEENSY_36
+#define SD_CHIP_SELECT 62 // internal pin
+#else
+#define SD_CHIP_SELECT 44 // TODO change
+#endif
+#define JOURNAL_FILENAME "JRNL"
 
 class Logger
 {
     public:
 
-        Logger();
-        ~Logger();
+        Logger() : 
+            snapshot_ptr(nullptr)
+        {
+
+        }
 
         /**
          * Initialize the logger. Returns false if the initialization fails for 
@@ -33,8 +46,6 @@ class Logger
         void reopen();
         void close();
         void flush();
-
-        //virtual bool writeToMemory(Data);
         void write(State*);
 
     private:
@@ -45,15 +56,14 @@ class Logger
          * 
          * Example log filename: Monday_10-07-2019_03:26:41.log
         */
-        //virtual void generateFilename();
         void genUniqueFn();
 
-        static time_t getTeensy3Time();
+        //static time_t getTeensy3Time();
 
-        State snapshot[100];
-        State* snp;
-        char filename[128];
-        char buffer[8192];
+        State* snapshot_ptr;
+        State snapshot[NUM_SNAPSHOTS];
+        char filename[FAT_FILENAME_LEN];
+        char buffer[BUFFER_SIZE];
         char* bp;
         File handle;
 };

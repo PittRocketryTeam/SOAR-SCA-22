@@ -31,6 +31,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -61,6 +62,34 @@ PROTOBUF_NAMESPACE_OPEN
 template<> ::Event* Arena::CreateMaybeMessage<::Event>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 
+enum EventType : int {
+  BAD = 0,
+  LAUNCH = 1,
+  APOGEE = 2,
+  ENERGETIC = 3,
+  DROGUE = 4,
+  MAIN = 5,
+  LANDING = 6
+};
+bool EventType_IsValid(int value);
+constexpr EventType EventType_MIN = BAD;
+constexpr EventType EventType_MAX = LANDING;
+constexpr int EventType_ARRAYSIZE = EventType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EventType_descriptor();
+template<typename T>
+inline const std::string& EventType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EventType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EventType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EventType_descriptor(), enum_t_value);
+}
+inline bool EventType_Parse(
+    const std::string& name, EventType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EventType>(
+    EventType_descriptor(), name, value);
+}
 // ===================================================================
 
 class Event PROTOBUF_FINAL :
@@ -182,14 +211,50 @@ class Event PROTOBUF_FINAL :
 
   // accessors -------------------------------------------------------
 
+  enum : int {
+    kTimestampFieldNumber = 1,
+    kTypeFieldNumber = 2,
+  };
+  // required uint32 timestamp = 1 [default = 0];
+  bool has_timestamp() const;
+  private:
+  bool _internal_has_timestamp() const;
+  public:
+  void clear_timestamp();
+  ::PROTOBUF_NAMESPACE_ID::uint32 timestamp() const;
+  void set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_timestamp() const;
+  void _internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // required .EventType type = 2 [default = BAD];
+  bool has_type() const;
+  private:
+  bool _internal_has_type() const;
+  public:
+  void clear_type();
+  ::EventType type() const;
+  void set_type(::EventType value);
+  private:
+  ::EventType _internal_type() const;
+  void _internal_set_type(::EventType value);
+  public:
+
   // @@protoc_insertion_point(class_scope:Event)
  private:
   class _Internal;
 
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 timestamp_;
+  int type_;
   friend struct ::TableStruct_event_2eproto;
 };
 // ===================================================================
@@ -203,12 +268,79 @@ class Event PROTOBUF_FINAL :
 #endif  // __GNUC__
 // Event
 
+// required uint32 timestamp = 1 [default = 0];
+inline bool Event::_internal_has_timestamp() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool Event::has_timestamp() const {
+  return _internal_has_timestamp();
+}
+inline void Event::clear_timestamp() {
+  timestamp_ = 0u;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Event::_internal_timestamp() const {
+  return timestamp_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Event::timestamp() const {
+  // @@protoc_insertion_point(field_get:Event.timestamp)
+  return _internal_timestamp();
+}
+inline void Event::_internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  timestamp_ = value;
+}
+inline void Event::set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:Event.timestamp)
+}
+
+// required .EventType type = 2 [default = BAD];
+inline bool Event::_internal_has_type() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool Event::has_type() const {
+  return _internal_has_type();
+}
+inline void Event::clear_type() {
+  type_ = 0;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::EventType Event::_internal_type() const {
+  return static_cast< ::EventType >(type_);
+}
+inline ::EventType Event::type() const {
+  // @@protoc_insertion_point(field_get:Event.type)
+  return _internal_type();
+}
+inline void Event::_internal_set_type(::EventType value) {
+  assert(::EventType_IsValid(value));
+  _has_bits_[0] |= 0x00000002u;
+  type_ = value;
+}
+inline void Event::set_type(::EventType value) {
+  _internal_set_type(value);
+  // @@protoc_insertion_point(field_set:Event.type)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
 
 // @@protoc_insertion_point(namespace_scope)
 
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::EventType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EventType>() {
+  return ::EventType_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 

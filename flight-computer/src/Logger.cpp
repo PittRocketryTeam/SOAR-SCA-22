@@ -5,22 +5,11 @@
 #include <cstring>
 #include <Arduino.h>
 
-int chipSelect = 44; // TODO change
-
-Logger::Logger()
-{
-
-}
-
-Logger::~Logger()
-{
-
-}
-
 bool Logger::init()
 {
-    snp = snapshot;
+    snapshot_ptr = snapshot;
     bp = buffer;
+
     // Initialize RTC
     /*setSyncProvider(getTeensy3Time);
     delay(100);
@@ -38,9 +27,8 @@ bool Logger::init()
         // pin mapping magic
         SPI.setMOSI(7);
         SPI.setMISO(8);
-        chipSelect = 62; // internal pin
 #endif /* TEENSY_36 */
-        int status = SD.begin(chipSelect);
+        int status = SD.begin(SD_CHIP_SELECT);
         if (status)
         {
             break;
@@ -69,9 +57,9 @@ void Logger::genUniqueFn()
 {
     int log_num = 1;
 
-    if (SD.exists("JRNL"))
+    if (SD.exists(JOURNAL_FILENAME))
     {
-        handle = SD.open("JRNL", FILE_READ);
+        handle = SD.open(JOURNAL_FILENAME, FILE_READ);
         delay(100);
         char bf[100];
         size_t r = handle.readBytes(bf, 100);
@@ -84,7 +72,7 @@ void Logger::genUniqueFn()
         delay(100);
     }
 
-    handle = SD.open("JRNL", FILE_WRITE);
+    handle = SD.open(JOURNAL_FILENAME, FILE_WRITE);
     if (handle)
     {
         handle.seek(0);
@@ -189,13 +177,13 @@ void Logger::write(State* st)
         memset(buffer,0,8192);
     }*/
 
-    //Serial.println((int)(snp - snapshot));
-    memcpy(snp, st, sizeof(State));
-    ++snp;
-    if ((snp - snapshot) >= 100)
+    //Serial.println((int)(snapshot_ptr - snapshot));
+    memcpy(snapshot_ptr, st, sizeof(State));
+    ++snapshot_ptr;
+    if ((snapshot_ptr - snapshot) >= NUM_SNAPSHOTS)
     {
         flush();
-        snp = snapshot;
+        snapshot_ptr = snapshot;
     }
 }
 
@@ -207,38 +195,44 @@ void Logger::flush()
         return;
     }
 
+    State* st;
+    for (int i = 0; i < NUM_SNAPSHOTS; ++i)
+    {
+        st = &snapshot[i];
+    }
+
     //handle.printf("%s", buffer);
     // for (int i = 0; i < 100; ++i)
     // {
     //     State* st = &snapshot[i];
     //     handle.printf(
-    //     "%ld,%d,,%f,%f,%f,,%f,%f,%f,,%f,%f,%d,,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n",
-    //     st->ts,
-    //     st->fcmode,
+        //     "%ld,%d,,%f,%f,%f,,%f,%f,%f,,%f,%f,%d,,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n",
+        //     st->ts,
+        //     st->fcmode,
 
-    //     st->vbat,
-    //     st->ibat,
-    //     st->tbat,
+        //     st->vbat,
+        //     st->ibat,
+        //     st->tbat,
 
-    //     st->altitude,
-    //     st->pressure,
-    //     st->temp,
+        //     st->altitude,
+        //     st->pressure,
+        //     st->temp,
 
-    //     st->lon,
-    //     st->lat,
-    //     st->nsats,
+        //     st->lon,
+        //     st->lat,
+        //     st->nsats,
 
-    //     st->ax,
-    //     st->ay,
-    //     st->az,
-    //     st->wx,
-    //     st->wy,
-    //     st->wz,
-    //     st->qx,
-    //     st->qy,
-    //     st->qz,
-    //     st->qw
-    // );
+        //     st->ax,
+        //     st->ay,
+        //     st->az,
+        //     st->wx,
+        //     st->wy,
+        //     st->wz,
+        //     st->qx,
+        //     st->qy,
+        //     st->qz,
+        //     st->qw
+        // );
     // }
     handle.flush();
 }
@@ -260,7 +254,7 @@ void Logger::close()
     }
 }
 
-time_t Logger::getTeensy3Time()
-{
-    return Teensy3Clock.get();
-}
+// time_t Logger::getTeensy3Time()
+// {
+//     return Teensy3Clock.get();
+// }

@@ -1,5 +1,18 @@
 syntax = "proto2";
 
-message Event {
+enum EventType
+{
+    IDLE = 0;
+    LAUNCH = 1;
+    APOGEE = 2;
+    ENERGETIC = 3;
+    DROGUE = 4;
+    MAIN = 5;
+    LANDING = 6;
+    STARTUP = 7;
+}
 
+message Event {
+    required uint32 timestamp = 1 [default = 0];
+    required EventType type = 2 [default = IDLE];
 }
