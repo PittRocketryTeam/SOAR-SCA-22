@@ -88,40 +88,18 @@ void GPS::internal_read()
 
 void GPS::read(State* st)
 {
-    /*data.gpsData.time = my_time;
-    data.gpsData.latitude = my_lat;
-    data.gpsData.lat_direction = my_lat_direction;
-    data.gpsData.longitude = my_lon;
-    data.gpsData.long_direction = my_long_direction;
-    data.gpsData.fix_quality = my_fix_quality;
-    data.gpsData.number_of_satellites = my_number_of_satellites;
-    data.gpsData.hdop = my_hdop;
-    data.gpsData.altitude = my_alt;
-    data.gpsData.rssi = my_rssi;*/
 }
 
 void GPS::poll(State* st)
 {
-    //if (gps.newNMEAreceived())
-    {
-        //Error::on(WERE_SCREWED);
-        gps.parse(gps.lastNMEA());
-    }
+    gps.parse(gps.lastNMEA());
 
-    st->lon = gps.longitude;
-    st->lat = gps.latitude;
-    st->nsats = gps.satellites;
+    auto orientation = st->getOrientationPkt();
+    orientation.set_lat(gps.latitude);
+    orientation.set_lon(gps.longitude);
 
-    /*my_fix_quality = gps.fixquality;
-    my_time = gps.seconds;
-    my_number_of_satellites = gps.satellites;
-    my_lat = gps.latitude;
-    my_lon = gps.longitude;
-    my_alt = gps.altitude;
-    //my_rssi = atoi(gps.lastNMEA());
-    my_hdop = gps.HDOP;*/
-
-    read(st);
+    auto health = st->getHealthPkt();
+    health.set_sats(gps.satellites);
 }
 
 void GPS::enable()

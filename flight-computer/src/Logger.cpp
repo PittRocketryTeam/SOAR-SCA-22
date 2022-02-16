@@ -208,38 +208,38 @@ void Logger::flush()
     }
 
     //handle.printf("%s", buffer);
-    for (int i = 0; i < 100; ++i)
-    {
-        State* st = &snapshot[i];
-        handle.printf(
-        "%ld,%d,,%f,%f,%f,,%f,%f,%f,,%f,%f,%d,,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n",
-        st->ts,
-        st->fcmode,
+    // for (int i = 0; i < 100; ++i)
+    // {
+    //     State* st = &snapshot[i];
+    //     handle.printf(
+    //     "%ld,%d,,%f,%f,%f,,%f,%f,%f,,%f,%f,%d,,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n",
+    //     st->ts,
+    //     st->fcmode,
 
-        st->vbat,
-        st->ibat,
-        st->tbat,
+    //     st->vbat,
+    //     st->ibat,
+    //     st->tbat,
 
-        st->altitude,
-        st->pressure,
-        st->temp,
+    //     st->altitude,
+    //     st->pressure,
+    //     st->temp,
 
-        st->lon,
-        st->lat,
-        st->nsats,
+    //     st->lon,
+    //     st->lat,
+    //     st->nsats,
 
-        st->ax,
-        st->ay,
-        st->az,
-        st->wx,
-        st->wy,
-        st->wz,
-        st->qx,
-        st->qy,
-        st->qz,
-        st->qw
-    );
-    }
+    //     st->ax,
+    //     st->ay,
+    //     st->az,
+    //     st->wx,
+    //     st->wy,
+    //     st->wz,
+    //     st->qx,
+    //     st->qy,
+    //     st->qz,
+    //     st->qw
+    // );
+    // }
     handle.flush();
 }
 

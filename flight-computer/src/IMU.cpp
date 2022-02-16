@@ -66,31 +66,9 @@ void IMU::poll(State* st)
 {
     sensor.getEvent(&event);
 
-    //ox = event.orientation.x;
-    //oy = event.orientation.y;
-    //oz = event.orientation.z;
-    //ox = oy = oz = 69.0f;
-    /*o = sensor.getVector(Adafruit_BNO055::VECTOR_EULER);
-    ox = (float)o.x();
-    oy = (float)o.y();
-    oz = (float)o.z();*/
-
     a = sensor.getVector(Adafruit_BNO055::VECTOR_ACCELEROMETER);
     w = sensor.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
     q = sensor.getQuat();
-
-    // Serial.print(ox);
-    // Serial.print(", ");
-    // Serial.print(oy);
-    // Serial.print(", ");
-    // Serial.print(oz);
-    // Serial.println("");
-
-    //ax = event.acceleration.x;
-    //ay = event.acceleration.y;
-    //az = event.acceleration.z;
-
-    //last_data = data;
 
     read(st);
 }
