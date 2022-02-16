@@ -1,12 +1,20 @@
 syntax = "proto2";
 
 message Orientation {
-    repeated sint32 quat = 1;
-    repeated sint32 euler = 2;
-    repeated sint32 omega = 3;
-    repeated sint32 accel = 4;
-    repeated sint32 magneto = 5;
-    optional sint32 lon = 6 [default = 0];
-    optional sint32 lat = 7 [default = 0];
-    optional sint32 alt = 8 [default = 0];
+    required sint32 quat_x = 1;
+    required sint32 quat_y = 2;
+    required sint32 quat_z = 3;
+    required sint32 quat_w = 4;
+    required sint32 euler_x = 5;
+    required sint32 euler_y = 6;
+    required sint32 euler_z = 7;
+    required sint32 omega_x = 8;
+    required sint32 omega_y = 9;
+    required sint32 omega_z = 10;
+    required sint32 accel_x = 11;
+    required sint32 accel_y = 12;
+    required sint32 accel_z = 13;
+    required sint32 lon = 14 [default = 0];
+    required sint32 lat = 15 [default = 0];
+    required sint32 alt = 16 [default = 0];
 }

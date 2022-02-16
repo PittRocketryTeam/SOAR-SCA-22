@@ -49,18 +49,17 @@ void IMU::init()
 
 void IMU::read(State* st)
 {
-    st->ax = a.x();
-    st->ay = a.y();
-    st->az = a.z();
-
-    st->wx = w.x();
-    st->wy = w.y();
-    st->wz = w.z();
-
-    st->qx = q.x();
-    st->qy = q.y();
-    st->qz = q.z();
-    st->qw = q.w();
+    auto orientation = st->getOrientationPkt();
+    orientation.set_accel_x(a.x());
+    orientation.set_accel_y(a.y());
+    orientation.set_accel_z(a.z());
+    orientation.set_omega_x(w.x());
+    orientation.set_omega_y(w.y());
+    orientation.set_omega_z(w.z());
+    orientation.set_quat_x(q.x());
+    orientation.set_quat_y(q.y());
+    orientation.set_quat_z(q.z());
+    orientation.set_quat_w(q.w());
 }
 
 void IMU::poll(State* st)

@@ -45,22 +45,25 @@
 // Include external proto definitions
 
 
-template<uint32_t quat_REP_LENGTH, 
-uint32_t euler_REP_LENGTH, 
-uint32_t omega_REP_LENGTH, 
-uint32_t accel_REP_LENGTH, 
-uint32_t magneto_REP_LENGTH>
 class Orientation final: public ::EmbeddedProto::MessageInterface
 {
   public:
     Orientation() = default;
     Orientation(const Orientation& rhs )
     {
-      set_quat(rhs.get_quat());
-      set_euler(rhs.get_euler());
-      set_omega(rhs.get_omega());
-      set_accel(rhs.get_accel());
-      set_magneto(rhs.get_magneto());
+      set_quat_x(rhs.get_quat_x());
+      set_quat_y(rhs.get_quat_y());
+      set_quat_z(rhs.get_quat_z());
+      set_quat_w(rhs.get_quat_w());
+      set_euler_x(rhs.get_euler_x());
+      set_euler_y(rhs.get_euler_y());
+      set_euler_z(rhs.get_euler_z());
+      set_omega_x(rhs.get_omega_x());
+      set_omega_y(rhs.get_omega_y());
+      set_omega_z(rhs.get_omega_z());
+      set_accel_x(rhs.get_accel_x());
+      set_accel_y(rhs.get_accel_y());
+      set_accel_z(rhs.get_accel_z());
       set_lon(rhs.get_lon());
       set_lat(rhs.get_lat());
       set_alt(rhs.get_alt());
@@ -68,11 +71,19 @@ class Orientation final: public ::EmbeddedProto::MessageInterface
 
     Orientation(const Orientation&& rhs ) noexcept
     {
-      set_quat(rhs.get_quat());
-      set_euler(rhs.get_euler());
-      set_omega(rhs.get_omega());
-      set_accel(rhs.get_accel());
-      set_magneto(rhs.get_magneto());
+      set_quat_x(rhs.get_quat_x());
+      set_quat_y(rhs.get_quat_y());
+      set_quat_z(rhs.get_quat_z());
+      set_quat_w(rhs.get_quat_w());
+      set_euler_x(rhs.get_euler_x());
+      set_euler_y(rhs.get_euler_y());
+      set_euler_z(rhs.get_euler_z());
+      set_omega_x(rhs.get_omega_x());
+      set_omega_y(rhs.get_omega_y());
+      set_omega_z(rhs.get_omega_z());
+      set_accel_x(rhs.get_accel_x());
+      set_accel_y(rhs.get_accel_y());
+      set_accel_z(rhs.get_accel_z());
       set_lon(rhs.get_lon());
       set_lat(rhs.get_lat());
       set_alt(rhs.get_alt());
@@ -83,23 +94,39 @@ class Orientation final: public ::EmbeddedProto::MessageInterface
     enum class id : uint32_t
     {
       NOT_SET = 0,
-      QUAT = 1,
-      EULER = 2,
-      OMEGA = 3,
-      ACCEL = 4,
-      MAGNETO = 5,
-      LON = 6,
-      LAT = 7,
-      ALT = 8
+      QUAT_X = 1,
+      QUAT_Y = 2,
+      QUAT_Z = 3,
+      QUAT_W = 4,
+      EULER_X = 5,
+      EULER_Y = 6,
+      EULER_Z = 7,
+      OMEGA_X = 8,
+      OMEGA_Y = 9,
+      OMEGA_Z = 10,
+      ACCEL_X = 11,
+      ACCEL_Y = 12,
+      ACCEL_Z = 13,
+      LON = 14,
+      LAT = 15,
+      ALT = 16
     };
 
     Orientation& operator=(const Orientation& rhs)
     {
-      set_quat(rhs.get_quat());
-      set_euler(rhs.get_euler());
-      set_omega(rhs.get_omega());
-      set_accel(rhs.get_accel());
-      set_magneto(rhs.get_magneto());
+      set_quat_x(rhs.get_quat_x());
+      set_quat_y(rhs.get_quat_y());
+      set_quat_z(rhs.get_quat_z());
+      set_quat_w(rhs.get_quat_w());
+      set_euler_x(rhs.get_euler_x());
+      set_euler_y(rhs.get_euler_y());
+      set_euler_z(rhs.get_euler_z());
+      set_omega_x(rhs.get_omega_x());
+      set_omega_y(rhs.get_omega_y());
+      set_omega_z(rhs.get_omega_z());
+      set_accel_x(rhs.get_accel_x());
+      set_accel_y(rhs.get_accel_y());
+      set_accel_z(rhs.get_accel_z());
       set_lon(rhs.get_lon());
       set_lat(rhs.get_lat());
       set_alt(rhs.get_alt());
@@ -108,71 +135,115 @@ class Orientation final: public ::EmbeddedProto::MessageInterface
 
     Orientation& operator=(const Orientation&& rhs) noexcept
     {
-      set_quat(rhs.get_quat());
-      set_euler(rhs.get_euler());
-      set_omega(rhs.get_omega());
-      set_accel(rhs.get_accel());
-      set_magneto(rhs.get_magneto());
+      set_quat_x(rhs.get_quat_x());
+      set_quat_y(rhs.get_quat_y());
+      set_quat_z(rhs.get_quat_z());
+      set_quat_w(rhs.get_quat_w());
+      set_euler_x(rhs.get_euler_x());
+      set_euler_y(rhs.get_euler_y());
+      set_euler_z(rhs.get_euler_z());
+      set_omega_x(rhs.get_omega_x());
+      set_omega_y(rhs.get_omega_y());
+      set_omega_z(rhs.get_omega_z());
+      set_accel_x(rhs.get_accel_x());
+      set_accel_y(rhs.get_accel_y());
+      set_accel_z(rhs.get_accel_z());
       set_lon(rhs.get_lon());
       set_lat(rhs.get_lat());
       set_alt(rhs.get_alt());
       return *this;
     }
 
-    inline const EmbeddedProto::sint32& quat(uint32_t index) const { return quat_[index]; }
-    inline void clear_quat() { quat_.clear(); }
-    inline void set_quat(uint32_t index, const EmbeddedProto::sint32& value) { quat_.set(index, value); }
-    inline void set_quat(uint32_t index, const EmbeddedProto::sint32&& value) { quat_.set(index, value); }
-    inline void set_quat(const ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, quat_REP_LENGTH>& values) { quat_ = values; }
-    inline void add_quat(const EmbeddedProto::sint32& value) { quat_.add(value); }
-    inline ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, quat_REP_LENGTH>& mutable_quat() { return quat_; }
-    inline EmbeddedProto::sint32& mutable_quat(uint32_t index) { return quat_[index]; }
-    inline const ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, quat_REP_LENGTH>& get_quat() const { return quat_; }
-    inline const ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, quat_REP_LENGTH>& quat() const { return quat_; }
+    inline void clear_quat_x() { quat_x_.clear(); }
+    inline void set_quat_x(const EmbeddedProto::sint32& value) { quat_x_ = value; }
+    inline void set_quat_x(const EmbeddedProto::sint32&& value) { quat_x_ = value; }
+    inline EmbeddedProto::sint32& mutable_quat_x() { return quat_x_; }
+    inline const EmbeddedProto::sint32& get_quat_x() const { return quat_x_; }
+    inline EmbeddedProto::sint32::FIELD_TYPE quat_x() const { return quat_x_.get(); }
 
-    inline const EmbeddedProto::sint32& euler(uint32_t index) const { return euler_[index]; }
-    inline void clear_euler() { euler_.clear(); }
-    inline void set_euler(uint32_t index, const EmbeddedProto::sint32& value) { euler_.set(index, value); }
-    inline void set_euler(uint32_t index, const EmbeddedProto::sint32&& value) { euler_.set(index, value); }
-    inline void set_euler(const ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, euler_REP_LENGTH>& values) { euler_ = values; }
-    inline void add_euler(const EmbeddedProto::sint32& value) { euler_.add(value); }
-    inline ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, euler_REP_LENGTH>& mutable_euler() { return euler_; }
-    inline EmbeddedProto::sint32& mutable_euler(uint32_t index) { return euler_[index]; }
-    inline const ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, euler_REP_LENGTH>& get_euler() const { return euler_; }
-    inline const ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, euler_REP_LENGTH>& euler() const { return euler_; }
+    inline void clear_quat_y() { quat_y_.clear(); }
+    inline void set_quat_y(const EmbeddedProto::sint32& value) { quat_y_ = value; }
+    inline void set_quat_y(const EmbeddedProto::sint32&& value) { quat_y_ = value; }
+    inline EmbeddedProto::sint32& mutable_quat_y() { return quat_y_; }
+    inline const EmbeddedProto::sint32& get_quat_y() const { return quat_y_; }
+    inline EmbeddedProto::sint32::FIELD_TYPE quat_y() const { return quat_y_.get(); }
 
-    inline const EmbeddedProto::sint32& omega(uint32_t index) const { return omega_[index]; }
-    inline void clear_omega() { omega_.clear(); }
-    inline void set_omega(uint32_t index, const EmbeddedProto::sint32& value) { omega_.set(index, value); }
-    inline void set_omega(uint32_t index, const EmbeddedProto::sint32&& value) { omega_.set(index, value); }
-    inline void set_omega(const ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, omega_REP_LENGTH>& values) { omega_ = values; }
-    inline void add_omega(const EmbeddedProto::sint32& value) { omega_.add(value); }
-    inline ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, omega_REP_LENGTH>& mutable_omega() { return omega_; }
-    inline EmbeddedProto::sint32& mutable_omega(uint32_t index) { return omega_[index]; }
-    inline const ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, omega_REP_LENGTH>& get_omega() const { return omega_; }
-    inline const ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, omega_REP_LENGTH>& omega() const { return omega_; }
+    inline void clear_quat_z() { quat_z_.clear(); }
+    inline void set_quat_z(const EmbeddedProto::sint32& value) { quat_z_ = value; }
+    inline void set_quat_z(const EmbeddedProto::sint32&& value) { quat_z_ = value; }
+    inline EmbeddedProto::sint32& mutable_quat_z() { return quat_z_; }
+    inline const EmbeddedProto::sint32& get_quat_z() const { return quat_z_; }
+    inline EmbeddedProto::sint32::FIELD_TYPE quat_z() const { return quat_z_.get(); }
 
-    inline const EmbeddedProto::sint32& accel(uint32_t index) const { return accel_[index]; }
-    inline void clear_accel() { accel_.clear(); }
-    inline void set_accel(uint32_t index, const EmbeddedProto::sint32& value) { accel_.set(index, value); }
-    inline void set_accel(uint32_t index, const EmbeddedProto::sint32&& value) { accel_.set(index, value); }
-    inline void set_accel(const ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, accel_REP_LENGTH>& values) { accel_ = values; }
-    inline void add_accel(const EmbeddedProto::sint32& value) { accel_.add(value); }
-    inline ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, accel_REP_LENGTH>& mutable_accel() { return accel_; }
-    inline EmbeddedProto::sint32& mutable_accel(uint32_t index) { return accel_[index]; }
-    inline const ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, accel_REP_LENGTH>& get_accel() const { return accel_; }
-    inline const ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, accel_REP_LENGTH>& accel() const { return accel_; }
+    inline void clear_quat_w() { quat_w_.clear(); }
+    inline void set_quat_w(const EmbeddedProto::sint32& value) { quat_w_ = value; }
+    inline void set_quat_w(const EmbeddedProto::sint32&& value) { quat_w_ = value; }
+    inline EmbeddedProto::sint32& mutable_quat_w() { return quat_w_; }
+    inline const EmbeddedProto::sint32& get_quat_w() const { return quat_w_; }
+    inline EmbeddedProto::sint32::FIELD_TYPE quat_w() const { return quat_w_.get(); }
 
-    inline const EmbeddedProto::sint32& magneto(uint32_t index) const { return magneto_[index]; }
-    inline void clear_magneto() { magneto_.clear(); }
-    inline void set_magneto(uint32_t index, const EmbeddedProto::sint32& value) { magneto_.set(index, value); }
-    inline void set_magneto(uint32_t index, const EmbeddedProto::sint32&& value) { magneto_.set(index, value); }
-    inline void set_magneto(const ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, magneto_REP_LENGTH>& values) { magneto_ = values; }
-    inline void add_magneto(const EmbeddedProto::sint32& value) { magneto_.add(value); }
-    inline ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, magneto_REP_LENGTH>& mutable_magneto() { return magneto_; }
-    inline EmbeddedProto::sint32& mutable_magneto(uint32_t index) { return magneto_[index]; }
-    inline const ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, magneto_REP_LENGTH>& get_magneto() const { return magneto_; }
-    inline const ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, magneto_REP_LENGTH>& magneto() const { return magneto_; }
+    inline void clear_euler_x() { euler_x_.clear(); }
+    inline void set_euler_x(const EmbeddedProto::sint32& value) { euler_x_ = value; }
+    inline void set_euler_x(const EmbeddedProto::sint32&& value) { euler_x_ = value; }
+    inline EmbeddedProto::sint32& mutable_euler_x() { return euler_x_; }
+    inline const EmbeddedProto::sint32& get_euler_x() const { return euler_x_; }
+    inline EmbeddedProto::sint32::FIELD_TYPE euler_x() const { return euler_x_.get(); }
+
+    inline void clear_euler_y() { euler_y_.clear(); }
+    inline void set_euler_y(const EmbeddedProto::sint32& value) { euler_y_ = value; }
+    inline void set_euler_y(const EmbeddedProto::sint32&& value) { euler_y_ = value; }
+    inline EmbeddedProto::sint32& mutable_euler_y() { return euler_y_; }
+    inline const EmbeddedProto::sint32& get_euler_y() const { return euler_y_; }
+    inline EmbeddedProto::sint32::FIELD_TYPE euler_y() const { return euler_y_.get(); }
+
+    inline void clear_euler_z() { euler_z_.clear(); }
+    inline void set_euler_z(const EmbeddedProto::sint32& value) { euler_z_ = value; }
+    inline void set_euler_z(const EmbeddedProto::sint32&& value) { euler_z_ = value; }
+    inline EmbeddedProto::sint32& mutable_euler_z() { return euler_z_; }
+    inline const EmbeddedProto::sint32& get_euler_z() const { return euler_z_; }
+    inline EmbeddedProto::sint32::FIELD_TYPE euler_z() const { return euler_z_.get(); }
+
+    inline void clear_omega_x() { omega_x_.clear(); }
+    inline void set_omega_x(const EmbeddedProto::sint32& value) { omega_x_ = value; }
+    inline void set_omega_x(const EmbeddedProto::sint32&& value) { omega_x_ = value; }
+    inline EmbeddedProto::sint32& mutable_omega_x() { return omega_x_; }
+    inline const EmbeddedProto::sint32& get_omega_x() const { return omega_x_; }
+    inline EmbeddedProto::sint32::FIELD_TYPE omega_x() const { return omega_x_.get(); }
+
+    inline void clear_omega_y() { omega_y_.clear(); }
+    inline void set_omega_y(const EmbeddedProto::sint32& value) { omega_y_ = value; }
+    inline void set_omega_y(const EmbeddedProto::sint32&& value) { omega_y_ = value; }
+    inline EmbeddedProto::sint32& mutable_omega_y() { return omega_y_; }
+    inline const EmbeddedProto::sint32& get_omega_y() const { return omega_y_; }
+    inline EmbeddedProto::sint32::FIELD_TYPE omega_y() const { return omega_y_.get(); }
+
+    inline void clear_omega_z() { omega_z_.clear(); }
+    inline void set_omega_z(const EmbeddedProto::sint32& value) { omega_z_ = value; }
+    inline void set_omega_z(const EmbeddedProto::sint32&& value) { omega_z_ = value; }
+    inline EmbeddedProto::sint32& mutable_omega_z() { return omega_z_; }
+    inline const EmbeddedProto::sint32& get_omega_z() const { return omega_z_; }
+    inline EmbeddedProto::sint32::FIELD_TYPE omega_z() const { return omega_z_.get(); }
+
+    inline void clear_accel_x() { accel_x_.clear(); }
+    inline void set_accel_x(const EmbeddedProto::sint32& value) { accel_x_ = value; }
+    inline void set_accel_x(const EmbeddedProto::sint32&& value) { accel_x_ = value; }
+    inline EmbeddedProto::sint32& mutable_accel_x() { return accel_x_; }
+    inline const EmbeddedProto::sint32& get_accel_x() const { return accel_x_; }
+    inline EmbeddedProto::sint32::FIELD_TYPE accel_x() const { return accel_x_.get(); }
+
+    inline void clear_accel_y() { accel_y_.clear(); }
+    inline void set_accel_y(const EmbeddedProto::sint32& value) { accel_y_ = value; }
+    inline void set_accel_y(const EmbeddedProto::sint32&& value) { accel_y_ = value; }
+    inline EmbeddedProto::sint32& mutable_accel_y() { return accel_y_; }
+    inline const EmbeddedProto::sint32& get_accel_y() const { return accel_y_; }
+    inline EmbeddedProto::sint32::FIELD_TYPE accel_y() const { return accel_y_.get(); }
+
+    inline void clear_accel_z() { accel_z_.clear(); }
+    inline void set_accel_z(const EmbeddedProto::sint32& value) { accel_z_ = value; }
+    inline void set_accel_z(const EmbeddedProto::sint32&& value) { accel_z_ = value; }
+    inline EmbeddedProto::sint32& mutable_accel_z() { return accel_z_; }
+    inline const EmbeddedProto::sint32& get_accel_z() const { return accel_z_; }
+    inline EmbeddedProto::sint32::FIELD_TYPE accel_z() const { return accel_z_.get(); }
 
     inline void clear_lon() { lon_.clear(); }
     inline void set_lon(const EmbeddedProto::sint32& value) { lon_ = value; }
@@ -200,29 +271,69 @@ class Orientation final: public ::EmbeddedProto::MessageInterface
     {
       ::EmbeddedProto::Error return_value = ::EmbeddedProto::Error::NO_ERRORS;
 
-      if(::EmbeddedProto::Error::NO_ERRORS == return_value)
+      if((0 != quat_x_.get()) && (::EmbeddedProto::Error::NO_ERRORS == return_value))
       {
-        return_value = quat_.serialize_with_id(static_cast<uint32_t>(id::QUAT), buffer);
+        return_value = quat_x_.serialize_with_id(static_cast<uint32_t>(id::QUAT_X), buffer);
       }
 
-      if(::EmbeddedProto::Error::NO_ERRORS == return_value)
+      if((0 != quat_y_.get()) && (::EmbeddedProto::Error::NO_ERRORS == return_value))
       {
-        return_value = euler_.serialize_with_id(static_cast<uint32_t>(id::EULER), buffer);
+        return_value = quat_y_.serialize_with_id(static_cast<uint32_t>(id::QUAT_Y), buffer);
       }
 
-      if(::EmbeddedProto::Error::NO_ERRORS == return_value)
+      if((0 != quat_z_.get()) && (::EmbeddedProto::Error::NO_ERRORS == return_value))
       {
-        return_value = omega_.serialize_with_id(static_cast<uint32_t>(id::OMEGA), buffer);
+        return_value = quat_z_.serialize_with_id(static_cast<uint32_t>(id::QUAT_Z), buffer);
       }
 
-      if(::EmbeddedProto::Error::NO_ERRORS == return_value)
+      if((0 != quat_w_.get()) && (::EmbeddedProto::Error::NO_ERRORS == return_value))
       {
-        return_value = accel_.serialize_with_id(static_cast<uint32_t>(id::ACCEL), buffer);
+        return_value = quat_w_.serialize_with_id(static_cast<uint32_t>(id::QUAT_W), buffer);
       }
 
-      if(::EmbeddedProto::Error::NO_ERRORS == return_value)
+      if((0 != euler_x_.get()) && (::EmbeddedProto::Error::NO_ERRORS == return_value))
       {
-        return_value = magneto_.serialize_with_id(static_cast<uint32_t>(id::MAGNETO), buffer);
+        return_value = euler_x_.serialize_with_id(static_cast<uint32_t>(id::EULER_X), buffer);
+      }
+
+      if((0 != euler_y_.get()) && (::EmbeddedProto::Error::NO_ERRORS == return_value))
+      {
+        return_value = euler_y_.serialize_with_id(static_cast<uint32_t>(id::EULER_Y), buffer);
+      }
+
+      if((0 != euler_z_.get()) && (::EmbeddedProto::Error::NO_ERRORS == return_value))
+      {
+        return_value = euler_z_.serialize_with_id(static_cast<uint32_t>(id::EULER_Z), buffer);
+      }
+
+      if((0 != omega_x_.get()) && (::EmbeddedProto::Error::NO_ERRORS == return_value))
+      {
+        return_value = omega_x_.serialize_with_id(static_cast<uint32_t>(id::OMEGA_X), buffer);
+      }
+
+      if((0 != omega_y_.get()) && (::EmbeddedProto::Error::NO_ERRORS == return_value))
+      {
+        return_value = omega_y_.serialize_with_id(static_cast<uint32_t>(id::OMEGA_Y), buffer);
+      }
+
+      if((0 != omega_z_.get()) && (::EmbeddedProto::Error::NO_ERRORS == return_value))
+      {
+        return_value = omega_z_.serialize_with_id(static_cast<uint32_t>(id::OMEGA_Z), buffer);
+      }
+
+      if((0 != accel_x_.get()) && (::EmbeddedProto::Error::NO_ERRORS == return_value))
+      {
+        return_value = accel_x_.serialize_with_id(static_cast<uint32_t>(id::ACCEL_X), buffer);
+      }
+
+      if((0 != accel_y_.get()) && (::EmbeddedProto::Error::NO_ERRORS == return_value))
+      {
+        return_value = accel_y_.serialize_with_id(static_cast<uint32_t>(id::ACCEL_Y), buffer);
+      }
+
+      if((0 != accel_z_.get()) && (::EmbeddedProto::Error::NO_ERRORS == return_value))
+      {
+        return_value = accel_z_.serialize_with_id(static_cast<uint32_t>(id::ACCEL_Z), buffer);
       }
 
       if((0 != lon_.get()) && (::EmbeddedProto::Error::NO_ERRORS == return_value))
@@ -256,24 +367,56 @@ class Orientation final: public ::EmbeddedProto::MessageInterface
         id_tag = static_cast<id>(id_number);
         switch(id_tag)
         {
-          case id::QUAT:
-            return_value = quat_.deserialize_check_type(buffer, wire_type);
+          case id::QUAT_X:
+            return_value = quat_x_.deserialize_check_type(buffer, wire_type);
             break;
 
-          case id::EULER:
-            return_value = euler_.deserialize_check_type(buffer, wire_type);
+          case id::QUAT_Y:
+            return_value = quat_y_.deserialize_check_type(buffer, wire_type);
             break;
 
-          case id::OMEGA:
-            return_value = omega_.deserialize_check_type(buffer, wire_type);
+          case id::QUAT_Z:
+            return_value = quat_z_.deserialize_check_type(buffer, wire_type);
             break;
 
-          case id::ACCEL:
-            return_value = accel_.deserialize_check_type(buffer, wire_type);
+          case id::QUAT_W:
+            return_value = quat_w_.deserialize_check_type(buffer, wire_type);
             break;
 
-          case id::MAGNETO:
-            return_value = magneto_.deserialize_check_type(buffer, wire_type);
+          case id::EULER_X:
+            return_value = euler_x_.deserialize_check_type(buffer, wire_type);
+            break;
+
+          case id::EULER_Y:
+            return_value = euler_y_.deserialize_check_type(buffer, wire_type);
+            break;
+
+          case id::EULER_Z:
+            return_value = euler_z_.deserialize_check_type(buffer, wire_type);
+            break;
+
+          case id::OMEGA_X:
+            return_value = omega_x_.deserialize_check_type(buffer, wire_type);
+            break;
+
+          case id::OMEGA_Y:
+            return_value = omega_y_.deserialize_check_type(buffer, wire_type);
+            break;
+
+          case id::OMEGA_Z:
+            return_value = omega_z_.deserialize_check_type(buffer, wire_type);
+            break;
+
+          case id::ACCEL_X:
+            return_value = accel_x_.deserialize_check_type(buffer, wire_type);
+            break;
+
+          case id::ACCEL_Y:
+            return_value = accel_y_.deserialize_check_type(buffer, wire_type);
+            break;
+
+          case id::ACCEL_Z:
+            return_value = accel_z_.deserialize_check_type(buffer, wire_type);
             break;
 
           case id::LON:
@@ -312,11 +455,19 @@ class Orientation final: public ::EmbeddedProto::MessageInterface
 
     void clear() override
     {
-      clear_quat();
-      clear_euler();
-      clear_omega();
-      clear_accel();
-      clear_magneto();
+      clear_quat_x();
+      clear_quat_y();
+      clear_quat_z();
+      clear_quat_w();
+      clear_euler_x();
+      clear_euler_y();
+      clear_euler_z();
+      clear_omega_x();
+      clear_omega_y();
+      clear_omega_z();
+      clear_accel_x();
+      clear_accel_y();
+      clear_accel_z();
       clear_lon();
       clear_lat();
       clear_alt();
@@ -325,11 +476,19 @@ class Orientation final: public ::EmbeddedProto::MessageInterface
 
     private:
 
-      ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, quat_REP_LENGTH> quat_;
-      ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, euler_REP_LENGTH> euler_;
-      ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, omega_REP_LENGTH> omega_;
-      ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, accel_REP_LENGTH> accel_;
-      ::EmbeddedProto::RepeatedFieldFixedSize<EmbeddedProto::sint32, magneto_REP_LENGTH> magneto_;
+      EmbeddedProto::sint32 quat_x_ = 0;
+      EmbeddedProto::sint32 quat_y_ = 0;
+      EmbeddedProto::sint32 quat_z_ = 0;
+      EmbeddedProto::sint32 quat_w_ = 0;
+      EmbeddedProto::sint32 euler_x_ = 0;
+      EmbeddedProto::sint32 euler_y_ = 0;
+      EmbeddedProto::sint32 euler_z_ = 0;
+      EmbeddedProto::sint32 omega_x_ = 0;
+      EmbeddedProto::sint32 omega_y_ = 0;
+      EmbeddedProto::sint32 omega_z_ = 0;
+      EmbeddedProto::sint32 accel_x_ = 0;
+      EmbeddedProto::sint32 accel_y_ = 0;
+      EmbeddedProto::sint32 accel_z_ = 0;
       EmbeddedProto::sint32 lon_ = 0;
       EmbeddedProto::sint32 lat_ = 0;
       EmbeddedProto::sint32 alt_ = 0;

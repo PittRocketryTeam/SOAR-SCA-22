@@ -43,18 +43,14 @@
 #include <Errors.h>
 
 // Include external proto definitions
-#include <component.h>
 
 
-template<uint32_t name_LENGTH, 
-uint32_t compstat_REP_LENGTH>
 class Health final: public ::EmbeddedProto::MessageInterface
 {
   public:
     Health() = default;
     Health(const Health& rhs )
     {
-      set_name(rhs.get_name());
       set_vbat(rhs.get_vbat());
       set_vreg(rhs.get_vreg());
       set_isys(rhs.get_isys());
@@ -62,13 +58,11 @@ class Health final: public ::EmbeddedProto::MessageInterface
       set_treg(rhs.get_treg());
       set_tamb(rhs.get_tamb());
       set_trad(rhs.get_trad());
-      set_compstat(rhs.get_compstat());
       set_sats(rhs.get_sats());
     }
 
     Health(const Health&& rhs ) noexcept
     {
-      set_name(rhs.get_name());
       set_vbat(rhs.get_vbat());
       set_vreg(rhs.get_vreg());
       set_isys(rhs.get_isys());
@@ -76,7 +70,6 @@ class Health final: public ::EmbeddedProto::MessageInterface
       set_treg(rhs.get_treg());
       set_tamb(rhs.get_tamb());
       set_trad(rhs.get_trad());
-      set_compstat(rhs.get_compstat());
       set_sats(rhs.get_sats());
     }
 
@@ -85,21 +78,18 @@ class Health final: public ::EmbeddedProto::MessageInterface
     enum class id : uint32_t
     {
       NOT_SET = 0,
-      NAME = 1,
-      VBAT = 2,
-      VREG = 3,
-      ISYS = 4,
-      TBAT = 5,
-      TREG = 6,
-      TAMB = 7,
-      TRAD = 8,
-      COMPSTAT = 9,
-      SATS = 10
+      VBAT = 1,
+      VREG = 2,
+      ISYS = 3,
+      TBAT = 4,
+      TREG = 5,
+      TAMB = 6,
+      TRAD = 7,
+      SATS = 8
     };
 
     Health& operator=(const Health& rhs)
     {
-      set_name(rhs.get_name());
       set_vbat(rhs.get_vbat());
       set_vreg(rhs.get_vreg());
       set_isys(rhs.get_isys());
@@ -107,14 +97,12 @@ class Health final: public ::EmbeddedProto::MessageInterface
       set_treg(rhs.get_treg());
       set_tamb(rhs.get_tamb());
       set_trad(rhs.get_trad());
-      set_compstat(rhs.get_compstat());
       set_sats(rhs.get_sats());
       return *this;
     }
 
     Health& operator=(const Health&& rhs) noexcept
     {
-      set_name(rhs.get_name());
       set_vbat(rhs.get_vbat());
       set_vreg(rhs.get_vreg());
       set_isys(rhs.get_isys());
@@ -122,16 +110,9 @@ class Health final: public ::EmbeddedProto::MessageInterface
       set_treg(rhs.get_treg());
       set_tamb(rhs.get_tamb());
       set_trad(rhs.get_trad());
-      set_compstat(rhs.get_compstat());
       set_sats(rhs.get_sats());
       return *this;
     }
-
-    inline void clear_name() { name_.clear(); }
-    inline ::EmbeddedProto::FieldString<name_LENGTH>& mutable_name() { return name_; }
-    inline void set_name(const ::EmbeddedProto::FieldString<name_LENGTH>& rhs) { name_.set(rhs); }
-    inline const ::EmbeddedProto::FieldString<name_LENGTH>& get_name() const { return name_; }
-    inline const char* name() const { return name_.get_const(); }
 
     inline void clear_vbat() { vbat_.clear(); }
     inline void set_vbat(const EmbeddedProto::uint32& value) { vbat_ = value; }
@@ -182,17 +163,6 @@ class Health final: public ::EmbeddedProto::MessageInterface
     inline const EmbeddedProto::uint32& get_trad() const { return trad_; }
     inline EmbeddedProto::uint32::FIELD_TYPE trad() const { return trad_.get(); }
 
-    inline const CompStatus& compstat(uint32_t index) const { return compstat_[index]; }
-    inline void clear_compstat() { compstat_.clear(); }
-    inline void set_compstat(uint32_t index, const CompStatus& value) { compstat_.set(index, value); }
-    inline void set_compstat(uint32_t index, const CompStatus&& value) { compstat_.set(index, value); }
-    inline void set_compstat(const ::EmbeddedProto::RepeatedFieldFixedSize<CompStatus, compstat_REP_LENGTH>& values) { compstat_ = values; }
-    inline void add_compstat(const CompStatus& value) { compstat_.add(value); }
-    inline ::EmbeddedProto::RepeatedFieldFixedSize<CompStatus, compstat_REP_LENGTH>& mutable_compstat() { return compstat_; }
-    inline CompStatus& mutable_compstat(uint32_t index) { return compstat_[index]; }
-    inline const ::EmbeddedProto::RepeatedFieldFixedSize<CompStatus, compstat_REP_LENGTH>& get_compstat() const { return compstat_; }
-    inline const ::EmbeddedProto::RepeatedFieldFixedSize<CompStatus, compstat_REP_LENGTH>& compstat() const { return compstat_; }
-
     inline void clear_sats() { sats_.clear(); }
     inline void set_sats(const EmbeddedProto::uint32& value) { sats_ = value; }
     inline void set_sats(const EmbeddedProto::uint32&& value) { sats_ = value; }
@@ -204,11 +174,6 @@ class Health final: public ::EmbeddedProto::MessageInterface
     ::EmbeddedProto::Error serialize(::EmbeddedProto::WriteBufferInterface& buffer) const override
     {
       ::EmbeddedProto::Error return_value = ::EmbeddedProto::Error::NO_ERRORS;
-
-      if(::EmbeddedProto::Error::NO_ERRORS == return_value)
-      {
-        return_value = name_.serialize_with_id(static_cast<uint32_t>(id::NAME), buffer);
-      }
 
       if((0U != vbat_.get()) && (::EmbeddedProto::Error::NO_ERRORS == return_value))
       {
@@ -245,11 +210,6 @@ class Health final: public ::EmbeddedProto::MessageInterface
         return_value = trad_.serialize_with_id(static_cast<uint32_t>(id::TRAD), buffer);
       }
 
-      if(::EmbeddedProto::Error::NO_ERRORS == return_value)
-      {
-        return_value = compstat_.serialize_with_id(static_cast<uint32_t>(id::COMPSTAT), buffer);
-      }
-
       if((0U != sats_.get()) && (::EmbeddedProto::Error::NO_ERRORS == return_value))
       {
         return_value = sats_.serialize_with_id(static_cast<uint32_t>(id::SATS), buffer);
@@ -271,10 +231,6 @@ class Health final: public ::EmbeddedProto::MessageInterface
         id_tag = static_cast<id>(id_number);
         switch(id_tag)
         {
-          case id::NAME:
-            return_value = name_.deserialize_check_type(buffer, wire_type);
-            break;
-
           case id::VBAT:
             return_value = vbat_.deserialize_check_type(buffer, wire_type);
             break;
@@ -301,10 +257,6 @@ class Health final: public ::EmbeddedProto::MessageInterface
 
           case id::TRAD:
             return_value = trad_.deserialize_check_type(buffer, wire_type);
-            break;
-
-          case id::COMPSTAT:
-            return_value = compstat_.deserialize_check_type(buffer, wire_type);
             break;
 
           case id::SATS:
@@ -335,7 +287,6 @@ class Health final: public ::EmbeddedProto::MessageInterface
 
     void clear() override
     {
-      clear_name();
       clear_vbat();
       clear_vreg();
       clear_isys();
@@ -343,14 +294,12 @@ class Health final: public ::EmbeddedProto::MessageInterface
       clear_treg();
       clear_tamb();
       clear_trad();
-      clear_compstat();
       clear_sats();
 
     }
 
     private:
 
-      ::EmbeddedProto::FieldString<name_LENGTH> name_;
       EmbeddedProto::uint32 vbat_ = 0U;
       EmbeddedProto::uint32 vreg_ = 0U;
       EmbeddedProto::uint32 isys_ = 0U;
@@ -358,7 +307,6 @@ class Health final: public ::EmbeddedProto::MessageInterface
       EmbeddedProto::uint32 treg_ = 0U;
       EmbeddedProto::uint32 tamb_ = 0U;
       EmbeddedProto::uint32 trad_ = 0U;
-      ::EmbeddedProto::RepeatedFieldFixedSize<CompStatus, compstat_REP_LENGTH> compstat_;
       EmbeddedProto::uint32 sats_ = 0U;
 
 };

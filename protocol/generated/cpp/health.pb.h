@@ -32,7 +32,6 @@
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
-#include "component.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_health_2eproto
@@ -184,64 +183,16 @@ class Health PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kCompstatFieldNumber = 9,
-    kNameFieldNumber = 1,
-    kVbatFieldNumber = 2,
-    kVregFieldNumber = 3,
-    kIsysFieldNumber = 4,
-    kTbatFieldNumber = 5,
-    kTregFieldNumber = 6,
-    kTambFieldNumber = 7,
-    kTradFieldNumber = 8,
-    kSatsFieldNumber = 10,
+    kVbatFieldNumber = 1,
+    kVregFieldNumber = 2,
+    kIsysFieldNumber = 3,
+    kTbatFieldNumber = 4,
+    kTregFieldNumber = 5,
+    kTambFieldNumber = 6,
+    kTradFieldNumber = 7,
+    kSatsFieldNumber = 8,
   };
-  // repeated .CompStatus compstat = 9;
-  int compstat_size() const;
-  private:
-  int _internal_compstat_size() const;
-  public:
-  void clear_compstat();
-  private:
-  ::CompStatus _internal_compstat(int index) const;
-  void _internal_add_compstat(::CompStatus value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_compstat();
-  public:
-  ::CompStatus compstat(int index) const;
-  void set_compstat(int index, ::CompStatus value);
-  void add_compstat(::CompStatus value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& compstat() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_compstat();
-
-  // optional string name = 1 [default = ""];
-  bool has_name() const;
-  private:
-  bool _internal_has_name() const;
-  public:
-  void clear_name();
-  const std::string& name() const;
-  void set_name(const std::string& value);
-  void set_name(std::string&& value);
-  void set_name(const char* value);
-  void set_name(const char* value, size_t size);
-  std::string* mutable_name();
-  std::string* release_name();
-  void set_allocated_name(std::string* name);
-  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
-  "    string fields are deprecated and will be removed in a"
-  "    future release.")
-  std::string* unsafe_arena_release_name();
-  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
-  "    string fields are deprecated and will be removed in a"
-  "    future release.")
-  void unsafe_arena_set_allocated_name(
-      std::string* name);
-  private:
-  const std::string& _internal_name() const;
-  void _internal_set_name(const std::string& value);
-  std::string* _internal_mutable_name();
-  public:
-
-  // optional uint32 vbat = 2 [default = 0];
+  // required uint32 vbat = 1 [default = 0];
   bool has_vbat() const;
   private:
   bool _internal_has_vbat() const;
@@ -254,7 +205,7 @@ class Health PROTOBUF_FINAL :
   void _internal_set_vbat(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 vreg = 3 [default = 0];
+  // required uint32 vreg = 2 [default = 0];
   bool has_vreg() const;
   private:
   bool _internal_has_vreg() const;
@@ -267,7 +218,7 @@ class Health PROTOBUF_FINAL :
   void _internal_set_vreg(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 isys = 4 [default = 0];
+  // required uint32 isys = 3 [default = 0];
   bool has_isys() const;
   private:
   bool _internal_has_isys() const;
@@ -280,7 +231,7 @@ class Health PROTOBUF_FINAL :
   void _internal_set_isys(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 tbat = 5 [default = 0];
+  // required uint32 tbat = 4 [default = 0];
   bool has_tbat() const;
   private:
   bool _internal_has_tbat() const;
@@ -293,7 +244,7 @@ class Health PROTOBUF_FINAL :
   void _internal_set_tbat(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 treg = 6 [default = 0];
+  // required uint32 treg = 5 [default = 0];
   bool has_treg() const;
   private:
   bool _internal_has_treg() const;
@@ -306,7 +257,7 @@ class Health PROTOBUF_FINAL :
   void _internal_set_treg(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 tamb = 7 [default = 0];
+  // required uint32 tamb = 6 [default = 0];
   bool has_tamb() const;
   private:
   bool _internal_has_tamb() const;
@@ -319,7 +270,7 @@ class Health PROTOBUF_FINAL :
   void _internal_set_tamb(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 trad = 8 [default = 0];
+  // required uint32 trad = 7 [default = 0];
   bool has_trad() const;
   private:
   bool _internal_has_trad() const;
@@ -332,7 +283,7 @@ class Health PROTOBUF_FINAL :
   void _internal_set_trad(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 sats = 10 [default = 0];
+  // required uint32 sats = 8 [default = 0];
   bool has_sats() const;
   private:
   bool _internal_has_sats() const;
@@ -349,13 +300,14 @@ class Health PROTOBUF_FINAL :
  private:
   class _Internal;
 
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> compstat_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::PROTOBUF_NAMESPACE_ID::uint32 vbat_;
   ::PROTOBUF_NAMESPACE_ID::uint32 vreg_;
   ::PROTOBUF_NAMESPACE_ID::uint32 isys_;
@@ -377,102 +329,9 @@ class Health PROTOBUF_FINAL :
 #endif  // __GNUC__
 // Health
 
-// optional string name = 1 [default = ""];
-inline bool Health::_internal_has_name() const {
-  bool value = (_has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool Health::has_name() const {
-  return _internal_has_name();
-}
-inline void Health::clear_name() {
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& Health::name() const {
-  // @@protoc_insertion_point(field_get:Health.name)
-  return _internal_name();
-}
-inline void Health::set_name(const std::string& value) {
-  _internal_set_name(value);
-  // @@protoc_insertion_point(field_set:Health.name)
-}
-inline std::string* Health::mutable_name() {
-  // @@protoc_insertion_point(field_mutable:Health.name)
-  return _internal_mutable_name();
-}
-inline const std::string& Health::_internal_name() const {
-  return name_.Get();
-}
-inline void Health::_internal_set_name(const std::string& value) {
-  _has_bits_[0] |= 0x00000001u;
-  name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
-}
-inline void Health::set_name(std::string&& value) {
-  _has_bits_[0] |= 0x00000001u;
-  name_.Set(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:Health.name)
-}
-inline void Health::set_name(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _has_bits_[0] |= 0x00000001u;
-  name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
-              GetArena());
-  // @@protoc_insertion_point(field_set_char:Health.name)
-}
-inline void Health::set_name(const char* value,
-    size_t size) {
-  _has_bits_[0] |= 0x00000001u;
-  name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:Health.name)
-}
-inline std::string* Health::_internal_mutable_name() {
-  _has_bits_[0] |= 0x00000001u;
-  return name_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline std::string* Health::release_name() {
-  // @@protoc_insertion_point(field_release:Health.name)
-  if (!_internal_has_name()) {
-    return nullptr;
-  }
-  _has_bits_[0] &= ~0x00000001u;
-  return name_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void Health::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
-    _has_bits_[0] |= 0x00000001u;
-  } else {
-    _has_bits_[0] &= ~0x00000001u;
-  }
-  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:Health.name)
-}
-inline std::string* Health::unsafe_arena_release_name() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:Health.name)
-  GOOGLE_DCHECK(GetArena() != nullptr);
-  _has_bits_[0] &= ~0x00000001u;
-  return name_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      GetArena());
-}
-inline void Health::unsafe_arena_set_allocated_name(
-    std::string* name) {
-  GOOGLE_DCHECK(GetArena() != nullptr);
-  if (name != nullptr) {
-    _has_bits_[0] |= 0x00000001u;
-  } else {
-    _has_bits_[0] &= ~0x00000001u;
-  }
-  name_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      name, GetArena());
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Health.name)
-}
-
-// optional uint32 vbat = 2 [default = 0];
+// required uint32 vbat = 1 [default = 0];
 inline bool Health::_internal_has_vbat() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
 inline bool Health::has_vbat() const {
@@ -480,7 +339,7 @@ inline bool Health::has_vbat() const {
 }
 inline void Health::clear_vbat() {
   vbat_ = 0u;
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 Health::_internal_vbat() const {
   return vbat_;
@@ -490,7 +349,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 Health::vbat() const {
   return _internal_vbat();
 }
 inline void Health::_internal_set_vbat(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
   vbat_ = value;
 }
 inline void Health::set_vbat(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -498,9 +357,9 @@ inline void Health::set_vbat(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:Health.vbat)
 }
 
-// optional uint32 vreg = 3 [default = 0];
+// required uint32 vreg = 2 [default = 0];
 inline bool Health::_internal_has_vreg() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool Health::has_vreg() const {
@@ -508,7 +367,7 @@ inline bool Health::has_vreg() const {
 }
 inline void Health::clear_vreg() {
   vreg_ = 0u;
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 Health::_internal_vreg() const {
   return vreg_;
@@ -518,7 +377,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 Health::vreg() const {
   return _internal_vreg();
 }
 inline void Health::_internal_set_vreg(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000002u;
   vreg_ = value;
 }
 inline void Health::set_vreg(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -526,9 +385,9 @@ inline void Health::set_vreg(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:Health.vreg)
 }
 
-// optional uint32 isys = 4 [default = 0];
+// required uint32 isys = 3 [default = 0];
 inline bool Health::_internal_has_isys() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool Health::has_isys() const {
@@ -536,7 +395,7 @@ inline bool Health::has_isys() const {
 }
 inline void Health::clear_isys() {
   isys_ = 0u;
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 Health::_internal_isys() const {
   return isys_;
@@ -546,7 +405,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 Health::isys() const {
   return _internal_isys();
 }
 inline void Health::_internal_set_isys(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000004u;
   isys_ = value;
 }
 inline void Health::set_isys(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -554,9 +413,9 @@ inline void Health::set_isys(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:Health.isys)
 }
 
-// optional uint32 tbat = 5 [default = 0];
+// required uint32 tbat = 4 [default = 0];
 inline bool Health::_internal_has_tbat() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool Health::has_tbat() const {
@@ -564,7 +423,7 @@ inline bool Health::has_tbat() const {
 }
 inline void Health::clear_tbat() {
   tbat_ = 0u;
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 Health::_internal_tbat() const {
   return tbat_;
@@ -574,7 +433,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 Health::tbat() const {
   return _internal_tbat();
 }
 inline void Health::_internal_set_tbat(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000008u;
   tbat_ = value;
 }
 inline void Health::set_tbat(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -582,9 +441,9 @@ inline void Health::set_tbat(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:Health.tbat)
 }
 
-// optional uint32 treg = 6 [default = 0];
+// required uint32 treg = 5 [default = 0];
 inline bool Health::_internal_has_treg() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool Health::has_treg() const {
@@ -592,7 +451,7 @@ inline bool Health::has_treg() const {
 }
 inline void Health::clear_treg() {
   treg_ = 0u;
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 Health::_internal_treg() const {
   return treg_;
@@ -602,7 +461,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 Health::treg() const {
   return _internal_treg();
 }
 inline void Health::_internal_set_treg(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000010u;
   treg_ = value;
 }
 inline void Health::set_treg(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -610,9 +469,9 @@ inline void Health::set_treg(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:Health.treg)
 }
 
-// optional uint32 tamb = 7 [default = 0];
+// required uint32 tamb = 6 [default = 0];
 inline bool Health::_internal_has_tamb() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool Health::has_tamb() const {
@@ -620,7 +479,7 @@ inline bool Health::has_tamb() const {
 }
 inline void Health::clear_tamb() {
   tamb_ = 0u;
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 Health::_internal_tamb() const {
   return tamb_;
@@ -630,7 +489,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 Health::tamb() const {
   return _internal_tamb();
 }
 inline void Health::_internal_set_tamb(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000020u;
   tamb_ = value;
 }
 inline void Health::set_tamb(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -638,9 +497,9 @@ inline void Health::set_tamb(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:Health.tamb)
 }
 
-// optional uint32 trad = 8 [default = 0];
+// required uint32 trad = 7 [default = 0];
 inline bool Health::_internal_has_trad() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool Health::has_trad() const {
@@ -648,7 +507,7 @@ inline bool Health::has_trad() const {
 }
 inline void Health::clear_trad() {
   trad_ = 0u;
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 Health::_internal_trad() const {
   return trad_;
@@ -658,7 +517,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 Health::trad() const {
   return _internal_trad();
 }
 inline void Health::_internal_set_trad(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000040u;
   trad_ = value;
 }
 inline void Health::set_trad(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -666,54 +525,9 @@ inline void Health::set_trad(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:Health.trad)
 }
 
-// repeated .CompStatus compstat = 9;
-inline int Health::_internal_compstat_size() const {
-  return compstat_.size();
-}
-inline int Health::compstat_size() const {
-  return _internal_compstat_size();
-}
-inline void Health::clear_compstat() {
-  compstat_.Clear();
-}
-inline ::CompStatus Health::_internal_compstat(int index) const {
-  return static_cast< ::CompStatus >(compstat_.Get(index));
-}
-inline ::CompStatus Health::compstat(int index) const {
-  // @@protoc_insertion_point(field_get:Health.compstat)
-  return _internal_compstat(index);
-}
-inline void Health::set_compstat(int index, ::CompStatus value) {
-  assert(::CompStatus_IsValid(value));
-  compstat_.Set(index, value);
-  // @@protoc_insertion_point(field_set:Health.compstat)
-}
-inline void Health::_internal_add_compstat(::CompStatus value) {
-  assert(::CompStatus_IsValid(value));
-  compstat_.Add(value);
-}
-inline void Health::add_compstat(::CompStatus value) {
-  // @@protoc_insertion_point(field_add:Health.compstat)
-  _internal_add_compstat(value);
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
-Health::compstat() const {
-  // @@protoc_insertion_point(field_list:Health.compstat)
-  return compstat_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
-Health::_internal_mutable_compstat() {
-  return &compstat_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
-Health::mutable_compstat() {
-  // @@protoc_insertion_point(field_mutable_list:Health.compstat)
-  return _internal_mutable_compstat();
-}
-
-// optional uint32 sats = 10 [default = 0];
+// required uint32 sats = 8 [default = 0];
 inline bool Health::_internal_has_sats() const {
-  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool Health::has_sats() const {
@@ -721,7 +535,7 @@ inline bool Health::has_sats() const {
 }
 inline void Health::clear_sats() {
   sats_ = 0u;
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 Health::_internal_sats() const {
   return sats_;
@@ -731,7 +545,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 Health::sats() const {
   return _internal_sats();
 }
 inline void Health::_internal_set_sats(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000080u;
   sats_ = value;
 }
 inline void Health::set_sats(::PROTOBUF_NAMESPACE_ID::uint32 value) {

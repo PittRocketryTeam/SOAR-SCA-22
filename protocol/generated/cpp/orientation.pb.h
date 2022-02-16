@@ -183,126 +183,193 @@ class Orientation PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kQuatFieldNumber = 1,
-    kEulerFieldNumber = 2,
-    kOmegaFieldNumber = 3,
-    kAccelFieldNumber = 4,
-    kMagnetoFieldNumber = 5,
-    kLonFieldNumber = 6,
-    kLatFieldNumber = 7,
-    kAltFieldNumber = 8,
+    kQuatXFieldNumber = 1,
+    kQuatYFieldNumber = 2,
+    kQuatZFieldNumber = 3,
+    kQuatWFieldNumber = 4,
+    kEulerXFieldNumber = 5,
+    kEulerYFieldNumber = 6,
+    kEulerZFieldNumber = 7,
+    kOmegaXFieldNumber = 8,
+    kOmegaYFieldNumber = 9,
+    kOmegaZFieldNumber = 10,
+    kAccelXFieldNumber = 11,
+    kAccelYFieldNumber = 12,
+    kAccelZFieldNumber = 13,
+    kLonFieldNumber = 14,
+    kLatFieldNumber = 15,
+    kAltFieldNumber = 16,
   };
-  // repeated sint32 quat = 1;
-  int quat_size() const;
+  // required sint32 quat_x = 1;
+  bool has_quat_x() const;
   private:
-  int _internal_quat_size() const;
+  bool _internal_has_quat_x() const;
   public:
-  void clear_quat();
+  void clear_quat_x();
+  ::PROTOBUF_NAMESPACE_ID::int32 quat_x() const;
+  void set_quat_x(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_quat(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      _internal_quat() const;
-  void _internal_add_quat(::PROTOBUF_NAMESPACE_ID::int32 value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      _internal_mutable_quat();
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_quat_x() const;
+  void _internal_set_quat_x(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
-  ::PROTOBUF_NAMESPACE_ID::int32 quat(int index) const;
-  void set_quat(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
-  void add_quat(::PROTOBUF_NAMESPACE_ID::int32 value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      quat() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      mutable_quat();
 
-  // repeated sint32 euler = 2;
-  int euler_size() const;
+  // required sint32 quat_y = 2;
+  bool has_quat_y() const;
   private:
-  int _internal_euler_size() const;
+  bool _internal_has_quat_y() const;
   public:
-  void clear_euler();
+  void clear_quat_y();
+  ::PROTOBUF_NAMESPACE_ID::int32 quat_y() const;
+  void set_quat_y(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_euler(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      _internal_euler() const;
-  void _internal_add_euler(::PROTOBUF_NAMESPACE_ID::int32 value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      _internal_mutable_euler();
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_quat_y() const;
+  void _internal_set_quat_y(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
-  ::PROTOBUF_NAMESPACE_ID::int32 euler(int index) const;
-  void set_euler(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
-  void add_euler(::PROTOBUF_NAMESPACE_ID::int32 value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      euler() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      mutable_euler();
 
-  // repeated sint32 omega = 3;
-  int omega_size() const;
+  // required sint32 quat_z = 3;
+  bool has_quat_z() const;
   private:
-  int _internal_omega_size() const;
+  bool _internal_has_quat_z() const;
   public:
-  void clear_omega();
+  void clear_quat_z();
+  ::PROTOBUF_NAMESPACE_ID::int32 quat_z() const;
+  void set_quat_z(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_omega(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      _internal_omega() const;
-  void _internal_add_omega(::PROTOBUF_NAMESPACE_ID::int32 value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      _internal_mutable_omega();
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_quat_z() const;
+  void _internal_set_quat_z(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
-  ::PROTOBUF_NAMESPACE_ID::int32 omega(int index) const;
-  void set_omega(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
-  void add_omega(::PROTOBUF_NAMESPACE_ID::int32 value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      omega() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      mutable_omega();
 
-  // repeated sint32 accel = 4;
-  int accel_size() const;
+  // required sint32 quat_w = 4;
+  bool has_quat_w() const;
   private:
-  int _internal_accel_size() const;
+  bool _internal_has_quat_w() const;
   public:
-  void clear_accel();
+  void clear_quat_w();
+  ::PROTOBUF_NAMESPACE_ID::int32 quat_w() const;
+  void set_quat_w(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_accel(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      _internal_accel() const;
-  void _internal_add_accel(::PROTOBUF_NAMESPACE_ID::int32 value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      _internal_mutable_accel();
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_quat_w() const;
+  void _internal_set_quat_w(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
-  ::PROTOBUF_NAMESPACE_ID::int32 accel(int index) const;
-  void set_accel(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
-  void add_accel(::PROTOBUF_NAMESPACE_ID::int32 value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      accel() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      mutable_accel();
 
-  // repeated sint32 magneto = 5;
-  int magneto_size() const;
+  // required sint32 euler_x = 5;
+  bool has_euler_x() const;
   private:
-  int _internal_magneto_size() const;
+  bool _internal_has_euler_x() const;
   public:
-  void clear_magneto();
+  void clear_euler_x();
+  ::PROTOBUF_NAMESPACE_ID::int32 euler_x() const;
+  void set_euler_x(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_magneto(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      _internal_magneto() const;
-  void _internal_add_magneto(::PROTOBUF_NAMESPACE_ID::int32 value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      _internal_mutable_magneto();
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_euler_x() const;
+  void _internal_set_euler_x(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
-  ::PROTOBUF_NAMESPACE_ID::int32 magneto(int index) const;
-  void set_magneto(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
-  void add_magneto(::PROTOBUF_NAMESPACE_ID::int32 value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      magneto() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      mutable_magneto();
 
-  // optional sint32 lon = 6 [default = 0];
+  // required sint32 euler_y = 6;
+  bool has_euler_y() const;
+  private:
+  bool _internal_has_euler_y() const;
+  public:
+  void clear_euler_y();
+  ::PROTOBUF_NAMESPACE_ID::int32 euler_y() const;
+  void set_euler_y(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_euler_y() const;
+  void _internal_set_euler_y(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required sint32 euler_z = 7;
+  bool has_euler_z() const;
+  private:
+  bool _internal_has_euler_z() const;
+  public:
+  void clear_euler_z();
+  ::PROTOBUF_NAMESPACE_ID::int32 euler_z() const;
+  void set_euler_z(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_euler_z() const;
+  void _internal_set_euler_z(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required sint32 omega_x = 8;
+  bool has_omega_x() const;
+  private:
+  bool _internal_has_omega_x() const;
+  public:
+  void clear_omega_x();
+  ::PROTOBUF_NAMESPACE_ID::int32 omega_x() const;
+  void set_omega_x(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_omega_x() const;
+  void _internal_set_omega_x(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required sint32 omega_y = 9;
+  bool has_omega_y() const;
+  private:
+  bool _internal_has_omega_y() const;
+  public:
+  void clear_omega_y();
+  ::PROTOBUF_NAMESPACE_ID::int32 omega_y() const;
+  void set_omega_y(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_omega_y() const;
+  void _internal_set_omega_y(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required sint32 omega_z = 10;
+  bool has_omega_z() const;
+  private:
+  bool _internal_has_omega_z() const;
+  public:
+  void clear_omega_z();
+  ::PROTOBUF_NAMESPACE_ID::int32 omega_z() const;
+  void set_omega_z(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_omega_z() const;
+  void _internal_set_omega_z(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required sint32 accel_x = 11;
+  bool has_accel_x() const;
+  private:
+  bool _internal_has_accel_x() const;
+  public:
+  void clear_accel_x();
+  ::PROTOBUF_NAMESPACE_ID::int32 accel_x() const;
+  void set_accel_x(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_accel_x() const;
+  void _internal_set_accel_x(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required sint32 accel_y = 12;
+  bool has_accel_y() const;
+  private:
+  bool _internal_has_accel_y() const;
+  public:
+  void clear_accel_y();
+  ::PROTOBUF_NAMESPACE_ID::int32 accel_y() const;
+  void set_accel_y(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_accel_y() const;
+  void _internal_set_accel_y(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required sint32 accel_z = 13;
+  bool has_accel_z() const;
+  private:
+  bool _internal_has_accel_z() const;
+  public:
+  void clear_accel_z();
+  ::PROTOBUF_NAMESPACE_ID::int32 accel_z() const;
+  void set_accel_z(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_accel_z() const;
+  void _internal_set_accel_z(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // required sint32 lon = 14 [default = 0];
   bool has_lon() const;
   private:
   bool _internal_has_lon() const;
@@ -315,7 +382,7 @@ class Orientation PROTOBUF_FINAL :
   void _internal_set_lon(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional sint32 lat = 7 [default = 0];
+  // required sint32 lat = 15 [default = 0];
   bool has_lat() const;
   private:
   bool _internal_has_lat() const;
@@ -328,7 +395,7 @@ class Orientation PROTOBUF_FINAL :
   void _internal_set_lat(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional sint32 alt = 8 [default = 0];
+  // required sint32 alt = 16 [default = 0];
   bool has_alt() const;
   private:
   bool _internal_has_alt() const;
@@ -345,16 +412,27 @@ class Orientation PROTOBUF_FINAL :
  private:
   class _Internal;
 
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > quat_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > euler_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > omega_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > accel_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > magneto_;
+  ::PROTOBUF_NAMESPACE_ID::int32 quat_x_;
+  ::PROTOBUF_NAMESPACE_ID::int32 quat_y_;
+  ::PROTOBUF_NAMESPACE_ID::int32 quat_z_;
+  ::PROTOBUF_NAMESPACE_ID::int32 quat_w_;
+  ::PROTOBUF_NAMESPACE_ID::int32 euler_x_;
+  ::PROTOBUF_NAMESPACE_ID::int32 euler_y_;
+  ::PROTOBUF_NAMESPACE_ID::int32 euler_z_;
+  ::PROTOBUF_NAMESPACE_ID::int32 omega_x_;
+  ::PROTOBUF_NAMESPACE_ID::int32 omega_y_;
+  ::PROTOBUF_NAMESPACE_ID::int32 omega_z_;
+  ::PROTOBUF_NAMESPACE_ID::int32 accel_x_;
+  ::PROTOBUF_NAMESPACE_ID::int32 accel_y_;
+  ::PROTOBUF_NAMESPACE_ID::int32 accel_z_;
   ::PROTOBUF_NAMESPACE_ID::int32 lon_;
   ::PROTOBUF_NAMESPACE_ID::int32 lat_;
   ::PROTOBUF_NAMESPACE_ID::int32 alt_;
@@ -371,244 +449,373 @@ class Orientation PROTOBUF_FINAL :
 #endif  // __GNUC__
 // Orientation
 
-// repeated sint32 quat = 1;
-inline int Orientation::_internal_quat_size() const {
-  return quat_.size();
-}
-inline int Orientation::quat_size() const {
-  return _internal_quat_size();
-}
-inline void Orientation::clear_quat() {
-  quat_.Clear();
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_quat(int index) const {
-  return quat_.Get(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::quat(int index) const {
-  // @@protoc_insertion_point(field_get:Orientation.quat)
-  return _internal_quat(index);
-}
-inline void Orientation::set_quat(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
-  quat_.Set(index, value);
-  // @@protoc_insertion_point(field_set:Orientation.quat)
-}
-inline void Orientation::_internal_add_quat(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  quat_.Add(value);
-}
-inline void Orientation::add_quat(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_add_quat(value);
-  // @@protoc_insertion_point(field_add:Orientation.quat)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-Orientation::_internal_quat() const {
-  return quat_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-Orientation::quat() const {
-  // @@protoc_insertion_point(field_list:Orientation.quat)
-  return _internal_quat();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-Orientation::_internal_mutable_quat() {
-  return &quat_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-Orientation::mutable_quat() {
-  // @@protoc_insertion_point(field_mutable_list:Orientation.quat)
-  return _internal_mutable_quat();
-}
-
-// repeated sint32 euler = 2;
-inline int Orientation::_internal_euler_size() const {
-  return euler_.size();
-}
-inline int Orientation::euler_size() const {
-  return _internal_euler_size();
-}
-inline void Orientation::clear_euler() {
-  euler_.Clear();
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_euler(int index) const {
-  return euler_.Get(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::euler(int index) const {
-  // @@protoc_insertion_point(field_get:Orientation.euler)
-  return _internal_euler(index);
-}
-inline void Orientation::set_euler(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
-  euler_.Set(index, value);
-  // @@protoc_insertion_point(field_set:Orientation.euler)
-}
-inline void Orientation::_internal_add_euler(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  euler_.Add(value);
-}
-inline void Orientation::add_euler(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_add_euler(value);
-  // @@protoc_insertion_point(field_add:Orientation.euler)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-Orientation::_internal_euler() const {
-  return euler_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-Orientation::euler() const {
-  // @@protoc_insertion_point(field_list:Orientation.euler)
-  return _internal_euler();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-Orientation::_internal_mutable_euler() {
-  return &euler_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-Orientation::mutable_euler() {
-  // @@protoc_insertion_point(field_mutable_list:Orientation.euler)
-  return _internal_mutable_euler();
-}
-
-// repeated sint32 omega = 3;
-inline int Orientation::_internal_omega_size() const {
-  return omega_.size();
-}
-inline int Orientation::omega_size() const {
-  return _internal_omega_size();
-}
-inline void Orientation::clear_omega() {
-  omega_.Clear();
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_omega(int index) const {
-  return omega_.Get(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::omega(int index) const {
-  // @@protoc_insertion_point(field_get:Orientation.omega)
-  return _internal_omega(index);
-}
-inline void Orientation::set_omega(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
-  omega_.Set(index, value);
-  // @@protoc_insertion_point(field_set:Orientation.omega)
-}
-inline void Orientation::_internal_add_omega(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  omega_.Add(value);
-}
-inline void Orientation::add_omega(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_add_omega(value);
-  // @@protoc_insertion_point(field_add:Orientation.omega)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-Orientation::_internal_omega() const {
-  return omega_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-Orientation::omega() const {
-  // @@protoc_insertion_point(field_list:Orientation.omega)
-  return _internal_omega();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-Orientation::_internal_mutable_omega() {
-  return &omega_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-Orientation::mutable_omega() {
-  // @@protoc_insertion_point(field_mutable_list:Orientation.omega)
-  return _internal_mutable_omega();
-}
-
-// repeated sint32 accel = 4;
-inline int Orientation::_internal_accel_size() const {
-  return accel_.size();
-}
-inline int Orientation::accel_size() const {
-  return _internal_accel_size();
-}
-inline void Orientation::clear_accel() {
-  accel_.Clear();
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_accel(int index) const {
-  return accel_.Get(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::accel(int index) const {
-  // @@protoc_insertion_point(field_get:Orientation.accel)
-  return _internal_accel(index);
-}
-inline void Orientation::set_accel(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
-  accel_.Set(index, value);
-  // @@protoc_insertion_point(field_set:Orientation.accel)
-}
-inline void Orientation::_internal_add_accel(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  accel_.Add(value);
-}
-inline void Orientation::add_accel(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_add_accel(value);
-  // @@protoc_insertion_point(field_add:Orientation.accel)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-Orientation::_internal_accel() const {
-  return accel_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-Orientation::accel() const {
-  // @@protoc_insertion_point(field_list:Orientation.accel)
-  return _internal_accel();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-Orientation::_internal_mutable_accel() {
-  return &accel_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-Orientation::mutable_accel() {
-  // @@protoc_insertion_point(field_mutable_list:Orientation.accel)
-  return _internal_mutable_accel();
-}
-
-// repeated sint32 magneto = 5;
-inline int Orientation::_internal_magneto_size() const {
-  return magneto_.size();
-}
-inline int Orientation::magneto_size() const {
-  return _internal_magneto_size();
-}
-inline void Orientation::clear_magneto() {
-  magneto_.Clear();
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_magneto(int index) const {
-  return magneto_.Get(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::magneto(int index) const {
-  // @@protoc_insertion_point(field_get:Orientation.magneto)
-  return _internal_magneto(index);
-}
-inline void Orientation::set_magneto(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
-  magneto_.Set(index, value);
-  // @@protoc_insertion_point(field_set:Orientation.magneto)
-}
-inline void Orientation::_internal_add_magneto(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  magneto_.Add(value);
-}
-inline void Orientation::add_magneto(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_add_magneto(value);
-  // @@protoc_insertion_point(field_add:Orientation.magneto)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-Orientation::_internal_magneto() const {
-  return magneto_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-Orientation::magneto() const {
-  // @@protoc_insertion_point(field_list:Orientation.magneto)
-  return _internal_magneto();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-Orientation::_internal_mutable_magneto() {
-  return &magneto_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-Orientation::mutable_magneto() {
-  // @@protoc_insertion_point(field_mutable_list:Orientation.magneto)
-  return _internal_mutable_magneto();
-}
-
-// optional sint32 lon = 6 [default = 0];
-inline bool Orientation::_internal_has_lon() const {
+// required sint32 quat_x = 1;
+inline bool Orientation::_internal_has_quat_x() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool Orientation::has_quat_x() const {
+  return _internal_has_quat_x();
+}
+inline void Orientation::clear_quat_x() {
+  quat_x_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_quat_x() const {
+  return quat_x_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::quat_x() const {
+  // @@protoc_insertion_point(field_get:Orientation.quat_x)
+  return _internal_quat_x();
+}
+inline void Orientation::_internal_set_quat_x(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  quat_x_ = value;
+}
+inline void Orientation::set_quat_x(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_quat_x(value);
+  // @@protoc_insertion_point(field_set:Orientation.quat_x)
+}
+
+// required sint32 quat_y = 2;
+inline bool Orientation::_internal_has_quat_y() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool Orientation::has_quat_y() const {
+  return _internal_has_quat_y();
+}
+inline void Orientation::clear_quat_y() {
+  quat_y_ = 0;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_quat_y() const {
+  return quat_y_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::quat_y() const {
+  // @@protoc_insertion_point(field_get:Orientation.quat_y)
+  return _internal_quat_y();
+}
+inline void Orientation::_internal_set_quat_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  quat_y_ = value;
+}
+inline void Orientation::set_quat_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_quat_y(value);
+  // @@protoc_insertion_point(field_set:Orientation.quat_y)
+}
+
+// required sint32 quat_z = 3;
+inline bool Orientation::_internal_has_quat_z() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool Orientation::has_quat_z() const {
+  return _internal_has_quat_z();
+}
+inline void Orientation::clear_quat_z() {
+  quat_z_ = 0;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_quat_z() const {
+  return quat_z_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::quat_z() const {
+  // @@protoc_insertion_point(field_get:Orientation.quat_z)
+  return _internal_quat_z();
+}
+inline void Orientation::_internal_set_quat_z(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  quat_z_ = value;
+}
+inline void Orientation::set_quat_z(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_quat_z(value);
+  // @@protoc_insertion_point(field_set:Orientation.quat_z)
+}
+
+// required sint32 quat_w = 4;
+inline bool Orientation::_internal_has_quat_w() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool Orientation::has_quat_w() const {
+  return _internal_has_quat_w();
+}
+inline void Orientation::clear_quat_w() {
+  quat_w_ = 0;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_quat_w() const {
+  return quat_w_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::quat_w() const {
+  // @@protoc_insertion_point(field_get:Orientation.quat_w)
+  return _internal_quat_w();
+}
+inline void Orientation::_internal_set_quat_w(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000008u;
+  quat_w_ = value;
+}
+inline void Orientation::set_quat_w(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_quat_w(value);
+  // @@protoc_insertion_point(field_set:Orientation.quat_w)
+}
+
+// required sint32 euler_x = 5;
+inline bool Orientation::_internal_has_euler_x() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool Orientation::has_euler_x() const {
+  return _internal_has_euler_x();
+}
+inline void Orientation::clear_euler_x() {
+  euler_x_ = 0;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_euler_x() const {
+  return euler_x_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::euler_x() const {
+  // @@protoc_insertion_point(field_get:Orientation.euler_x)
+  return _internal_euler_x();
+}
+inline void Orientation::_internal_set_euler_x(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000010u;
+  euler_x_ = value;
+}
+inline void Orientation::set_euler_x(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_euler_x(value);
+  // @@protoc_insertion_point(field_set:Orientation.euler_x)
+}
+
+// required sint32 euler_y = 6;
+inline bool Orientation::_internal_has_euler_y() const {
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline bool Orientation::has_euler_y() const {
+  return _internal_has_euler_y();
+}
+inline void Orientation::clear_euler_y() {
+  euler_y_ = 0;
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_euler_y() const {
+  return euler_y_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::euler_y() const {
+  // @@protoc_insertion_point(field_get:Orientation.euler_y)
+  return _internal_euler_y();
+}
+inline void Orientation::_internal_set_euler_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000020u;
+  euler_y_ = value;
+}
+inline void Orientation::set_euler_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_euler_y(value);
+  // @@protoc_insertion_point(field_set:Orientation.euler_y)
+}
+
+// required sint32 euler_z = 7;
+inline bool Orientation::_internal_has_euler_z() const {
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool Orientation::has_euler_z() const {
+  return _internal_has_euler_z();
+}
+inline void Orientation::clear_euler_z() {
+  euler_z_ = 0;
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_euler_z() const {
+  return euler_z_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::euler_z() const {
+  // @@protoc_insertion_point(field_get:Orientation.euler_z)
+  return _internal_euler_z();
+}
+inline void Orientation::_internal_set_euler_z(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000040u;
+  euler_z_ = value;
+}
+inline void Orientation::set_euler_z(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_euler_z(value);
+  // @@protoc_insertion_point(field_set:Orientation.euler_z)
+}
+
+// required sint32 omega_x = 8;
+inline bool Orientation::_internal_has_omega_x() const {
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool Orientation::has_omega_x() const {
+  return _internal_has_omega_x();
+}
+inline void Orientation::clear_omega_x() {
+  omega_x_ = 0;
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_omega_x() const {
+  return omega_x_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::omega_x() const {
+  // @@protoc_insertion_point(field_get:Orientation.omega_x)
+  return _internal_omega_x();
+}
+inline void Orientation::_internal_set_omega_x(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000080u;
+  omega_x_ = value;
+}
+inline void Orientation::set_omega_x(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_omega_x(value);
+  // @@protoc_insertion_point(field_set:Orientation.omega_x)
+}
+
+// required sint32 omega_y = 9;
+inline bool Orientation::_internal_has_omega_y() const {
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  return value;
+}
+inline bool Orientation::has_omega_y() const {
+  return _internal_has_omega_y();
+}
+inline void Orientation::clear_omega_y() {
+  omega_y_ = 0;
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_omega_y() const {
+  return omega_y_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::omega_y() const {
+  // @@protoc_insertion_point(field_get:Orientation.omega_y)
+  return _internal_omega_y();
+}
+inline void Orientation::_internal_set_omega_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000100u;
+  omega_y_ = value;
+}
+inline void Orientation::set_omega_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_omega_y(value);
+  // @@protoc_insertion_point(field_set:Orientation.omega_y)
+}
+
+// required sint32 omega_z = 10;
+inline bool Orientation::_internal_has_omega_z() const {
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool Orientation::has_omega_z() const {
+  return _internal_has_omega_z();
+}
+inline void Orientation::clear_omega_z() {
+  omega_z_ = 0;
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_omega_z() const {
+  return omega_z_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::omega_z() const {
+  // @@protoc_insertion_point(field_get:Orientation.omega_z)
+  return _internal_omega_z();
+}
+inline void Orientation::_internal_set_omega_z(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000200u;
+  omega_z_ = value;
+}
+inline void Orientation::set_omega_z(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_omega_z(value);
+  // @@protoc_insertion_point(field_set:Orientation.omega_z)
+}
+
+// required sint32 accel_x = 11;
+inline bool Orientation::_internal_has_accel_x() const {
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  return value;
+}
+inline bool Orientation::has_accel_x() const {
+  return _internal_has_accel_x();
+}
+inline void Orientation::clear_accel_x() {
+  accel_x_ = 0;
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_accel_x() const {
+  return accel_x_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::accel_x() const {
+  // @@protoc_insertion_point(field_get:Orientation.accel_x)
+  return _internal_accel_x();
+}
+inline void Orientation::_internal_set_accel_x(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000400u;
+  accel_x_ = value;
+}
+inline void Orientation::set_accel_x(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_accel_x(value);
+  // @@protoc_insertion_point(field_set:Orientation.accel_x)
+}
+
+// required sint32 accel_y = 12;
+inline bool Orientation::_internal_has_accel_y() const {
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  return value;
+}
+inline bool Orientation::has_accel_y() const {
+  return _internal_has_accel_y();
+}
+inline void Orientation::clear_accel_y() {
+  accel_y_ = 0;
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_accel_y() const {
+  return accel_y_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::accel_y() const {
+  // @@protoc_insertion_point(field_get:Orientation.accel_y)
+  return _internal_accel_y();
+}
+inline void Orientation::_internal_set_accel_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000800u;
+  accel_y_ = value;
+}
+inline void Orientation::set_accel_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_accel_y(value);
+  // @@protoc_insertion_point(field_set:Orientation.accel_y)
+}
+
+// required sint32 accel_z = 13;
+inline bool Orientation::_internal_has_accel_z() const {
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  return value;
+}
+inline bool Orientation::has_accel_z() const {
+  return _internal_has_accel_z();
+}
+inline void Orientation::clear_accel_z() {
+  accel_z_ = 0;
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_accel_z() const {
+  return accel_z_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::accel_z() const {
+  // @@protoc_insertion_point(field_get:Orientation.accel_z)
+  return _internal_accel_z();
+}
+inline void Orientation::_internal_set_accel_z(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00001000u;
+  accel_z_ = value;
+}
+inline void Orientation::set_accel_z(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_accel_z(value);
+  // @@protoc_insertion_point(field_set:Orientation.accel_z)
+}
+
+// required sint32 lon = 14 [default = 0];
+inline bool Orientation::_internal_has_lon() const {
+  bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool Orientation::has_lon() const {
@@ -616,7 +823,7 @@ inline bool Orientation::has_lon() const {
 }
 inline void Orientation::clear_lon() {
   lon_ = 0;
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_lon() const {
   return lon_;
@@ -626,7 +833,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::lon() const {
   return _internal_lon();
 }
 inline void Orientation::_internal_set_lon(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00002000u;
   lon_ = value;
 }
 inline void Orientation::set_lon(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -634,9 +841,9 @@ inline void Orientation::set_lon(::PROTOBUF_NAMESPACE_ID::int32 value) {
   // @@protoc_insertion_point(field_set:Orientation.lon)
 }
 
-// optional sint32 lat = 7 [default = 0];
+// required sint32 lat = 15 [default = 0];
 inline bool Orientation::_internal_has_lat() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool Orientation::has_lat() const {
@@ -644,7 +851,7 @@ inline bool Orientation::has_lat() const {
 }
 inline void Orientation::clear_lat() {
   lat_ = 0;
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_lat() const {
   return lat_;
@@ -654,7 +861,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::lat() const {
   return _internal_lat();
 }
 inline void Orientation::_internal_set_lat(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00004000u;
   lat_ = value;
 }
 inline void Orientation::set_lat(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -662,9 +869,9 @@ inline void Orientation::set_lat(::PROTOBUF_NAMESPACE_ID::int32 value) {
   // @@protoc_insertion_point(field_set:Orientation.lat)
 }
 
-// optional sint32 alt = 8 [default = 0];
+// required sint32 alt = 16 [default = 0];
 inline bool Orientation::_internal_has_alt() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool Orientation::has_alt() const {
@@ -672,7 +879,7 @@ inline bool Orientation::has_alt() const {
 }
 inline void Orientation::clear_alt() {
   alt_ = 0;
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::_internal_alt() const {
   return alt_;
@@ -682,7 +889,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 Orientation::alt() const {
   return _internal_alt();
 }
 inline void Orientation::_internal_set_alt(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00008000u;
   alt_ = value;
 }
 inline void Orientation::set_alt(::PROTOBUF_NAMESPACE_ID::int32 value) {

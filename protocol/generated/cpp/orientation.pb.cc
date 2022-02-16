@@ -42,25 +42,41 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_orientation_2eproto::offsets[]
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::Orientation, quat_),
-  PROTOBUF_FIELD_OFFSET(::Orientation, euler_),
-  PROTOBUF_FIELD_OFFSET(::Orientation, omega_),
-  PROTOBUF_FIELD_OFFSET(::Orientation, accel_),
-  PROTOBUF_FIELD_OFFSET(::Orientation, magneto_),
+  PROTOBUF_FIELD_OFFSET(::Orientation, quat_x_),
+  PROTOBUF_FIELD_OFFSET(::Orientation, quat_y_),
+  PROTOBUF_FIELD_OFFSET(::Orientation, quat_z_),
+  PROTOBUF_FIELD_OFFSET(::Orientation, quat_w_),
+  PROTOBUF_FIELD_OFFSET(::Orientation, euler_x_),
+  PROTOBUF_FIELD_OFFSET(::Orientation, euler_y_),
+  PROTOBUF_FIELD_OFFSET(::Orientation, euler_z_),
+  PROTOBUF_FIELD_OFFSET(::Orientation, omega_x_),
+  PROTOBUF_FIELD_OFFSET(::Orientation, omega_y_),
+  PROTOBUF_FIELD_OFFSET(::Orientation, omega_z_),
+  PROTOBUF_FIELD_OFFSET(::Orientation, accel_x_),
+  PROTOBUF_FIELD_OFFSET(::Orientation, accel_y_),
+  PROTOBUF_FIELD_OFFSET(::Orientation, accel_z_),
   PROTOBUF_FIELD_OFFSET(::Orientation, lon_),
   PROTOBUF_FIELD_OFFSET(::Orientation, lat_),
   PROTOBUF_FIELD_OFFSET(::Orientation, alt_),
-  ~0u,
-  ~0u,
-  ~0u,
-  ~0u,
-  ~0u,
   0,
   1,
   2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 13, sizeof(::Orientation)},
+  { 0, 21, sizeof(::Orientation)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -68,10 +84,14 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_orientation_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\021orientation.proto\"\211\001\n\013Orientation\022\014\n\004q"
-  "uat\030\001 \003(\021\022\r\n\005euler\030\002 \003(\021\022\r\n\005omega\030\003 \003(\021\022"
-  "\r\n\005accel\030\004 \003(\021\022\017\n\007magneto\030\005 \003(\021\022\016\n\003lon\030\006"
-  " \001(\021:\0010\022\016\n\003lat\030\007 \001(\021:\0010\022\016\n\003alt\030\010 \001(\021:\0010"
+  "\n\021orientation.proto\"\226\002\n\013Orientation\022\016\n\006q"
+  "uat_x\030\001 \002(\021\022\016\n\006quat_y\030\002 \002(\021\022\016\n\006quat_z\030\003 "
+  "\002(\021\022\016\n\006quat_w\030\004 \002(\021\022\017\n\007euler_x\030\005 \002(\021\022\017\n\007"
+  "euler_y\030\006 \002(\021\022\017\n\007euler_z\030\007 \002(\021\022\017\n\007omega_"
+  "x\030\010 \002(\021\022\017\n\007omega_y\030\t \002(\021\022\017\n\007omega_z\030\n \002("
+  "\021\022\017\n\007accel_x\030\013 \002(\021\022\017\n\007accel_y\030\014 \002(\021\022\017\n\007a"
+  "ccel_z\030\r \002(\021\022\016\n\003lon\030\016 \002(\021:\0010\022\016\n\003lat\030\017 \002("
+  "\021:\0010\022\016\n\003alt\030\020 \002(\021:\0010"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_orientation_2eproto_deps[1] = {
 };
@@ -80,7 +100,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ori
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_orientation_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_orientation_2eproto = {
-  false, false, descriptor_table_protodef_orientation_2eproto, "orientation.proto", 159,
+  false, false, descriptor_table_protodef_orientation_2eproto, "orientation.proto", 300,
   &descriptor_table_orientation_2eproto_once, descriptor_table_orientation_2eproto_sccs, descriptor_table_orientation_2eproto_deps, 1, 0,
   schemas, file_default_instances, TableStruct_orientation_2eproto::offsets,
   file_level_metadata_orientation_2eproto, 1, file_level_enum_descriptors_orientation_2eproto, file_level_service_descriptors_orientation_2eproto,
@@ -96,47 +116,79 @@ void Orientation::InitAsDefaultInstance() {
 class Orientation::_Internal {
  public:
   using HasBits = decltype(std::declval<Orientation>()._has_bits_);
-  static void set_has_lon(HasBits* has_bits) {
+  static void set_has_quat_x(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
-  static void set_has_lat(HasBits* has_bits) {
+  static void set_has_quat_y(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_alt(HasBits* has_bits) {
+  static void set_has_quat_z(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
+  }
+  static void set_has_quat_w(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_euler_x(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_euler_y(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
+  }
+  static void set_has_euler_z(HasBits* has_bits) {
+    (*has_bits)[0] |= 64u;
+  }
+  static void set_has_omega_x(HasBits* has_bits) {
+    (*has_bits)[0] |= 128u;
+  }
+  static void set_has_omega_y(HasBits* has_bits) {
+    (*has_bits)[0] |= 256u;
+  }
+  static void set_has_omega_z(HasBits* has_bits) {
+    (*has_bits)[0] |= 512u;
+  }
+  static void set_has_accel_x(HasBits* has_bits) {
+    (*has_bits)[0] |= 1024u;
+  }
+  static void set_has_accel_y(HasBits* has_bits) {
+    (*has_bits)[0] |= 2048u;
+  }
+  static void set_has_accel_z(HasBits* has_bits) {
+    (*has_bits)[0] |= 4096u;
+  }
+  static void set_has_lon(HasBits* has_bits) {
+    (*has_bits)[0] |= 8192u;
+  }
+  static void set_has_lat(HasBits* has_bits) {
+    (*has_bits)[0] |= 16384u;
+  }
+  static void set_has_alt(HasBits* has_bits) {
+    (*has_bits)[0] |= 32768u;
+  }
+  static bool MissingRequiredFields(const HasBits& has_bits) {
+    return ((has_bits[0] & 0x0000ffff) ^ 0x0000ffff) != 0;
   }
 };
 
 Orientation::Orientation(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  quat_(arena),
-  euler_(arena),
-  omega_(arena),
-  accel_(arena),
-  magneto_(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:Orientation)
 }
 Orientation::Orientation(const Orientation& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_),
-      quat_(from.quat_),
-      euler_(from.euler_),
-      omega_(from.omega_),
-      accel_(from.accel_),
-      magneto_(from.magneto_) {
+      _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&lon_, &from.lon_,
+  ::memcpy(&quat_x_, &from.quat_x_,
     static_cast<size_t>(reinterpret_cast<char*>(&alt_) -
-    reinterpret_cast<char*>(&lon_)) + sizeof(alt_));
+    reinterpret_cast<char*>(&quat_x_)) + sizeof(alt_));
   // @@protoc_insertion_point(copy_constructor:Orientation)
 }
 
 void Orientation::SharedCtor() {
-  ::memset(&lon_, 0, static_cast<size_t>(
+  ::memset(&quat_x_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&alt_) -
-      reinterpret_cast<char*>(&lon_)) + sizeof(alt_));
+      reinterpret_cast<char*>(&quat_x_)) + sizeof(alt_));
 }
 
 Orientation::~Orientation() {
@@ -170,16 +222,16 @@ void Orientation::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  quat_.Clear();
-  euler_.Clear();
-  omega_.Clear();
-  accel_.Clear();
-  magneto_.Clear();
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    ::memset(&lon_, 0, static_cast<size_t>(
+  if (cached_has_bits & 0x000000ffu) {
+    ::memset(&quat_x_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&omega_x_) -
+        reinterpret_cast<char*>(&quat_x_)) + sizeof(omega_x_));
+  }
+  if (cached_has_bits & 0x0000ff00u) {
+    ::memset(&omega_y_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&alt_) -
-        reinterpret_cast<char*>(&lon_)) + sizeof(alt_));
+        reinterpret_cast<char*>(&omega_y_)) + sizeof(alt_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -194,100 +246,129 @@ const char* Orientation::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated sint32 quat = 1;
+      // required sint32 quat_x = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            _internal_add_quat(::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr));
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<8>(ptr));
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedSInt32Parser(_internal_mutable_quat(), ptr, ctx);
+          _Internal::set_has_quat_x(&has_bits);
+          quat_x_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated sint32 euler = 2;
+      // required sint32 quat_y = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            _internal_add_euler(::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr));
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<16>(ptr));
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedSInt32Parser(_internal_mutable_euler(), ptr, ctx);
+          _Internal::set_has_quat_y(&has_bits);
+          quat_y_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated sint32 omega = 3;
+      // required sint32 quat_z = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            _internal_add_omega(::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr));
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<24>(ptr));
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedSInt32Parser(_internal_mutable_omega(), ptr, ctx);
+          _Internal::set_has_quat_z(&has_bits);
+          quat_z_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated sint32 accel = 4;
+      // required sint32 quat_w = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            _internal_add_accel(::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr));
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<32>(ptr));
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedSInt32Parser(_internal_mutable_accel(), ptr, ctx);
+          _Internal::set_has_quat_w(&has_bits);
+          quat_w_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated sint32 magneto = 5;
+      // required sint32 euler_x = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            _internal_add_magneto(::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr));
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<40>(ptr));
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedSInt32Parser(_internal_mutable_magneto(), ptr, ctx);
+          _Internal::set_has_euler_x(&has_bits);
+          euler_x_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional sint32 lon = 6 [default = 0];
+      // required sint32 euler_y = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          _Internal::set_has_euler_y(&has_bits);
+          euler_y_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required sint32 euler_z = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+          _Internal::set_has_euler_z(&has_bits);
+          euler_z_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required sint32 omega_x = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+          _Internal::set_has_omega_x(&has_bits);
+          omega_x_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required sint32 omega_y = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
+          _Internal::set_has_omega_y(&has_bits);
+          omega_y_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required sint32 omega_z = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
+          _Internal::set_has_omega_z(&has_bits);
+          omega_z_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required sint32 accel_x = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
+          _Internal::set_has_accel_x(&has_bits);
+          accel_x_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required sint32 accel_y = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
+          _Internal::set_has_accel_y(&has_bits);
+          accel_y_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required sint32 accel_z = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
+          _Internal::set_has_accel_z(&has_bits);
+          accel_z_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // required sint32 lon = 14 [default = 0];
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
           _Internal::set_has_lon(&has_bits);
           lon_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional sint32 lat = 7 [default = 0];
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+      // required sint32 lat = 15 [default = 0];
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
           _Internal::set_has_lat(&has_bits);
           lat_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional sint32 alt = 8 [default = 0];
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+      // required sint32 alt = 16 [default = 0];
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 128)) {
           _Internal::set_has_alt(&has_bits);
           alt_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
           CHK_(ptr);
@@ -322,53 +403,101 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated sint32 quat = 1;
-  for (int i = 0, n = this->_internal_quat_size(); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(1, this->_internal_quat(i), target);
-  }
-
-  // repeated sint32 euler = 2;
-  for (int i = 0, n = this->_internal_euler_size(); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(2, this->_internal_euler(i), target);
-  }
-
-  // repeated sint32 omega = 3;
-  for (int i = 0, n = this->_internal_omega_size(); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(3, this->_internal_omega(i), target);
-  }
-
-  // repeated sint32 accel = 4;
-  for (int i = 0, n = this->_internal_accel_size(); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(4, this->_internal_accel(i), target);
-  }
-
-  // repeated sint32 magneto = 5;
-  for (int i = 0, n = this->_internal_magneto_size(); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(5, this->_internal_magneto(i), target);
-  }
-
   cached_has_bits = _has_bits_[0];
-  // optional sint32 lon = 6 [default = 0];
+  // required sint32 quat_x = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(6, this->_internal_lon(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(1, this->_internal_quat_x(), target);
   }
 
-  // optional sint32 lat = 7 [default = 0];
+  // required sint32 quat_y = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(7, this->_internal_lat(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(2, this->_internal_quat_y(), target);
   }
 
-  // optional sint32 alt = 8 [default = 0];
+  // required sint32 quat_z = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(8, this->_internal_alt(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(3, this->_internal_quat_z(), target);
+  }
+
+  // required sint32 quat_w = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(4, this->_internal_quat_w(), target);
+  }
+
+  // required sint32 euler_x = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(5, this->_internal_euler_x(), target);
+  }
+
+  // required sint32 euler_y = 6;
+  if (cached_has_bits & 0x00000020u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(6, this->_internal_euler_y(), target);
+  }
+
+  // required sint32 euler_z = 7;
+  if (cached_has_bits & 0x00000040u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(7, this->_internal_euler_z(), target);
+  }
+
+  // required sint32 omega_x = 8;
+  if (cached_has_bits & 0x00000080u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(8, this->_internal_omega_x(), target);
+  }
+
+  // required sint32 omega_y = 9;
+  if (cached_has_bits & 0x00000100u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(9, this->_internal_omega_y(), target);
+  }
+
+  // required sint32 omega_z = 10;
+  if (cached_has_bits & 0x00000200u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(10, this->_internal_omega_z(), target);
+  }
+
+  // required sint32 accel_x = 11;
+  if (cached_has_bits & 0x00000400u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(11, this->_internal_accel_x(), target);
+  }
+
+  // required sint32 accel_y = 12;
+  if (cached_has_bits & 0x00000800u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(12, this->_internal_accel_y(), target);
+  }
+
+  // required sint32 accel_z = 13;
+  if (cached_has_bits & 0x00001000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(13, this->_internal_accel_z(), target);
+  }
+
+  // required sint32 lon = 14 [default = 0];
+  if (cached_has_bits & 0x00002000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(14, this->_internal_lon(), target);
+  }
+
+  // required sint32 lat = 15 [default = 0];
+  if (cached_has_bits & 0x00004000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(15, this->_internal_lat(), target);
+  }
+
+  // required sint32 alt = 16 [default = 0];
+  if (cached_has_bits & 0x00008000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(16, this->_internal_alt(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -379,83 +508,216 @@ failure:
   return target;
 }
 
+size_t Orientation::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:Orientation)
+  size_t total_size = 0;
+
+  if (_internal_has_quat_x()) {
+    // required sint32 quat_x = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_quat_x());
+  }
+
+  if (_internal_has_quat_y()) {
+    // required sint32 quat_y = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_quat_y());
+  }
+
+  if (_internal_has_quat_z()) {
+    // required sint32 quat_z = 3;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_quat_z());
+  }
+
+  if (_internal_has_quat_w()) {
+    // required sint32 quat_w = 4;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_quat_w());
+  }
+
+  if (_internal_has_euler_x()) {
+    // required sint32 euler_x = 5;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_euler_x());
+  }
+
+  if (_internal_has_euler_y()) {
+    // required sint32 euler_y = 6;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_euler_y());
+  }
+
+  if (_internal_has_euler_z()) {
+    // required sint32 euler_z = 7;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_euler_z());
+  }
+
+  if (_internal_has_omega_x()) {
+    // required sint32 omega_x = 8;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_omega_x());
+  }
+
+  if (_internal_has_omega_y()) {
+    // required sint32 omega_y = 9;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_omega_y());
+  }
+
+  if (_internal_has_omega_z()) {
+    // required sint32 omega_z = 10;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_omega_z());
+  }
+
+  if (_internal_has_accel_x()) {
+    // required sint32 accel_x = 11;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_accel_x());
+  }
+
+  if (_internal_has_accel_y()) {
+    // required sint32 accel_y = 12;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_accel_y());
+  }
+
+  if (_internal_has_accel_z()) {
+    // required sint32 accel_z = 13;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_accel_z());
+  }
+
+  if (_internal_has_lon()) {
+    // required sint32 lon = 14 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_lon());
+  }
+
+  if (_internal_has_lat()) {
+    // required sint32 lat = 15 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_lat());
+  }
+
+  if (_internal_has_alt()) {
+    // required sint32 alt = 16 [default = 0];
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_alt());
+  }
+
+  return total_size;
+}
 size_t Orientation::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:Orientation)
   size_t total_size = 0;
 
+  if (((_has_bits_[0] & 0x0000ffff) ^ 0x0000ffff) == 0) {  // All required fields are present.
+    // required sint32 quat_x = 1;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_quat_x());
+
+    // required sint32 quat_y = 2;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_quat_y());
+
+    // required sint32 quat_z = 3;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_quat_z());
+
+    // required sint32 quat_w = 4;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_quat_w());
+
+    // required sint32 euler_x = 5;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_euler_x());
+
+    // required sint32 euler_y = 6;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_euler_y());
+
+    // required sint32 euler_z = 7;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_euler_z());
+
+    // required sint32 omega_x = 8;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_omega_x());
+
+    // required sint32 omega_y = 9;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_omega_y());
+
+    // required sint32 omega_z = 10;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_omega_z());
+
+    // required sint32 accel_x = 11;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_accel_x());
+
+    // required sint32 accel_y = 12;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_accel_y());
+
+    // required sint32 accel_z = 13;
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_accel_z());
+
+    // required sint32 lon = 14 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_lon());
+
+    // required sint32 lat = 15 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_lat());
+
+    // required sint32 alt = 16 [default = 0];
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
+        this->_internal_alt());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated sint32 quat = 1;
-  {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      SInt32Size(this->quat_);
-    total_size += 1 *
-                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_quat_size());
-    total_size += data_size;
-  }
-
-  // repeated sint32 euler = 2;
-  {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      SInt32Size(this->euler_);
-    total_size += 1 *
-                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_euler_size());
-    total_size += data_size;
-  }
-
-  // repeated sint32 omega = 3;
-  {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      SInt32Size(this->omega_);
-    total_size += 1 *
-                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_omega_size());
-    total_size += data_size;
-  }
-
-  // repeated sint32 accel = 4;
-  {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      SInt32Size(this->accel_);
-    total_size += 1 *
-                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_accel_size());
-    total_size += data_size;
-  }
-
-  // repeated sint32 magneto = 5;
-  {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      SInt32Size(this->magneto_);
-    total_size += 1 *
-                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_magneto_size());
-    total_size += data_size;
-  }
-
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    // optional sint32 lon = 6 [default = 0];
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
-          this->_internal_lon());
-    }
-
-    // optional sint32 lat = 7 [default = 0];
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
-          this->_internal_lat());
-    }
-
-    // optional sint32 alt = 8 [default = 0];
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
-          this->_internal_alt());
-    }
-
-  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -487,20 +749,57 @@ void Orientation::MergeFrom(const Orientation& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  quat_.MergeFrom(from.quat_);
-  euler_.MergeFrom(from.euler_);
-  omega_.MergeFrom(from.omega_);
-  accel_.MergeFrom(from.accel_);
-  magneto_.MergeFrom(from.magneto_);
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
-      lon_ = from.lon_;
+      quat_x_ = from.quat_x_;
     }
     if (cached_has_bits & 0x00000002u) {
-      lat_ = from.lat_;
+      quat_y_ = from.quat_y_;
     }
     if (cached_has_bits & 0x00000004u) {
+      quat_z_ = from.quat_z_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      quat_w_ = from.quat_w_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      euler_x_ = from.euler_x_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      euler_y_ = from.euler_y_;
+    }
+    if (cached_has_bits & 0x00000040u) {
+      euler_z_ = from.euler_z_;
+    }
+    if (cached_has_bits & 0x00000080u) {
+      omega_x_ = from.omega_x_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x0000ff00u) {
+    if (cached_has_bits & 0x00000100u) {
+      omega_y_ = from.omega_y_;
+    }
+    if (cached_has_bits & 0x00000200u) {
+      omega_z_ = from.omega_z_;
+    }
+    if (cached_has_bits & 0x00000400u) {
+      accel_x_ = from.accel_x_;
+    }
+    if (cached_has_bits & 0x00000800u) {
+      accel_y_ = from.accel_y_;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      accel_z_ = from.accel_z_;
+    }
+    if (cached_has_bits & 0x00002000u) {
+      lon_ = from.lon_;
+    }
+    if (cached_has_bits & 0x00004000u) {
+      lat_ = from.lat_;
+    }
+    if (cached_has_bits & 0x00008000u) {
       alt_ = from.alt_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -522,6 +821,7 @@ void Orientation::CopyFrom(const Orientation& from) {
 }
 
 bool Orientation::IsInitialized() const {
+  if (_Internal::MissingRequiredFields(_has_bits_)) return false;
   return true;
 }
 
@@ -529,17 +829,12 @@ void Orientation::InternalSwap(Orientation* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
-  quat_.InternalSwap(&other->quat_);
-  euler_.InternalSwap(&other->euler_);
-  omega_.InternalSwap(&other->omega_);
-  accel_.InternalSwap(&other->accel_);
-  magneto_.InternalSwap(&other->magneto_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Orientation, alt_)
       + sizeof(Orientation::alt_)
-      - PROTOBUF_FIELD_OFFSET(Orientation, lon_)>(
-          reinterpret_cast<char*>(&lon_),
-          reinterpret_cast<char*>(&other->lon_));
+      - PROTOBUF_FIELD_OFFSET(Orientation, quat_x_)>(
+          reinterpret_cast<char*>(&quat_x_),
+          reinterpret_cast<char*>(&other->quat_x_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Orientation::GetMetadata() const {

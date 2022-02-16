@@ -13,11 +13,11 @@ class State
 {
 public:
     State()
-    {   
+    {
     }
 
-    Health<32,32> genHealthPkt();
-    Orientation<32,32,32,32,32> genOrientationPkt();
+    Health& getHealthPkt();
+    Orientation& getOrientationPkt();
 
     unsigned long ts;
     int fcmode;
@@ -31,18 +31,7 @@ public:
     int nsats;
     float lat;
     float lon;
-
-    float ax;
-    float ay;
-    float az;
-    float wx;
-    float wy;
-    float wz;
-    float qx;
-    float qy;
-    float qz;
-    float qw;
-
+    
     int main_deploy;
     int drogue_deploy;
     int launch_detect;
@@ -58,6 +47,10 @@ public:
     float anet_buf[5];
     int anet_buf_pos;
     float anet;
+
+private:
+    Health mHealth;
+    Orientation mOrientation;
 };
 
 // typedef struct _state

@@ -42,7 +42,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_health_2eproto::offsets[] PROT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::Health, name_),
   PROTOBUF_FIELD_OFFSET(::Health, vbat_),
   PROTOBUF_FIELD_OFFSET(::Health, vreg_),
   PROTOBUF_FIELD_OFFSET(::Health, isys_),
@@ -50,7 +49,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_health_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::Health, treg_),
   PROTOBUF_FIELD_OFFSET(::Health, tamb_),
   PROTOBUF_FIELD_OFFSET(::Health, trad_),
-  PROTOBUF_FIELD_OFFSET(::Health, compstat_),
   PROTOBUF_FIELD_OFFSET(::Health, sats_),
   0,
   1,
@@ -60,11 +58,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_health_2eproto::offsets[] PROT
   5,
   6,
   7,
-  ~0u,
-  8,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 15, sizeof(::Health)},
+  { 0, 13, sizeof(::Health)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -72,23 +68,21 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_health_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\014health.proto\032\017component.proto\"\277\001\n\006Heal"
-  "th\022\016\n\004name\030\001 \001(\t:\000\022\017\n\004vbat\030\002 \001(\r:\0010\022\017\n\004v"
-  "reg\030\003 \001(\r:\0010\022\017\n\004isys\030\004 \001(\r:\0010\022\017\n\004tbat\030\005 "
-  "\001(\r:\0010\022\017\n\004treg\030\006 \001(\r:\0010\022\017\n\004tamb\030\007 \001(\r:\0010"
-  "\022\017\n\004trad\030\010 \001(\r:\0010\022\035\n\010compstat\030\t \003(\0162\013.Co"
-  "mpStatus\022\017\n\004sats\030\n \001(\r:\0010"
+  "\n\014health.proto\"\220\001\n\006Health\022\017\n\004vbat\030\001 \002(\r:"
+  "\0010\022\017\n\004vreg\030\002 \002(\r:\0010\022\017\n\004isys\030\003 \002(\r:\0010\022\017\n\004"
+  "tbat\030\004 \002(\r:\0010\022\017\n\004treg\030\005 \002(\r:\0010\022\017\n\004tamb\030\006"
+  " \002(\r:\0010\022\017\n\004trad\030\007 \002(\r:\0010\022\017\n\004sats\030\010 \002(\r:\001"
+  "0"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_health_2eproto_deps[1] = {
-  &::descriptor_table_component_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_health_2eproto_sccs[1] = {
   &scc_info_Health_health_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_health_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_health_2eproto = {
-  false, false, descriptor_table_protodef_health_2eproto, "health.proto", 225,
-  &descriptor_table_health_2eproto_once, descriptor_table_health_2eproto_sccs, descriptor_table_health_2eproto_deps, 1, 1,
+  false, false, descriptor_table_protodef_health_2eproto, "health.proto", 161,
+  &descriptor_table_health_2eproto_once, descriptor_table_health_2eproto_sccs, descriptor_table_health_2eproto_deps, 1, 0,
   schemas, file_default_instances, TableStruct_health_2eproto::offsets,
   file_level_metadata_health_2eproto, 1, file_level_enum_descriptors_health_2eproto, file_level_service_descriptors_health_2eproto,
 };
@@ -103,52 +97,45 @@ void Health::InitAsDefaultInstance() {
 class Health::_Internal {
  public:
   using HasBits = decltype(std::declval<Health>()._has_bits_);
-  static void set_has_name(HasBits* has_bits) {
+  static void set_has_vbat(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
-  static void set_has_vbat(HasBits* has_bits) {
+  static void set_has_vreg(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_vreg(HasBits* has_bits) {
+  static void set_has_isys(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
-  static void set_has_isys(HasBits* has_bits) {
+  static void set_has_tbat(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
-  static void set_has_tbat(HasBits* has_bits) {
+  static void set_has_treg(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
-  static void set_has_treg(HasBits* has_bits) {
+  static void set_has_tamb(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
   }
-  static void set_has_tamb(HasBits* has_bits) {
+  static void set_has_trad(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
   }
-  static void set_has_trad(HasBits* has_bits) {
+  static void set_has_sats(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
   }
-  static void set_has_sats(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
+  static bool MissingRequiredFields(const HasBits& has_bits) {
+    return ((has_bits[0] & 0x000000ff) ^ 0x000000ff) != 0;
   }
 };
 
 Health::Health(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  compstat_(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:Health)
 }
 Health::Health(const Health& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _has_bits_(from._has_bits_),
-      compstat_(from.compstat_) {
+      _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_name()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
-  }
   ::memcpy(&vbat_, &from.vbat_,
     static_cast<size_t>(reinterpret_cast<char*>(&sats_) -
     reinterpret_cast<char*>(&vbat_)) + sizeof(sats_));
@@ -156,8 +143,6 @@ Health::Health(const Health& from)
 }
 
 void Health::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Health_health_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(&vbat_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&sats_) -
       reinterpret_cast<char*>(&vbat_)) + sizeof(sats_));
@@ -171,7 +156,6 @@ Health::~Health() {
 
 void Health::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void Health::ArenaDtor(void* object) {
@@ -195,17 +179,12 @@ void Health::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  compstat_.Clear();
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    name_.ClearNonDefaultToEmpty();
-  }
-  if (cached_has_bits & 0x000000feu) {
+  if (cached_has_bits & 0x000000ffu) {
     ::memset(&vbat_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&trad_) -
-        reinterpret_cast<char*>(&vbat_)) + sizeof(trad_));
+        reinterpret_cast<char*>(&sats_) -
+        reinterpret_cast<char*>(&vbat_)) + sizeof(sats_));
   }
-  sats_ = 0u;
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -219,96 +198,65 @@ const char* Health::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string name = 1 [default = ""];
+      // required uint32 vbat = 1 [default = 0];
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          #ifndef NDEBUG
-          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Health.name");
-          #endif  // !NDEBUG
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 vbat = 2 [default = 0];
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_vbat(&has_bits);
           vbat_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 vreg = 3 [default = 0];
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+      // required uint32 vreg = 2 [default = 0];
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_vreg(&has_bits);
           vreg_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 isys = 4 [default = 0];
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+      // required uint32 isys = 3 [default = 0];
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_isys(&has_bits);
           isys_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 tbat = 5 [default = 0];
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+      // required uint32 tbat = 4 [default = 0];
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_tbat(&has_bits);
           tbat_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 treg = 6 [default = 0];
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+      // required uint32 treg = 5 [default = 0];
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_treg(&has_bits);
           treg_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 tamb = 7 [default = 0];
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+      // required uint32 tamb = 6 [default = 0];
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_tamb(&has_bits);
           tamb_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 trad = 8 [default = 0];
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+      // required uint32 trad = 7 [default = 0];
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_trad(&has_bits);
           trad_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CompStatus compstat = 9;
-      case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-            CHK_(ptr);
-            if (PROTOBUF_PREDICT_TRUE(::CompStatus_IsValid(val))) {
-              _internal_add_compstat(static_cast<::CompStatus>(val));
-            } else {
-              ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(9, val, mutable_unknown_fields());
-            }
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<72>(ptr));
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedEnumParser<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(_internal_mutable_compstat(), ptr, ctx, ::CompStatus_IsValid, &_internal_metadata_, 9);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // optional uint32 sats = 10 [default = 0];
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
+      // required uint32 sats = 8 [default = 0];
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_sats(&has_bits);
           sats_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
@@ -344,69 +292,52 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string name = 1 [default = ""];
+  // required uint32 vbat = 1 [default = 0];
   if (cached_has_bits & 0x00000001u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "Health.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_vbat(), target);
   }
 
-  // optional uint32 vbat = 2 [default = 0];
+  // required uint32 vreg = 2 [default = 0];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_vbat(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_vreg(), target);
   }
 
-  // optional uint32 vreg = 3 [default = 0];
+  // required uint32 isys = 3 [default = 0];
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_vreg(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_isys(), target);
   }
 
-  // optional uint32 isys = 4 [default = 0];
+  // required uint32 tbat = 4 [default = 0];
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_isys(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_tbat(), target);
   }
 
-  // optional uint32 tbat = 5 [default = 0];
+  // required uint32 treg = 5 [default = 0];
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_tbat(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_treg(), target);
   }
 
-  // optional uint32 treg = 6 [default = 0];
+  // required uint32 tamb = 6 [default = 0];
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_treg(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_tamb(), target);
   }
 
-  // optional uint32 tamb = 7 [default = 0];
+  // required uint32 trad = 7 [default = 0];
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_tamb(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_trad(), target);
   }
 
-  // optional uint32 trad = 8 [default = 0];
+  // required uint32 sats = 8 [default = 0];
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_trad(), target);
-  }
-
-  // repeated .CompStatus compstat = 9;
-  for (int i = 0, n = this->_internal_compstat_size(); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-        9, this->_internal_compstat(i), target);
-  }
-
-  // optional uint32 sats = 10 [default = 0];
-  if (cached_has_bits & 0x00000100u) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(10, this->_internal_sats(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_sats(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -417,89 +348,119 @@ failure:
   return target;
 }
 
-size_t Health::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Health)
+size_t Health::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:Health)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated .CompStatus compstat = 9;
-  {
-    size_t data_size = 0;
-    unsigned int count = static_cast<unsigned int>(this->_internal_compstat_size());for (unsigned int i = 0; i < count; i++) {
-      data_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(
-        this->_internal_compstat(static_cast<int>(i)));
-    }
-    total_size += (1UL * count) + data_size;
+  if (_internal_has_vbat()) {
+    // required uint32 vbat = 1 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_vbat());
   }
 
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x000000ffu) {
-    // optional string name = 1 [default = ""];
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_name());
-    }
-
-    // optional uint32 vbat = 2 [default = 0];
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_vbat());
-    }
-
-    // optional uint32 vreg = 3 [default = 0];
-    if (cached_has_bits & 0x00000004u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_vreg());
-    }
-
-    // optional uint32 isys = 4 [default = 0];
-    if (cached_has_bits & 0x00000008u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_isys());
-    }
-
-    // optional uint32 tbat = 5 [default = 0];
-    if (cached_has_bits & 0x00000010u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_tbat());
-    }
-
-    // optional uint32 treg = 6 [default = 0];
-    if (cached_has_bits & 0x00000020u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_treg());
-    }
-
-    // optional uint32 tamb = 7 [default = 0];
-    if (cached_has_bits & 0x00000040u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_tamb());
-    }
-
-    // optional uint32 trad = 8 [default = 0];
-    if (cached_has_bits & 0x00000080u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-          this->_internal_trad());
-    }
-
+  if (_internal_has_vreg()) {
+    // required uint32 vreg = 2 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_vreg());
   }
-  // optional uint32 sats = 10 [default = 0];
-  if (cached_has_bits & 0x00000100u) {
+
+  if (_internal_has_isys()) {
+    // required uint32 isys = 3 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_isys());
+  }
+
+  if (_internal_has_tbat()) {
+    // required uint32 tbat = 4 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_tbat());
+  }
+
+  if (_internal_has_treg()) {
+    // required uint32 treg = 5 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_treg());
+  }
+
+  if (_internal_has_tamb()) {
+    // required uint32 tamb = 6 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_tamb());
+  }
+
+  if (_internal_has_trad()) {
+    // required uint32 trad = 7 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_trad());
+  }
+
+  if (_internal_has_sats()) {
+    // required uint32 sats = 8 [default = 0];
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_sats());
   }
+
+  return total_size;
+}
+size_t Health::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:Health)
+  size_t total_size = 0;
+
+  if (((_has_bits_[0] & 0x000000ff) ^ 0x000000ff) == 0) {  // All required fields are present.
+    // required uint32 vbat = 1 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_vbat());
+
+    // required uint32 vreg = 2 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_vreg());
+
+    // required uint32 isys = 3 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_isys());
+
+    // required uint32 tbat = 4 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_tbat());
+
+    // required uint32 treg = 5 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_treg());
+
+    // required uint32 tamb = 6 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_tamb());
+
+    // required uint32 trad = 7 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_trad());
+
+    // required uint32 sats = 8 [default = 0];
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_sats());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
@@ -532,37 +493,33 @@ void Health::MergeFrom(const Health& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  compstat_.MergeFrom(from.compstat_);
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
-      _internal_set_name(from._internal_name());
-    }
-    if (cached_has_bits & 0x00000002u) {
       vbat_ = from.vbat_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       vreg_ = from.vreg_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       isys_ = from.isys_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000008u) {
       tbat_ = from.tbat_;
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       treg_ = from.treg_;
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       tamb_ = from.tamb_;
     }
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000040u) {
       trad_ = from.trad_;
     }
+    if (cached_has_bits & 0x00000080u) {
+      sats_ = from.sats_;
+    }
     _has_bits_[0] |= cached_has_bits;
-  }
-  if (cached_has_bits & 0x00000100u) {
-    _internal_set_sats(from._internal_sats());
   }
 }
 
@@ -581,6 +538,7 @@ void Health::CopyFrom(const Health& from) {
 }
 
 bool Health::IsInitialized() const {
+  if (_Internal::MissingRequiredFields(_has_bits_)) return false;
   return true;
 }
 
@@ -588,8 +546,6 @@ void Health::InternalSwap(Health* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
-  compstat_.InternalSwap(&other->compstat_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Health, sats_)
       + sizeof(Health::sats_)

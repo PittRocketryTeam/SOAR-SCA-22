@@ -1,16 +1,12 @@
 syntax = "proto2";
 
-import "component.proto";
-
 message Health {
-    optional string name = 1 [default = ""];
-    optional uint32 vbat = 2 [default = 0]; // battery voltage
-    optional uint32 vreg = 3 [default = 0]; // 3.3V regulator voltage
-    optional uint32 isys = 4 [default = 0]; // current draw
-    optional uint32 tbat = 5 [default = 0]; // LiPo temperature
-    optional uint32 treg = 6 [default = 0]; // regulator temperature
-    optional uint32 tamb = 7 [default = 0]; // av bay ambient temperature
-    optional uint32 trad = 8 [default = 0]; // radio temperature
-    repeated CompStatus compstat = 9; 
-    optional uint32 sats = 10 [default = 0];
+    required uint32 vbat = 1 [default = 0]; // battery voltage
+    required uint32 vreg = 2 [default = 0]; // 3.3V regulator voltage
+    required uint32 isys = 3 [default = 0]; // current draw
+    required uint32 tbat = 4 [default = 0]; // LiPo temperature
+    required uint32 treg = 5 [default = 0]; // regulator temperature
+    required uint32 tamb = 6 [default = 0]; // av bay ambient temperature
+    required uint32 trad = 7 [default = 0]; // radio temperature
+    required uint32 sats = 8 [default = 0];
 }
