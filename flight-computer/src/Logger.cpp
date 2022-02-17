@@ -85,7 +85,7 @@ void Logger::genUniqueFn()
     }
 
     memset(filename, 0, sizeof(filename));
-    sprintf(filename, "LG%d.csv", log_num);
+    sprintf(filename, "LG%d.dat", log_num);
 
     delay(100);
 }
@@ -199,6 +199,24 @@ void Logger::flush()
     for (int i = 0; i < NUM_SNAPSHOTS; ++i)
     {
         st = &snapshot[i];
+        
+        handle.printf("BEGIN HEALTH");
+        mWriteBuffer.clear();
+        auto status = st->getHealthPkt().serialize(mWriteBuffer);
+        if (status == EmbeddedProto::Error::NO_ERRORS)
+        {
+            handle.write(mWriteBuffer.get_data(), mWriteBuffer.get_size());
+        }
+        handle.printf("END HEALTH");
+
+        handle.printf("BEGIN ORIENTATION");
+        mWriteBuffer.clear();
+        status = st->getOrientationPkt().serialize(mWriteBuffer);
+        if (status == EmbeddedProto::Error::NO_ERRORS)
+        {
+            handle.write(mWriteBuffer.get_data(), mWriteBuffer.get_size());
+        }
+        handle.printf("END ORIENTATION");
     }
 
     //handle.printf("%s", buffer);

@@ -20,6 +20,11 @@ uint32_t SimpleWriteBuffer::get_available_size() const
     return get_max_size() - get_size();
 }
 
+const uint8_t* SimpleWriteBuffer::get_data() const
+{
+    return &mBuffer[0];
+}
+
 bool SimpleWriteBuffer::push(const uint8_t byte)
 {
     if (mBuffer.size() >= get_max_size())

@@ -7,6 +7,7 @@
 #include <SD.h>
 //#include <TimeLib.h>
 #include "State.hpp"
+#include "SimpleWriteBuffer.hpp"
 
 //#define BUILTIN_SDCARD 254
 
@@ -66,6 +67,7 @@ class Logger
         char buffer[BUFFER_SIZE];
         char* bp;
         File handle;
+        SimpleWriteBuffer mWriteBuffer;
 };
 
 #endif

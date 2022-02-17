@@ -21,6 +21,7 @@ public:
     virtual uint32_t get_size() const;
     virtual uint32_t get_max_size() const;
     virtual uint32_t get_available_size() const;
+    const uint8_t* get_data() const;
 
     virtual bool push(const uint8_t);
     virtual bool push(const uint8_t*, const uint32_t);
